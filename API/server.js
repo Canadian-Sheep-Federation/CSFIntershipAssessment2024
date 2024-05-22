@@ -2,13 +2,12 @@ const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const cors = require("cors");
 const uri =
-  "mongodb+srv://kevinhuang451:4Pqdbo9JTahsTPAo@cluster0.0arnzdc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -58,29 +57,30 @@ app.get("/getMovie/:id", async (req, res) => {
 });
 
 app.post("/addMovie", async (req, res) => {
-    try {
-      const { id, name } = req.body;
-  
-      // Check if the movie with the provided ID already exists
-      const existingMovie = await moviesCollection.findOne({ id: id });
-      if (existingMovie) {
-        return res.status(409).json({ error: "Movie with the provided ID already exists" });
-      }
-  
-      // Proceed with adding the movie if it doesn't already exist
-      const newMovie = { id, name };
-      const result = await moviesCollection.insertOne(newMovie);
-  
-      // Retrieve the inserted movie document using its ID
-      const insertedMovie = await moviesCollection.findOne({ _id: result.insertedId });
-  
-      res
-        .status(201)
-        .json({ message: "Movie added successfully", movie: insertedMovie });
-    } catch (error) {
-      console.error("Error adding movie:", error);
-      res.status(500).json({ error: "Internal server error" });
+  try {
+    const { id, name } = req.body;
+
+    // Check if the movie with the provided ID already exists
+    const existingMovie = await moviesCollection.findOne({ id: id });
+    if (existingMovie) {
+      return res
+        .status(409)
+        .json({ error: "Movie with the provided ID already exists" });
     }
-  });
-  
-  
+
+    // Proceed with adding the movie if it doesn't already exist
+    const newMovie = { id, name };
+    const result = await moviesCollection.insertOne(newMovie);
+
+    const insertedMovie = await moviesCollection.findOne({
+      _id: result.insertedId,
+    });
+
+    res
+      .status(201)
+      .json({ message: "Movie added successfully", movie: insertedMovie });
+  } catch (error) {
+    console.error("Error adding movie:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
