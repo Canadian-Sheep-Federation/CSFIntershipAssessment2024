@@ -1,12 +1,14 @@
 const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const cors = require("cors");
-const uri =
-  "";
+const dotenv = require("dotenv"); // Import dotenv
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+dotenv.config();
+
+const uri = process.env.MONGODB_URI;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -21,6 +23,8 @@ var database = client.db("movie-csf");
 
 var moviesCollection = database.collection("movies");
 
+
+//make sure database connection works
 app.listen(5038, () => {
   try {
     client.connect();
@@ -31,6 +35,7 @@ app.listen(5038, () => {
   }
 });
 
+//create api endpoint to get all movies from database, include error handling in case there is not data
 app.get("/getMovies", async (req, res) => {
   try {
     const movies = await moviesCollection.find({}).toArray();
@@ -41,6 +46,7 @@ app.get("/getMovies", async (req, res) => {
   }
 });
 
+//grab movie by their respective ids,
 app.get("/getMovie/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -56,6 +62,7 @@ app.get("/getMovie/:id", async (req, res) => {
   }
 });
 
+//add movies with ids and names
 app.post("/addMovie", async (req, res) => {
   try {
     const { id, name } = req.body;

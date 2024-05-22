@@ -10,6 +10,8 @@ function App() {
   const [newMovieName, setNewMovieName] = useState("");
   const [breakingBadQuote, setBreakingBadQuote] = useState(null); // State for Breaking Bad quote
 
+
+  //retrieve all movies from database
   const fetchMovies = async () => {
     try {
       const response = await fetch("http://localhost:5038/getMovies");
@@ -26,6 +28,7 @@ function App() {
     }
   };
 
+  //retrieve data by id
   const fetchMovieById = async (id) => {
     try {
       if (!id) return;
@@ -47,6 +50,7 @@ function App() {
     fetchMovieById(searchId);
   };
 
+  //add movie to database
   const handleAddMovie = async () => {
     try {
       const existingMovie = movies.find((movie) => movie.id === newMovieId);
@@ -74,6 +78,7 @@ function App() {
     }
   };
 
+  //grab quotes from public api
   const handleBreakingBadQuote = async () => {
     try {
       const response = await fetch(
