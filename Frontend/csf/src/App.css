@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: 500px;
+}
+
+.content {
+  padding: 20px;
+  margin: 20px;
+  border: 2px black solid;
+  border-radius: 20px;
+}
