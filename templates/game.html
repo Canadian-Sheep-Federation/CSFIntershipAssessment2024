@@ -11,7 +11,7 @@
         <h2 class="mb-4">Trivia Game</h2>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ category }} ({{ difficulty }} - {{ q_type }})</h5>
+                <h5 class="card-title">{{ questions[index]['category']|safe }} ({{ questions[index]['difficulty']|safe }})</h5>
                 <p class="card-text">{{ questions[index]['question'] | safe }}</p>
                 <form action="{{ url_for('game', index=index) }}" method="POST">
                     {% for answer in questions[index]['incorrect_answers'] + [questions[index]['correct_answer']] %}
