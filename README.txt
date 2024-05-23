@@ -1,8 +1,7 @@
-Tutorial 07 by Prayanshu Narayan S#101144277
-
-Affidavit:
-"I attest that I am the sole author of this summitted work and any code borrowed from other sources has been identified by comments placed in my submitted code.
-Prayanshu Narayan, 101144277 "
+A simple RestFul API that utilizes the Itunes Song API allowing clients to
+- search for songs
+- add and remove songs from a playlist
+- view and create reviews for a song. 
 
 INSTALL INSTUCTIONS:
 >npm install
@@ -16,7 +15,3 @@ or
 
 TESTING INSTRUCTIONS URL:
     http://localhost:3000
-    http://localhost:3000/
-    http://localhost:3000/mytunes
-    http://localhost:3000/mytunes.html
-    http://localhost:3000/index.html
