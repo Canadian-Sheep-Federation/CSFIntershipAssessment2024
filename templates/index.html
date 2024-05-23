@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Form Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Cian's Trivia Game</h2>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="dropdown1">Trivia Category</label>
+                <select class="form-control" id="dropdown1" name="trivia_category">
+                    <option>Any Category</option>
+                    <option>General Knowledge</option>
+                    <option>Entertainment: Books</option>
+                    <option>Entertainment: Film</option>
+                    <option>Entertainment: Music</option>
+                    <option>Entertainment: Musicals & Theatres</option>
+                    <option>Entertainment: Television</option>
+                    <option>Entertainment: Video Games</option>
+                    <option>Entertainment: Board Games</option>
+                    <option>Science & Nature</option>
+                    <option>Science: Computers</option>
+                    <option>Science: Mathematics</option>
+                    <option>Mythology</option>
+                    <option>Sports</option>
+                    <option>Geography</option>
+                    <option>History</option>
+                    <option>Politics</option>
+                    <option>Art</option>
+                    <option>Celebrities</option>
+                    <option>Animals</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dropdown2">Question Type</label>
+                <select class="form-control" id="dropdown2" name="question_type">
+                    <option>Any Type</option>
+                    <option>Multiple Choice</option>
+                    <option>True / False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dropdown3">Difficulty</label>
+                <select class="form-control" id="dropdown3" name="difficulty">
+                    <option>Any Difficulty</option>
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

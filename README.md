@@ -1,5 +1,28 @@
-# CSF Intership Assessment 2024
+# To Run code 
+- clone repo
+- install requirements.txt
+- run code
+- Navigate to http://127.0.0.1:5000 or  skip previous steps and visit hosted version at https://cianquiz.azurewebsites.net
+-to view requests submitted add /get or get/id
+-to submit request send post request with JSON with format
+{
+  "name": "John Doe",
+  "category": "Science",
+  "q_type": "Multiple Choice",
+  "difficulty": "Medium"
+}
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+Bonus Questions
 
-E.g. those interested in QA should complete the QA assignment.
+Discuss how the application and api could be extended and improved
+
+The application could be improved by ranking users based on scores. The API could be improved be also saving users score.
+
+
+Discuss how the application and api should be deployed
+
+The application and API were deployed using Azure Webapps however they could also have been deplyed by an apache server
+
+
+
+
