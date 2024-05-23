@@ -4,6 +4,13 @@
 - run code
 - Navigate to http://127.0.0.1:5000 or visit hosted version at https://cianquiz.azurewebsites.net
 -to view requests submitted add /get or get/id
+-to submit request send post request with JSON with format
+{
+  "name": "John Doe",
+  "category": "Science",
+  "q_type": "Multiple Choice",
+  "difficulty": "Medium"
+}
 
 Bonus Questions
 
