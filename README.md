@@ -8,7 +8,8 @@ E.g. those interested in QA should complete the QA assignment.
 # TV Show Rater
 
 ## Demo
-![Watch Demo](demo.mp4)
+<video src="https://github.com/legituse/CSFIntershipAssessment2024/assets/35747061/b608b8ae-2940-4919-ac7e-dc07dae56351" width="300"></video>
+
 
 ## Technologies Used
 - Node.js v20.10.0
