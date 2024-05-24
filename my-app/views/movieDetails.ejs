@@ -1,0 +1,66 @@
+<!-- Display for the movie details page, connected to the OMDb API -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .movie-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .movie-details p {
+            margin: 10px 0;
+            color: #555;
+        }
+        .movie-details p strong {
+            color: #333;
+        }
+        .movie-details a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .movie-details a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Details for <%= movie.Title %></h1>
+    <div class="movie-details">
+        <p><strong>Title:</strong> <%= movie.Title %></p>
+        <p><strong>Year:</strong> <%= movie.Year %></p>
+        <p><strong>Genre:</strong> <%= movie.Genre %></p>
+        <p><strong>Director:</strong> <%= movie.Director %></p>
+        <p><strong>Plot:</strong> <%= movie.Plot %></p>
+        <p><strong>IMDb Rating:</strong> <%= movie.imdbRating %></p>
+        <a href="/">Back to Preferences</a>
+    </div>
+</body>
+</html>
+
