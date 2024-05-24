@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Stock Order Application</h1>
+    <div>
+        <label for="stockSymbol">Stock Symbol:</label>
+        <input type="text" id="stockSymbol" required>
+        <button id="fetchStock">Fetch Stock Data</button>
+    </div>
+    <pre id="stockData"></pre>
+    <form id="form">
+        <label for="stockName">Stock Name:</label>
+        <input type="text" id="stockName" required>
+        <label for="orderType">Order Type:</label>
+        <select id="orderType" name="orderType" required>
+            <option value="market">Market Order</option>
+            <option value="limit">Limit Order</option>
+        </select><br><br>
+        <label for="number">Quantity:</label>
+        <input type="number" id="number" required>
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="date" id="expiryDate" required>
+        <button type="submit">Place Order</button>
+    </form>
+    <button id="fetchAll">Fetch All Orders</button>
+    <form id="findOrderForm">
+        <label for="orderId">Order ID:</label>
+        <input type="text" id="orderId" name="orderId">
+        <button type="submit">Find Order</button>
+    </form>
+    <div id="orderDetails"></div>
+    <div id="responses">
+        <h2>Orders</h2>
+    </div>
+      <script src="index.js"></script>
+</body>
+</html>
