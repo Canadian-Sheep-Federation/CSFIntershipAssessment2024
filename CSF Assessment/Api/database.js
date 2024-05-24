@@ -13,8 +13,8 @@ const db = new sqlite3.Database('./storage.db', sqlite3.OPEN_READWRITE, (err) =>
 // sql = `INSERT INTO stockorder(stockName, orderType, number, ExpiryDate) VALUES(?, ?, ?, ?);`;
 // db.run(sql, ['TSLA', 'buy', 10, '2024-5-24'], (err) => { if (err) return console.error(err.message); });
 
-// show all agents;
-// sql = `SELECT * FROM stockorder;`;
+// show all stock order;
+// sql = `SELECT * FROM stock order;`;
 // db.all(sql, [], (err, rows) => {
 //     if (err) return console.error(err.message);
 //     console.log(rows);

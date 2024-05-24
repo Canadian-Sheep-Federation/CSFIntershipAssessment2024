@@ -11,8 +11,9 @@ app.use((req, res, next)=>{
     next();
 })
 
-
+//using cors to avoid platform issues
 app.use(cors());
+//adding routes to server
 app.use("/api",routes);
 
 

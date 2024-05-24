@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //using the public API from alpha vantage to get the latest price of the stock
     document.getElementById('fetchStock').addEventListener('click', () => {
         const stockSymbol = document.getElementById('stockSymbol').value;
         fetch(`http://localhost:5100/api/stocks/${stockSymbol}`)
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching stock data:', error);
             });
     });
-
+    
+    // create js for the form and add fetch post request to connect with the server to save data.
     document.getElementById('form').addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error placing order:', error);
         });
     });
-
+// fetch all the orders from the server and display them.
     function fetchResponses() {
         fetch('http://localhost:5100/api/')
             .then(response => {
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching order:', error);
             });
     });
-    
+    // display the order details for a specific order
     function displayOrder(order) {
         const orderDetailsDiv = document.getElementById('orderDetails');
         orderDetailsDiv.innerHTML = `

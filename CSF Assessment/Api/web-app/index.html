@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<!-- creating a html page to display the data from the api and create a form to interact iwth the database and api -->
 <body>
     <h1>Stock Order Application</h1>
     <div>
@@ -14,6 +15,7 @@
         <button id="fetchStock">Fetch Stock Data</button>
     </div>
     <pre id="stockData"></pre>
+    <!-- createed form to post data to the api and database -->
     <form id="form">
         <label for="stockName">Stock Name:</label>
         <input type="text" id="stockName" required>
@@ -28,7 +30,9 @@
         <input type="date" id="expiryDate" required>
         <button type="submit">Place Order</button>
     </form>
+    <!-- to get data from the the api -->
     <button id="fetchAll">Fetch All Orders</button>
+    <!-- to get one specific order from the database -->
     <form id="findOrderForm">
         <label for="orderId">Order ID:</label>
         <input type="text" id="orderId" name="orderId">
