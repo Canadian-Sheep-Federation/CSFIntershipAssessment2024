@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheep Health and Nutrition Monitoring</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h1 class="mb-4 text-primary">Sheep Health and Nutrition Monitoring</h1>
+    <div class="alert alert-info mt-3">
+        <p>To view the complete feed nutrition information for a sheep's health record, use the same sheep ID and submit the form again. This will display all the recorded dates and their corresponding nutritional data.</p>
+    </div>
+        <form id="sheep-form" class="mb-4 p-4 bg-white shadow rounded" method="POST">
+      <div class="form-group">
+        <label for="sheep-id">Sheep ID:</label>
+        <input type="text" class="form-control" id="sheep-id" name="sheepId" placeholder="a sheep identifier" required>
+      </div>
+      <div class="form-group">
+        <label for="health-status">Health Status:</label>
+        <input type="text" class="form-control" id="health-status" name="healthStatus" placeholder="i.e, healthy, sick, injured, etc." required>
+      </div>
+      <div class="form-group">
+        <label for="condition-description">Condition Description (optional):</label>
+        <input type="text" class="form-control" id="condition-description" name="conditionDescription" placeholder="e.g., Limping due to injury, suspected virus, signs of malnutrition">
+      </div>
+      <div class="form-group">
+        <label for="feed-type">Feed Type:</label>
+        <input type="text" class="form-control" id="feed-type" name="feedType" placeholder="i.e, corn, oats, barley, beet, alfalfa, bran, grass, hay" required>
+      </div>
+      <div class="form-group">
+        <label for="feed-quantity">Feed Quantity and Weight:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="feed-quantity" name="feedQuantity" placeholder="Quantity" required>
+          <select class="custom-select" id="feed-weight" name="feedWeight" required>
+            <option value="" disabled selected>Choose weight unit</option>
+            <option value="grams">grams</option>
+            <option value="lbs">lbs</option>
+            <option value="kg">kg</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="feed-date">Feed Date:</label>
+        <input type="date" class="form-control" id="feed-date" name="feedDate" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <div id="error-message" class="text-danger mt-3" style="font-weight: bold;"></div>
+    </form>
+
+    <h2 class="mb-4 text-secondary">Sheep Health Records</h2>
+    <div id="health-records" class="mb-4 p-4 bg-white shadow rounded">
+        Nothing to display yet
+    </div>
+
+    <h2 class="mb-4 text-secondary">Feed Nutrition Information</h2>
+    <div id="nutrition" class="p-4 bg-white shadow rounded">
+         Nothing to display yet
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
