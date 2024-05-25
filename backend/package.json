@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.19.2",
-    "mongodb": "^6.6.2"
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^8.4.0"
   },
   "scripts": {
     "start": "node --env-file=.env app.js"
