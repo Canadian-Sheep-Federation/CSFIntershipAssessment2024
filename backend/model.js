@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 const currency_schema = new mongoose.Schema({
-  currency_from: Number,
-  currency_to: Number,
+  currency_from: String,
+  currency_to: String,
   amount_from: Number,
   amount_to: Number,
   exhcange_rate: Number,
