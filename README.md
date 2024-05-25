@@ -1,5 +1,27 @@
-# CSF Intership Assessment 2024
+# Flask SQLite User Management
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+This is a simple Flask application to manage users, allowing you to add new users, view all users, and search for a user by ID. As Well as checking the weather condidtion of a location using WeatherStack API.
 
-E.g. those interested in QA should complete the QA assignment.
+## Requirements
+
+- Python 3.x
+- Flask
+- SQLite
+
+## Setup
+
+1. Clone the repository or download the source code.
+2. Navigate to the project directory.
+
+## Running Application
+
+python app.py
+
+## Discuss how the application and api could be extended and improved
+
+- User Authentication and Authorization: Implement user login and registration features
+- Data Validation: Add form handling and validation to ensure data integrity
+
+## Discuss how the application and api should be deployed
+
+- Heroku: Deploy directly from the GitHub repository using Heroku’s integration

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSF</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <form method="POST">
+        <label>Enter Location:</label>
+        <input type="text" name="location" placeholder="Enter location" required><br/>
+        <input class="btn" type="submit" value="Search">
+    </form>
+
+    <div class="center"><button class="btn" type="button" onclick="window.location.href='/';">Home</button></div>
+</body>
+</html>
