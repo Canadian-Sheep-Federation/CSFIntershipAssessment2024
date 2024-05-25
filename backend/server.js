@@ -1,9 +1,9 @@
+require('dotenv').config(); // Load environment variables from .env file
 const express = require('express');
 const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
 const axios = require('axios');
 const cors = require('cors');
-require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
 const db = new sqlite3.Database(':memory:'); // Use a file-based database instead of ':memory:' for persistence
@@ -13,7 +13,7 @@ app.use(cors());
 
 // Initialize the database
 db.serialize(() => {
-  db.run("CREATE TABLE news (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, url TEXT, publishedAt TEXT)");
+  db.run("CREATE TABLE news (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, url TEXT, imageUrl TEXT, publishedAt TEXT)");
 });
 
 // NewsData API key
@@ -24,11 +24,17 @@ const NEWS_API_KEY = process.env.NEWS_API_KEY;
 app.post('/', async (req, res) => {
   const { keyword } = req.body;
   try {
-    const response = await axios.get(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&q=${keyword}`);
+    const response = await axios.get(`https://newsdata.io/api/1/news`, {
+      params: {
+        apikey: NEWS_API_KEY,
+        q: keyword
+      }
+    });
     const articles = response.data.results;
 
     articles.forEach(article => {
-      db.run("INSERT INTO news (title, description, url, publishedAt) VALUES (?, ?, ?, ?)", [article.title, article.description, article.link, article.pubDate]);
+      db.run("INSERT INTO news (title, description, url, imageUrl, publishedAt) VALUES (?, ?, ?, ?, ?)", 
+        [article.title, article.description, article.link, article.image_url, article.pubDate]);
     });
 
     res.status(200).json({ message: 'News articles fetched and stored successfully' });
@@ -57,6 +63,17 @@ app.get('/', (req, res) => {
       return res.status(500).json({ error: err.message });
     }
     res.json(rows);
+  });
+});
+
+// DELETE /
+// Deletes all news articles in the database
+app.delete('/', (req, res) => {
+  db.run("DELETE FROM news", [], function(err) {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(200).json({ message: 'All news articles deleted successfully' });
   });
 });
 
