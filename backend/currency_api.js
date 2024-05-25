@@ -2,12 +2,17 @@ const API_BASE_URL = process.env.API_BASE_URL || "https://cdn.jsdelivr.net/npm/@
 const API_VERSION = process.env.API_VERSION || "v1";
 
 async function getExchangeRate(currency_from, currency_to) {
-  const res = await fetch(`${API_BASE_URL}/${API_VERSION}/currencies/${currency_from}`);
-  const json = await res.json();
+  const res = await fetch(`${API_BASE_URL}/${API_VERSION}/currencies/${currency_from}.json`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  });
+
   if (!res.ok) {
-    console.error(`Server failed to get exchange rate (${res.status}): ${json.message}`);
-    throw new Error(json.message);
+    throw new Error(`Server failed to get exchange rate: API request status (${res.status})`);
   } else {
+    const json = await res.json();
     return json[currency_from][currency_to];
   }
 }
