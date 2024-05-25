@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "2518f755-b5a3-44ad-9d31-72d1da9f9684",
+		"name": "Task-Dog",
+		"description": "Just a simple dog database with some api fetch using dog.ceo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15096011"
+	},
+	"item": [
+		{
+			"name": "Add dog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Eevee2\",\n    \"breed\": \"Shiba\",\n    \"subbreed\": \"A, B\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dog by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findallbreeds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/findallbreeds",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"findallbreeds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get random image link",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `",
+							"<canvas id=\"myChart\" height=\"75\"></canvas>",
+							"",
+							"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> ",
+							"",
+							"<script>",
+							"    var ctx = document.getElementById(\"myChart\");",
+							"",
+							"    var myChart = new Chart(ctx, {",
+							"        type: \"bar\",",
+							"        data: {",
+							"            labels: [],",
+							"            datasets: [{",
+							"                data: [],",
+							"                ",
+							"                // Change these colours to customize the chart",
+							"                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\", \"#ffa600\"],",
+							"            }]",
+							"        },",
+							"        options: {",
+							"            legend: { display: false },",
+							"            title: {",
+							"                display: true,",
+							"                text: 'Response Visualization'",
+							"            },",
+							"            scales: {",
+							"                xAxes: [{",
+							"                    display: true,",
+							"                    scaleLabel: {",
+							"                        display: true,",
+							"                        labelString: 'Items'",
+							"                    }",
+							"                }],",
+							"                yAxes: [{",
+							"                    display: true,",
+							"                    scaleLabel: {",
+							"                        display: true,",
+							"                        labelString: 'Count'",
+							"                    }",
+							"                }]",
+							"            }",
+							"        }",
+							"",
+							"    });",
+							"",
+							"    // Access the data passed to pm.visualizer.set() from the JavaScript",
+							"    // code of the Visualizer template",
+							"    pm.getData(function (err, value) {",
+							"        myChart.data.datasets[0].data = value.response.data;",
+							"        myChart.data.labels = value.response.labels;",
+							"        myChart.update();",
+							"    });",
+							"",
+							"</script>`;",
+							"",
+							"function constructVisualizerPayload() {",
+							"    var res = pm.response.json();",
+							"    ",
+							"    var visualizerData = {",
+							"        ",
+							"        // Labels take an array of strings",
+							"        labels: [\"\"],",
+							"        ",
+							"        // Data takes an array of numbers",
+							"        data: [0]",
+							"    };",
+							"",
+							"    return {response: visualizerData};",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/randomimage",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"randomimage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image list by breed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `",
+							"<canvas id=\"myChart\" height=\"75\"></canvas>",
+							"",
+							"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> ",
+							"",
+							"<script>",
+							"    var ctx = document.getElementById(\"myChart\");",
+							"",
+							"    var myChart = new Chart(ctx, {",
+							"        type: \"bar\",",
+							"        data: {",
+							"            labels: [],",
+							"            datasets: [{",
+							"                data: [],",
+							"                ",
+							"                // Change these colours to customize the chart",
+							"                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\", \"#ffa600\"],",
+							"            }]",
+							"        },",
+							"        options: {",
+							"            legend: { display: false },",
+							"            title: {",
+							"                display: true,",
+							"                text: 'Count'",
+							"            },",
+							"            scales: {",
+							"                xAxes: [{",
+							"                    display: true,",
+							"                    scaleLabel: {",
+							"                        display: true,",
+							"                        labelString: 'Items'",
+							"                    }",
+							"                }],",
+							"                yAxes: [{",
+							"                    display: true,",
+							"                    scaleLabel: {",
+							"                        display: true,",
+							"                        labelString: 'Count'",
+							"                    }",
+							"                }]",
+							"            }",
+							"        }",
+							"",
+							"    });",
+							"",
+							"    // Access the data passed to pm.visualizer.set() from the JavaScript",
+							"    // code of the Visualizer template",
+							"    pm.getData(function (err, value) {",
+							"        myChart.data.datasets[0].data = value.response.message;",
+							"        myChart.data.labels = value.response.status;",
+							"        myChart.update();",
+							"    });",
+							"",
+							"</script>`;",
+							"",
+							"function constructVisualizerPayload() {",
+							"    var res = pm.response.json();",
+							"    ",
+							"    var visualizerData = {",
+							"        ",
+							"        // Labels take an array of strings",
+							"        labels: res.status,",
+							"        ",
+							"        // Data takes an array of numbers",
+							"        message: res.message",
+							"    };",
+							"",
+							"    return {response: visualizerData};",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/shiba/images/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shiba",
+						"images",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get random image by breed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/Shiba/randomimage/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Shiba",
+						"randomimage",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
