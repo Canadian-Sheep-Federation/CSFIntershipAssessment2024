@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // POST: Takes in the form and stores it in your chosen data store, return the id of the newly created form response
 app.post('/', (req, res) => {
