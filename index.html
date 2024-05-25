@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSF Intern Project Danny Wu</title>
+</head>
+<body>
+    <h1>Weather Information</h1>
+    <input type="text" id="location" placeholder="Enter City"> 
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResults"></div>
+    <p1 id="getWeatherError" hidden = "true" style="color:red">Please enter a valid City</p1>
+
+    <h1>Create ToDo Item</h1>
+    <form id="postToDoItem">
+        <input type="text" id="nameForm" placeholder="Item Name"><br>
+        <input type="text" id="dateForm" placeholder="Date"><br>
+        <input type="text" id="statusForm" placeholder="Status"><br>
+        <button type="button" onclick="postToDoItem()">Submit</button>
+    </form>
+
+    <div id = "getToDoItem">
+        <h1>Get ToDo Item</h1>
+        <input type="integer" id="idForm" placeholder="Item Id"><br>
+        <button type="button" onclick="getToDoItem()">Get ToDo Item</button>
+        <div id = "toDoItemResult"></div>
+    </div>
+    <p1 id="getToDoError" hidden = "true" style="color:red">Please insert a valid Id</p1>
+
+    <div id="getToDoList">
+        <h1>Get ToDo List</h1>
+        <button onclick="getToDoList()">Load Responses</button>
+        <div id = "toDoListResult"></div>
+    </div>
+
+    <h1>Update ToDo Item</h1>
+    <form id="updateToDoItem">
+        <input type="integer" id="updateId" placeholder="Item Id"><br>
+        <input type="text" id="updateName" placeholder="New Item Name"><br>
+        <input type="text" id="updateDate" placeholder="New Date"><br>
+        <input type="text" id="updateStatus" placeholder="New Status"><br>
+        <button type="button" onclick="updateToDoItem()">Update ToDo Item</button>
+    </form>
+    <p1 id="updateToDoError" hidden = "true" style="color:red">Please insert a valid Id</p1>
+
+    <script>
+        //Gets the weather from WeatherStack for the inputted city. Will throw an error if an invalid city is entered.
+        async function getWeather() {
+            const errorMessage = document.getElementById('getWeatherError');
+            errorMessage.hidden = true;
+            const location = document.getElementById('location').value;
+            const response = await fetch(`/weather?location=${location}`);
+            const data = await response.json();
+            if (!response.ok){
+                errorMessage.hidden = false;
+                alert('Please enter a valid City.');
+            }
+            else{
+                document.getElementById('weatherResults').innerText = JSON.stringify(data, null, 2);
+            }
+        }
+
+        //Posts a new todo item with a given name, date, and status.
+        async function postToDoItem() {
+            const name = document.getElementById('nameForm').value;
+            const date = document.getElementById('dateForm').value;
+            const status = document.getElementById('statusForm').value;
+
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, date, status }),
+            });
+
+            const data = await response.json();
+            alert(`Form submitted with Id: ${data.id}`);
+        }
+
+        //Gets the ToDo item. Throws an error if an item of the inputted id cannot be found.
+        async function getToDoItem(){
+            const errorMessage = document.getElementById('getToDoError');
+            errorMessage.hidden = true;
+            const id = document.getElementById('idForm').value;
+            const response = await fetch(`/${id}`);
+            if (!response.ok){
+                errorMessage.hidden = false;
+                alert('Item not found, please enter a valid id');
+            }
+            else{
+                const data = await response.json();
+                document.getElementById('toDoItemResult').innerText = JSON.stringify(data, null, 2);
+            }
+            
+        }
+        
+        //Gets all of the ToDo items. 
+        async function getToDoList() {
+            const response = await fetch('/toDoList');
+            const data = await response.json();
+            document.getElementById('toDoListResult').innerText = JSON.stringify(data, null, 2);
+        }
+
+        //Updates the parameters of a single ToDo item provided an id is provided. If an invalid id is provided, it will throw an error.
+        async function updateToDoItem() {
+            const errorMessage = document.getElementById('updateToDoError');
+            errorMessage.hidden = true;
+            const id = document.getElementById('updateId').value;
+            const name = document.getElementById('updateName').value;
+            const date = document.getElementById('updateDate').value;
+            const status = document.getElementById('updateStatus').value;
+
+            const response = await fetch(`/update/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, date, status }),
+            });
+
+            if (!response.ok){
+                errorMessage.hidden = false;
+                alert('Item not found, please enter a valid id');
+            }
+            else {
+                const data = await response.json();
+                alert('ToDo item updated successfully');
+            }
+            
+        }
+        
+    </script>
+</body>
+</html>
