@@ -1,4 +1,8 @@
 {
+  "name": "jimwei_csf_submission",
+  "version": "1.0.0",
+  "description": "CSF summer job submission",
+  "main": "app.js",
   "dependencies": {
     "express": "^4.19.2",
     "mongodb": "^6.6.2"
