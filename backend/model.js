@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// schema for currency exchange forms
 const currency_schema = new mongoose.Schema({
   currency_from: String,
   currency_to: String,
