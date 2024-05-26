@@ -1,0 +1,114 @@
+.details {
+  line-height: 1.4;
+  font-size: 1.4rem;
+}
+
+.restaurantInfo {
+  display: flex;
+  gap: 2rem;
+}
+
+.btnBack {
+  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.detailsContent {
+  display: flex;
+  gap: 2rem;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.detailsOverview {
+  width: 100%;
+  padding: 2.4rem 3rem;
+  background-color: var(--color-background-100);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.detailsOverview h2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.detailsOverview p {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--color-background-100);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  flex-basis: 150px;
+}
+
+textarea,
+input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+button[type="submit"] {
+  background-color: #ffa857;
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 1rem 2rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffb168;
+}
+
+.btnViewReviews,
+.btnAdd {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #cc8646;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btnAdd {
+  background-color: #cc8646;
+}
