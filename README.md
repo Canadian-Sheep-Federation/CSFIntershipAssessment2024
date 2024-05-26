@@ -1,5 +1,4 @@
-# CSF Intership Assessment 2024
+# AI Developer Assesment
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
-
-E.g. those interested in QA should complete the QA assignment.
+I answered my questions in the classification.ipynb notebook. In that notebook first part is where I gave my answer of processing pipeline, where I just gave a broad idea of how I would use that model. In the second part of that notebook I have written code to classify 2 datasets:  MNIST and CIFAR_10. In that I am splitting the dataset into train,validation and test set. By using logistic regression I tested the accuracy on these datasets.
+![image](https://github.com/Canadian-Sheep-Federation/CSFIntershipAssessment2024/assets/73919744/83654c59-9f22-4336-ba00-8bccbbcf9a55)
