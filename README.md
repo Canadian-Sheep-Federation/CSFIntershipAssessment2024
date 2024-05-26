@@ -17,3 +17,9 @@ npm init -y
 npm install express body-parser axios sqlite3
 
 npm install lite-server
+
+then run:
+
+node server.js
+
+
