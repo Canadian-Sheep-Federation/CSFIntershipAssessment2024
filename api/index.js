@@ -27,6 +27,18 @@ app.post('/starwars_form', async (req, res) => {
     }
 });
 
+// Get ID Endpoint
+app.get('/starwars_form/:id', async (req, res) => {
+    try {
+        // Returns form corresponding to ID
+        res.status(200).send();
+    } catch (err) {
+        res.status(404).send(err);
+    }
+});
+
+
+
 
 
 
