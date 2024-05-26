@@ -1,0 +1,103 @@
+.mat-elevation-z8{
+    height: 100px;
+    width: 200px;
+}
+.form {
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: beige;
+    --main-color: black;
+    
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    height: 100%;
+    width: 100%;
+    display: flow-root;
+  }
+  .form-table{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10%;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+  .title {
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 80px;
+    align-self: center;
+    margin-bottom: 25px;
+  }
+
+
+  .labelStyle {
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 20px;
+    align-self: center;
+    margin-bottom: 25px;
+    margin-right: 20px;
+  }
+
+  .input {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+    margin-right: 20px;
+    
+  }
+  
+  .input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    border: 2px solid var(--input-focus);
+  }
+  
+  .button-confirm {
+    margin: 50px auto 0 auto;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+  }
+
+  .button-homepage {
+    margin: 50px auto 0 auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+    align-self: start;
+  }

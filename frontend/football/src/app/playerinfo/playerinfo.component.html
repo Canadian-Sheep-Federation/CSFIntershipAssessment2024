@@ -1,0 +1,90 @@
+<div class="form">
+    <button mat-flat-button class="button-homepage" (click)="homepage()">Go to Home Page</button>
+    <div class="form-table">
+        <p class="title">Player Details</p>
+        <div style="padding-bottom: 2%;" *ngIf="playerByID">
+            <mat-label class="labelStyle">Get Player By ID</mat-label>
+            <input class="input" type="text" matInput [formControl]="ID" />
+            <button mat-flat-button class="button-confirm" (click)="getPlayerInfo()">Get Player Info</button>
+        </div>
+        <table *ngIf="playerorpublic" mat-table [dataSource]="players" class="mat-elevation-z8">
+                <ng-container matColumnDef="ID">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef> First Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                </ng-container>
+
+            <ng-container matColumnDef="dateOfBirth">
+                <th mat-header-cell *matHeaderCellDef> Date Of Birth </th>
+                <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef> Gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="height">
+                <th mat-header-cell *matHeaderCellDef> Height </th>
+                <td mat-cell *matCellDef="let element"> {{element.height}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <table *ngIf="!playerorpublic" mat-table [dataSource]="players" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="firstname">
+                <th mat-header-cell *matHeaderCellDef> First Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastname">
+                <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+            </ng-container>
+
+        <ng-container matColumnDef="date_of_birth">
+            <th mat-header-cell *matHeaderCellDef> Date Of Birth </th>
+            <td mat-cell *matCellDef="let element"> {{element.date_of_birth}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef> Gender </th>
+            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="height">
+            <th mat-header-cell *matHeaderCellDef> Height </th>
+            <td mat-cell *matCellDef="let element"> {{element.height}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="form">
+    <button mat-flat-button class="button-homepage" (click)="homepage()">Go to Home Page</button>
+    <div class="form-table">
+        <div class="card-body">
+            <p class="title">Add Player</p>
+            <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+                <div class="labels">
+                    <div class="labelDiv"><mat-label class="labelStyle">First Name</mat-label></div>
+                    <input class="input" type="text" matInput formControlName="firstName" />
+                </div>
+                <div class="labels">
+                    <div class="labelDiv"><mat-label class="labelStyle">Last Name</mat-label></div>
+                    <input class="input" type="text" matInput formControlName="lastName" />
+                </div>
+                <div class="labels">
+                    <div class="labelDiv"><mat-label class="labelStyle">Date Of Birth</mat-label></div>
+                    <input class="input" type="date" matInput formControlName="dateOfBirth" />
+                </div>
+                <div class="labels">
+                    <div class="labelDiv"><mat-label class="labelStyle">Gender</mat-label></div>
+                    <input class="input" type="text" matInput formControlName="gender" />
+                </div>
+                <div class="labels">
+                    <div class="labelDiv"><mat-label class="labelStyle">Height</mat-label></div>
+                    <input class="input" type="number" matInput formControlName="height" />
+                </div>
+                <div class="labels">
+                    <div class="labelDiv"><mat-label class="labelStyle">Weight</mat-label></div>
+                    <input class="input" type="number" matInput formControlName="weight" />
+                </div>
+                <button mat-flat-button class="button-confirm" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
