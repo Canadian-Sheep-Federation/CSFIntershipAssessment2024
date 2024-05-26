@@ -9,10 +9,15 @@ I have used Express.js, Node.js, MongoDB Atlas alongside Axios and Dotenv in the
 Clone the fork from Github
 
 cd into csf-intern-assessment and install the dependencies.
+```bash
+npm init
+```
 
 create an '.env' file and add the following MongoDB credentials:
+```bash
 DB_USER=admin
 DB_PWD=OrjRfkYQc12ep32a
+```
 
 run the backend using npm run dev
 
