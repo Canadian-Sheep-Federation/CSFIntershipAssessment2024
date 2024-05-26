@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather api connection</title>
+</head>
+<body>
+  <h1>Weather status request form</h1>
+  <form id="weather-form">
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  <h2>Form table</h2>
+  <ul id="responses"></ul>
+
+  <script>
+    document.getElementById('weather-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const city = document.getElementById('city').value;
+
+      fetch(`/api/current?query=${city}`)
+        .then(response => response.json())
+        .then(data => {
+          const temperature = data.current.temperature;
+          const weather = data.current.weather_descriptions[0];
+
+          fetch('/api', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ city, temperature, weather })
+          })
+          .then(response => response.json())
+          .then(data => {
+            alert(`Response saved with ID: ${data.id}`);
+            loadResponses();
+          });
+        });
+    });
+
+    function loadResponses() {
+      fetch('/api')
+        .then(response => response.json())
+        .then(data => {
+          const responsesList = document.getElementById('responses');
+          responsesList.innerHTML = '';
+          data.forEach(response => {
+            const li = document.createElement('li');
+            li.textContent = `City: ${response.city}, Temperature: ${response.temperature}, Weather: ${response.weather}`;
+
+            const button = document.createElement('button');
+            button.textContent = 'Get';
+            button.onclick = function() {
+              fetch(`/api/${response.id}`)
+                .then(res => res.json())
+                .then(data => {
+                  alert(`City: ${data.city}, Temperature: ${data.temperature}, Weather: ${data.weather}`);
+                })
+                .catch(err => console.error(err));
+            };
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function() {
+              fetch(`/api/${response.id}`, {
+                method: 'DELETE'
+              })
+              .then(response => response.json())
+              .then(data => {
+                alert(data.message);
+                loadResponses();
+              })
+              .catch(err => console.error(err));
+            };
+            li.appendChild(deleteButton);
+            li.appendChild(button);
+            responsesList.appendChild(li);
+          });
+        });
+    }
+
+    loadResponses();
+  </script>
+</body>
+</html>
