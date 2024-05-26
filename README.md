@@ -1,25 +1,3 @@
-merhaba bu proje dava durumunu gosteren dis apiden iceriye bilgi cekmek icin olusuturmustur
---oncelikle npm install diyerek butun eklentileri yukleyin ve ardindan .env olusturup icerisine "api_key" adi adinda api keyi ekleyin diger turlu calismaz hata verir
---'npm run start' veya node ./server komutlariyla projeyi ayaga kaldirabilirsiniz
---proje portu 1994 dur veri tabani olarak sqllite kullandim 
---ornek olarak bir front end sayfasi bulunmakta apiyi kullanmak icin proje restart olana kadar butun verileri tutar
---projede eslint ve prettier kullanarak duzen saglanmistir
---mvc yapisi kullanilmistir sql lite kullanmadigim icin biraz arastirma yapmak zorunda kaldim
-
-
-----end pointler----
--/api -get requesti ile butun kayitli verileri cekebilirsiniz json formatinda butun veriler gelir
--/api/:id -get requesti ile id si belirlenen veriyi cekebilirsiniz sonuc olarak json formatinda doner
--/api -post requesti ile yeni veri ekleyebilirsiniz city, temperature ve weather verileri zorunludur olmadan calismaz sonuc olarak inserted id yi geri dondurur
--/api/:id -delete requesti ile id si belirtilen veriyi silebilirsiniz
-
----bir surum daha yapmak durumunda kalirsam eger planlanan guncellemeler
--veriyi guncellemek icin patch/put olusturup sehir isimlerini uniqie olarak saklamak
--veriyi eklerken verinin timestemp ini de ekleyek unique yapilmasi istenmiyorsa data olarak tutmak
--timestemp i olan verileri cart ile dusus yukselis seklinde gostermek
-
-
-
 # Project: Case Status API
 
 This project was created to fetch information from an external API that shows case statuses.
