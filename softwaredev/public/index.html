@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!---api key live_qjs2728xbt4DUyzHXARTlAhTy6Gr1i1gMGkWHItMaTIubE9Z38kgUulPLKWOdM05-->
+
+    <!---Allow users to query the public api I selected--->
+    <h3>Search random cats</h3>
+    <button type="button" id="randBtn">Click to search for a random cat</button><br>
+    Breed:<input type="text" id="randBreed"/><br>
+    Image Url:<input type="text" id="randUrl" size="50"/><br>
+    Wikipedia:<input type="text" id="randWiki" size="50"/><br>
+    Id:<input type="text" id="randId"/><br>
+    <img alt="cat image" id="randImg" class="bigImage"><br>
+    
+
+    <!---Allows users to enter responses to the form I designed earlier
+        and view other responses to the form--->
+    <!---Push to mongodb--->
+    <h3>Save your favorite cats</h3>
+    <button type="button" id="copyBtn" onclick="copyabove()">Copy from above</button><br>
+    Breed:<input type="text" id="saveBreed"/><br>
+    Image Url:<input type="text" id="saveUrl" size="50"/><br>
+    Wikipedia:<input type="text" id="saveWiki" size="50"/><br>
+    Id:<input type="text" id="saveId"/><br>
+    <button type="button" id="saveBtn">Save to database</button>
+    <button type="button" id="deleteBtn">Delete all cats</button><br>
+
+    <h3>Find from your favorite cat list</h3>
+    Id:<input type="text" id="searchId"/><br>
+    <button type="button" id="searchBtn">Search Cat</button><br>
+    <img alt="cat image" id="searchImg" class="bigImage"><br>
+
+    <!---Allow users to view other responses to the form--->
+    <!---Retrieve data from mongodb--->
+    <h3>Cat collection</h3>
+    <div id="catcollect"></div>
+
+    <!---container1 hold individual entries--->
+    <!---container4 hold 4 entries per row--->
+
+</body>
+<script src="client.js"></script>
+</html>
