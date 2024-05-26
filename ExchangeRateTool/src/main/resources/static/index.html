@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+    <div class="container my-5">
+        <!--<h1 class="text-center mb-4">Exchange rate Tool</h1>-->
+
+        <!-- Exchange Rate Form -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h1>Exchange Rate Tool</h1>
+            </div>
+            <div class="card-body">
+                <form id="exchangeRateForm">
+                    <div class="form-group">
+                        <label for="baseCurrency">Base Currency:</label>
+                        <input type="text" class="form-control" placeholder="Enter a valid currency. (Eg:CAD)" id="baseCurrency" name="baseCurrency" required maxlength="3" onkeydown="return /[a-z]/i.test(event.key)">
+                    </div>
+                    <div class="form-group">
+                        <label for="targetCurrency">Target Currency:</label>
+                        <input type="text" class="form-control" placeholder="Enter a valid currency. (Eg:USD)"  id="targetCurrency" name="targetCurrency" required  maxlength="3" onkeydown="return /[a-z]/i.test(event.key)">
+                    </div>
+                    <div class="error" id="exchangeRateError"></div>
+                    <button type="button" class="btn btn-primary" onclick="getExchangeRate()">Get Rate</button>
+                </form>
+                <div id="exchangeRateResult" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Survey Form -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Survey Form</h2>
+            </div>
+            <div class="card-body">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        <div class="error" id="nameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="accuracy">How would you rate the accuracy of the exchange rates provided on our website?</label>
+                        <select class="form-control" id="accuracy" name="accuracy" required>
+                            <option value="">Select</option>
+                            <option value="Very accurate">Very accurate</option>
+                            <option value="Accurate">Accurate</option>
+                            <option value="Neutral">Neutral</option>
+                            <option value="Inaccurate">Inaccurate</option>
+                            <option value="Very inaccurate">Very inaccurate</option>
+                        </select>
+                        <div class="error" id="accuracyError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="currencyInterest">What currencies are you most interested in?</label>
+                        <input type="text" class="form-control" id="currencyInterest" name="currencyInterest" required>
+                        <div class="error" id="currencyInterestError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Have you ever used our website to make an actual currency exchange or transfer?</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="exchangeUsageYes" name="exchangeUsage" value="Yes" required>
+                            <label class="form-check-label" for="exchangeUsageYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="exchangeUsageNo" name="exchangeUsage" value="No" required>
+                            <label class="form-check-label" for="exchangeUsageNo">No</label>
+                        </div>
+                        <div class="error" id="exchangeUsageError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="improvements">What improvements would you suggest for our website's exchange rate section?</label>
+                        <textarea class="form-control" id="improvements" name="improvements"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>How satisfied are you with the usability of our exchange rate tool?</label>
+                        <div class="smiley-rating">
+                            <input type="radio" id="usability1" name="usability" value="Very satisfied">
+                            <label for="usability1">&#128516;</label>
+                            <input type="radio" id="usability2" name="usability" value="Satisfied">
+                            <label for="usability2">&#128515;</label>
+                            <input type="radio" id="usability3" name="usability" value="Neutral">
+                            <label for="usability3">&#128528;</label>
+                            <input type="radio" id="usability4" name="usability" value="Dissatisfied">
+                            <label for="usability4">&#128577;</label>
+                        </div>
+                        <div class="error" id="usabilityError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Would you like to hear from us in the future? If yes, please provide your email address.</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitSurvey()">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Get Feedback Detail by ID -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Get Feedback Detail by ID</h2>
+            </div>
+            <div class="card-body">
+                <input type="text" class="form-control mb-3" id="specificId" name="specificId" placeholder="Enter ID number" required>
+                <button type="button" class="btn btn-primary" onclick="getSpecificForm()">Get Form</button>
+                <div id="specificResponse" class="mt-3"></div>
+                <div class="error" id="specificIdError"></div>
+            </div>
+            
+        </div>
+
+        <!-- Get All Submitted Feedbacks -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Get All Submitted Feedbacks</h2>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary mb-3" onclick="getAllForms()">Get All Feedback</button>
+                <div id="responses"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
