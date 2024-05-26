@@ -37,6 +37,7 @@ const Form = ( {searchParams}: any) => {
                 // Handle any errors
                 console.error(error);
             });
+            
     };
 
     return (
@@ -59,9 +60,13 @@ const Form = ( {searchParams}: any) => {
                         <br />
                         <input type="checkbox" checked={recommend} onChange={e => setRecommend(e.target.checked)} style={{ visibility: 'visible' }} />
                     </label>
-                    <button type="submit" onClick={() => handleSubmit()} style={{ padding: '10px 20px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '5px' }}>Submit</button>
+                    
                 </div>
-                <br />
+                
+                <Link href="/">
+                <Button color="primary" onPress={() => handleSubmit()} >Submit</Button>
+                </Link>
+                <br /> <br />
                 <Link href="/">
                 <Button color="primary" >review another</Button>
                 </Link>
