@@ -1,0 +1,5 @@
+Public API used: Coffee Api, provides random coffee image, json format with link to coffee image. 
+API that I build: represents coffee feedback form, rating the image (creativity of image, how good the coffee looks, 1-10 scale), the type of coffee in the image to classify it (ex. latte, pour-over,etc), string. "Would you drink" this yes or no box. 
+Web application, button to get image from public api, from response, open image and save id of the image to include in survey response. Enter survey questions. 
+button to see if this image has previous responses, or just view all reviews of various images. 
+ 
