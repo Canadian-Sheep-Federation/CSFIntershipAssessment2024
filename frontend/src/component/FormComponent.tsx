@@ -22,10 +22,7 @@ const FormComponent: React.FC = () => {
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    console.log(name)
-    console.log(value)
     setFormData({ ...formData, [name]: value });
-    if(name === 'mobile')   setId(Number(value))
   };
 
   // Handle form submission for PUT request
@@ -39,7 +36,7 @@ const FormComponent: React.FC = () => {
       toast.error('Failed to add user. Please try again!');
     }
     try {
-        const validResponse: any = await axios.get(`https://phonevalidation.abstractapi.com/v1/?api_key=6e22697edfa7436eb645bda18e41ebc4&phone=${id}`)
+        const validResponse: any = await axios.get(`https://phonevalidation.abstractapi.com/v1/?api_key=6e22697edfa7436eb645bda18e41ebc4&phone=${formData.mobile}`)
         setValidatedData(validResponse.data)
         toast.success('Validated Data fetched successfully from public API');
     } catch (error) {
@@ -135,6 +132,8 @@ const FormComponent: React.FC = () => {
           type="number"
           placeholder="Enter Mobile Number"
           value={id || ''}
+          name='id'
+          id='id'
           onChange={(e) => setId(Number(e.target.value))}
           className="form-control"
         />

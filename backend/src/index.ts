@@ -15,7 +15,7 @@ app.use(cors());
 
 app.listen(port, () => {
     log(`Server is running at : http://localhost:${port}`);
-    mongoose.connect('mongodb://localhost:27017');
+    mongoose.connect(process.env.MONGO_URI as string);
     const db = mongoose.connection;
     db.once('open', () => {
         log("Mongo connected!")
