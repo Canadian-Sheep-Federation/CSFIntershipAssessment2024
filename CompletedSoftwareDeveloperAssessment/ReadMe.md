@@ -72,9 +72,7 @@ View Entries:
 Toggle Theme:
 - Use the "Toggle Dark Mode" button to switch between light and dark themes.
 
-**Bonus**
-
-## Extending and Improving the Application and API
+## Bonus
 
 ### Application:
 1. **Additional Features**: Consider adding features such as user authentication, user profiles, commenting, or social sharing to enhance user engagement.
@@ -84,12 +82,12 @@ Toggle Theme:
 1. **Enhanced Data Storage**: Implement more robust data storage solutions, such as using cloud databases like MongoDB Atlas or Amazon DynamoDB, to scale the API for larger datasets and increased traffic.
 3. **Rate Limiting and Authentication**: Add rate limiting and authentication mechanisms to protect the API from abuse and unauthorized access.
 
-## Deployment
+### Deployment
 1. **Containerization**: Utilize containerization technologies like Docker to package the application and API into lightweight, portable containers for easier deployment across different environments.
 4. **Monitoring and Logging**: Set up monitoring and logging solutions (e.g., AWS CloudWatch, ELK stack) to track the performance, health, and security of the deployed application and API.
 5. **Security**: Ensure proper security measures are in place during deployment, including HTTPS encryption, secure configuration of server environments, and regular security audits.
 
-## Intuitive Design and User Interface
+### Intuitive Design and User Interface
 3. **Visual Hierarchy**: Use visual hierarchy techniques such as color, typography, and spacing to guide users' attention and emphasize important elements within the interface.
 4. **Responsive Design**: Ensure the application and API are responsive and optimized for various devices and screen sizes, providing a seamless experience across desktops, tablets, and smartphones.
 5. **Accessibility**: Implement accessibility features such as keyboard navigation, screen reader compatibility, and alt text for images to make the application inclusive and usable by all users, including those with disabilities.
