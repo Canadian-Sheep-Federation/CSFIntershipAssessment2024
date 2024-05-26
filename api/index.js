@@ -37,6 +37,16 @@ app.get('/starwars_form/:id', async (req, res) => {
     }
 });
 
+// Get All Endpoint
+app.get('starwars_form', async (req, res) => {
+    try {
+        // Returns all forms
+        res.status(200).send();
+    } catch (err) {
+        res.status(404).send(err);
+    }
+});
+
 
 
 
