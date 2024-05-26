@@ -12,6 +12,20 @@ mongoose.connect('mongodb://localhost:27017/csf_skillassessment')
 // Middleware
 app.use(express.json()); // Parse JSON request bodies
 
+// Form Schema
+const formSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    age: Number,
+    favouriteStarWarsMovie: String,
+    favouriteStarWarsMovieRating: Number,
+    favouriteStarWarsCharacter: String,
+    favouriteStarWarsCharacterRating: Number,
+});
+
+// Form Model
+const Form = mongoose.model('Form', formSchema);
+
 // Test route
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
@@ -21,7 +35,7 @@ app.listen(PORT, () => {
 app.post('/starwars_form', async (req, res) => {
     try {
         // Takes in and stores form (should return ID)
-        res.status(201).send();
+        res.status(201).send({message: 'Form created successfully'});
     } catch (err) {
         res.status(400).send(err);
     }
@@ -31,7 +45,7 @@ app.post('/starwars_form', async (req, res) => {
 app.get('/starwars_form/:id', async (req, res) => {
     try {
         // Returns form corresponding to ID
-        res.status(200).send();
+        res.status(200).send({message: 'Form retrieved successfully'});
     } catch (err) {
         res.status(404).send(err);
     }
@@ -41,7 +55,7 @@ app.get('/starwars_form/:id', async (req, res) => {
 app.get('starwars_form', async (req, res) => {
     try {
         // Returns all forms
-        res.status(200).send();
+        res.status(200).send({message: 'All forms retrieved successfully'});
     } catch (err) {
         res.status(404).send(err);
     }
