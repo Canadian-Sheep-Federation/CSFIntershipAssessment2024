@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stranger Things Quote Picker</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Stranger Things Quote Picker</h1>
+  <div id="form-section">
+    <h2>Submit Form</h2>
+    <form id="form">
+      <div>
+        <label>Name:</label>
+        <input type="text" id="userName" required />
+      </div>
+      <div>
+        <label>Age:</label>
+        <input type="number" id="userAge" required />
+      </div>
+      <div>
+        <select id="favQuote" required>
+          <option value="">Select a quote</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div id="response-section">
+    <h2>Form Responses</h2>
+    <ul id="response-list"></ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
