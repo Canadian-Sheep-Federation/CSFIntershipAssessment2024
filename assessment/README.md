@@ -155,3 +155,29 @@ Delete a specific comment by ID under a specific book.
 404 Not Found: If the comment is not found.
 
 400 Bad Request: If there is an error on the server.
+
+## Bonus Points
+
+### Discuss how the application and api could be extended and improved
+
+1. User Authentication and Authorization: Add middleware to intercept the requests to see if the request is from a user with permission to this resourse.
+
+2. Form Validation: Sometimes the form submission need more complicated steps to validate the request, e.g. the format of each field, the risk of injection attack, etc.
+
+3. Version Control: APIs can be version controlled by prefixing with "/v1", "/v2" to smoothly upgrade the api while keep old api intact.
+
+4. Database Index: Database can also be improved by adding index for some frequently selected fields. In this assesment, I use bookKey to filter comments belonging to specific book, where we can add index on bookKey to improve performace.
+
+### Discuss how the application and api should be deployed
+
+Some static web app can be simply deployed onto cloud providers like Vercel, but apps like this project, which includes a backend server to deal with the requests, can't easily to do so. So normally I will design the CI/CD with GtiHub Actions and AWS:
+
+1. Containerize the project so that we can ignore the env diff from dev and prod.
+
+2. Rough test the project (like eslint check, baseline test cases) with GitHub Actions, and if the test passes, trigger the AWS to do the final stuff.
+
+3. AWS will fetch the project image from docker (or directly from github repo) and do the overall test (because which may be costy on computing, better to do it on an instance), then setup the env and deploy to ECS or EC2 instance (can make it more high-available with AWS cloudfrot, S3, ELB).
+
+### Intuitive design and user interface
+
+I usually use React or NextJS for the frontend, and form validation (with Zod) and error messages for form (with react-hook-form) are libraries commomly used to provide a more responsive UI. For this project I didn't implement a UI due to time conflict by some other stuff, but can be proved by some of my sample of work.
