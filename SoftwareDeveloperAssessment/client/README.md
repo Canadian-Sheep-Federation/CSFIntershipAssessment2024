@@ -1,9 +1,3 @@
-# CSF Intership Assessment 2024
-
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
-
-E.g. those interested in QA should complete the QA assignment.
-
 # CSFIntershipAssessment2024 /SoftwareDeveloperAssessment
 
 ## Description
@@ -65,18 +59,3 @@ anime API to to allow users to search different anime. The users can also write 
    cd client
    npm start
 ```
-
-# Bonus Points
-
-## Discuss how the application and api could be extended and improved
-
-- This app would greatly benifit by adding users. This will allow users to store and share their reviews with others and
-  also see what others have to say.
-- Following this, we would also need to add user Authentication, with we can use OAuth for to make it easy.
-- We can also improve the user interface, the current work was done with very limited time.
-- Another really interesting idea would be to add a comment/Blog section where people can create communities
-  around their favourite animes, kind of like Reddit.
-
-## Discuss how the application and api should be deployed
-
-The easiest way would be to use a tool like Heroku, which makes the deployment of both the server and frontend together very easy.
