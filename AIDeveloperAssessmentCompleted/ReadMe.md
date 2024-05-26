@@ -24,12 +24,6 @@ Capture frames from the video stream, classify each frame for carrot detection, 
 ### 6. Save the Recorded Frames
 Save frames with detected carrots for further analysis or verification.
 
-## Future Work
-
-- **Performance Optimization:** Improve frame processing speed and model inference time.
-- **Robustness:** Enhance model accuracy in varying lighting and background conditions.
-- **Scalability:** Develop a more scalable solution for deployment in real-world grocery store environments.
-
 ## Demo
 
 For a demonstration of the toy implementation showcasing fundamental classification concepts, please refer to the accompanying notebook or code file.
