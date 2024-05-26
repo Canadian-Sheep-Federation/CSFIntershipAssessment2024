@@ -1,0 +1,22 @@
+{
+  "name": "tastytracksbackend",
+  "version": "1.0.0",
+  "description": "assignment for cansheepbyakshay",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "akshay sharma",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^5.13.22",
+    "validator": "^13.12.0"
+  }
+}
