@@ -12,4 +12,6 @@ To run:
 
 in your desired directory run:
 
-npm init -y npm install express body-parser axios sqlite3 npm install lite-server
+npm init -y 
+npm install express body-parser axios sqlite3
+npm install lite-server
