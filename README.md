@@ -1,5 +1,15 @@
 # CSF Intership Assessment 2024
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+Creating an API for a weather tracking form using weatherstack public API to find weather of locations, For use by people looking to do things outside:
 
-E.g. those interested in QA should complete the QA assignment.
+put their name
+log their activity outside
+log their location of activity
+query weatherstack for current and forecast weather on their location
+users can also look at all previous logs or individual logs by using the coresponding form ID.
+
+To run:
+
+in your desired directory run:
+
+npm init -y npm install express body-parser axios sqlite3 npm install lite-server
