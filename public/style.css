@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  #responses {
+    margin-top: 20px;
+  }
+  
+  #meals .meal {
+    margin-bottom: 20px;
+  }
+  
