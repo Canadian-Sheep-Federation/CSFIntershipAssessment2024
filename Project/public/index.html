@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Show Status Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cat Show Status Code</h1>
+        <form id="cat-form">
+            <div class="form-group">
+                <label for="status-code">Enter HTTP Status Code:</label>
+                <input type="number" id="status-code" name="status-code" placeholder="e.g., 200, 404, 500" required>
+            </div>
+            <input type="submit" value="Get Cat Image">
+        </form>
+        <div id="cat-image-container">
+            <img id="cat-image" src="" alt="Cat Image" style="display:none;">
+        </div>
+
+        <form id="comment-form" style="display:none;">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" required></textarea>
+            </div>
+            <input type="submit" value="Submit Comment">
+        </form>
+
+        <div id="comments-container"></div>
+        
+        <div style="margin-top: 20px;">
+            <button id="fetch-all-comments">Fetch All Comments</button>
+            <button id="fetch-comment-by-id">Fetch Comment by ID</button>
+            <input type="number" id="comment-id" placeholder="Enter Comment ID">
+        </div>
+        
+        <div id="all-comments-container"></div>
+        <div id="single-comment-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
