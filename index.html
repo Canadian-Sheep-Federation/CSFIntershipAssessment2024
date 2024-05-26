@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Movie Reviews</h1>
+    <section id="search">
+        <h2>Search Movies</h2>
+        <input type="text" id="query" placeholder="Enter movie title">
+        <button onclick="searchMovies()">Search</button>
+        <div id="results"></div>
+    </section>
+    <section id="reviews">
+        <h2>Submit a Review</h2>
+        <form id="reviewForm">
+            <input type="text" id="movieTitle" placeholder="Movie Title" required>
+            <textarea id="reviewText" placeholder="Your Review" required></textarea>
+            <input type="number" id="rating" min="1" max="10" placeholder="Rating" required>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+    <section id="allReviews">
+        <h2>All Reviews</h2>
+        <div id="reviewsList"></div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
