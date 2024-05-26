@@ -81,7 +81,8 @@ button:hover {
     margin: 20px auto;
 }
 
-#form-responses div {
+#form-responses div,
+#weather-data div {
     border: 1px solid #ddd;
     padding: 10px;
     margin-bottom: 10px;
@@ -89,6 +90,7 @@ button:hover {
     background-color: #fafafa;
 }
 
-#form-responses div p {
+#form-responses div p,
+#weather-data div p {
     margin: 5px 0;
 }

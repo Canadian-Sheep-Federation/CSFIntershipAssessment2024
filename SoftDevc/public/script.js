@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('weather-form');
+    const fetchForm = document.getElementById('fetch-form');
     const formResponsesDiv = document.getElementById('form-responses');
+    const weatherDataDiv = document.getElementById('weather-data');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -34,6 +36,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    fetchForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log('Fetch form submitted');
+        
+        const id = document.getElementById('fetch-id').value;
+        console.log('Fetching data for ID:', id);
+
+        try {
+            const response = await fetch(`http://localhost:3200/${id}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log('Fetched data:', data);
+
+            if (data) {
+                weatherDataDiv.innerHTML = `
+                    <div>
+                        <p>City: ${data.city}</p>
+                        <p>Date: ${data.date}</p>
+                        <p>Temperature: ${data.temperature}°C</p>
+                    </div>
+                `;
+            } else {
+                weatherDataDiv.innerHTML = '<p>No data found for the given ID.</p>';
+            }
+        } catch (error) {
+            console.error('Error fetching data by ID:', error);
+            alert('Error fetching data by ID (Most likely because that id does not exist. the IDs start at 1 and increment by 1)');
+        }
+    });
+
     const loadFormResponses = async () => {
         try {
             const response = await fetch('http://localhost:3200/responses');
@@ -50,9 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             formResponsesDiv.innerHTML = data.map(entry => `
                 <div>
-                    <p>City: (HIMANSHU SINGH) ${entry.city}</p>
-                    <p>Date (HIMANSHU SINGH) : ${entry.date}</p>
-                    <p>Temperature (HIMANSHU SINGH): ${entry.temperature}°C</p>
+                    <p>City: ${entry.city}</p>
+                    <p>Date: ${entry.date}</p>
+                    <p>Temperature: ${entry.temperature}°C</p>
                 </div>
             `).join('');
         } catch (error) {
