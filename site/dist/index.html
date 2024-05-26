@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktails</title>
+    <link rel="stylesheet" href="/index.77a9bc14.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- navigation bar -->
+      <nav class="navbar">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/list.html" class="nav-item">Cocktail List</a>
+      </nav>
+
+      <h1>Let's make some Cocktails!</h1>
+
+      <p>
+        Use the search to find a cocktail you are looking for, or randomly
+        generate one! Then you can add it to your cocktail list!
+      </p>
+
+      <!-- random button, user clicks this to get a random cocktail popup -->
+      <div id="random-div">
+        <button id="random-btn">Get a Random Cocktail!</button>
+      </div>
+
+      <!-- search form -->
+      <h3>Search for a Cocktail</h3>
+      <form id="cocktail-form">
+        <input type="text" id="searchText" name="searchText" class="search-bar" required="">
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+
+      <!-- search results will be inserted to div below -->
+      <div id="cocktail-container" class="cocktail-container">
+        <!-- Dynamically generated cocktail cards -->
+      </div>
+    </div>
+
+    <!-- popup structure (starts hidden) -->
+    <div id="popup-container">
+      <div class="popup-div">
+        <div id="drink-div">
+          <div class="close-btn" id="fav-close">&times;</div>
+          <div id="drink-info">
+            <!-- Drink info, to be dynamically generated -->
+          </div>
+          <h4>Add Cocktail to Favourites</h4>
+          <hr>
+          <br>
+          <!-- form to be sent to cocktail list API -->
+          <form id="fav-form">
+            <div class="input-info">
+              <div class="input-contents">
+                <!-- cocktail rating from 1 - 5 with 0.5 step -->
+                <label for="rating">Cocktail Rating: </label>
+                <span id="slider-number">3</span> <br>
+                <input type="range" min="1" max="5" step="0.5" value="3" class="slider" id="rating" name="rating">
+                <br>
+                <!-- level of difficulty -->
+                <label for="difficulty">Difficulty:</label>
+                <select name="difficulty" id="difficulty" class="select">
+                  <option value="Easy">Easy</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hard">Hard</option>
+                </select>
+                <br>
+              </div>
+
+              <!-- other notes -->
+              <div class="input-contents">
+                <label for="Notes">Notes</label> <br>
+                <textarea name="notes" id="notes"></textarea> <br>
+              </div>
+            </div>
+            <!-- submit button to send data to cocktail list API -->
+            <div class="fav-btn-div">
+              <button type="submit" id="add-fav">Add</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- popup message (either will be confirmation or error stating that the cocktail already has an entry) -->
+        <div id="drink-added">
+          <h3 id="message"></h3>
+          <button id="close-added">Ok</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="/index.145c697d.js"></script>
+    <script src="/index.52d96673.js"></script>
+    <script src="/index.d8286556.js"></script>
+    <script src="/index.fc1f2b58.js"></script>
+    <script src="/index.8f0c9192.js"></script>
+  <script src="/site.59712999.js"></script></body>
+</html>

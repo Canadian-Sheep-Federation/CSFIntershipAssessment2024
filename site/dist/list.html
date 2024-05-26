@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List</title>
+    <link rel="stylesheet" href="/index.77a9bc14.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- navigation bar -->
+      <nav class="navbar">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/list.html" class="nav-item">Cocktail List</a>
+      </nav>
+
+      <h1>Your List!</h1>
+
+      <!-- selector for user to change order of list items -->
+      <label for="order">Order List By:</label>
+      <select autocomplete="off" name="order" id="order" class="select">
+        <option default="" value="rating">Rating</option>
+        <option value="date_added">Date</option>
+        <option value="difficulty">Difficulty</option>
+      </select>
+
+      <div id="favourite-container">
+        <!-- Dynamically Generated Favourites will go here -->
+      </div>
+    </div>
+
+    <!-- popup structure (starts hidden) -->
+    <div id="popup-container">
+      <div class="popup-div">
+        <div class="close-btn" id="fav-close">&times;</div>
+        <div id="fav-info-container">
+          <div id="fav-info">
+            <!-- Favourite info, to be dynamically generated -->
+          </div>
+          <button id="delete-btn">Delete</button>
+        </div>
+        <!-- delete confirmation (starts hidden) -->
+        <div id="delete-info">
+          <h3>Delete this Item?</h3>
+          <button id="delete-confirm">Delete</button>
+          <button id="delete-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS File for Handling Favourites -->
+    <script src="/index.145c697d.js"></script>
+    <script src="/index.52d96673.js"></script>
+    <script src="/index.fc1f2b58.js"></script>
+    <script src="/list.f89708df.js"></script>
+  <script src="/list.07af6291.js"></script></body>
+</html>
