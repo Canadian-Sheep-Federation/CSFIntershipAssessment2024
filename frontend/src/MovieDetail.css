@@ -1,0 +1,61 @@
+.modal.fade .modal-dialog {
+    transform: translateY(-50px);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+    transform: translateY(0);
+}
+
+.movie-poster {
+    max-height: 400px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-out;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.modal-content.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.movie-poster {
+    border-radius: 5px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+}
+
+.btn-close::before {
+    content: "×";
+    font-size: 1.5rem;
+    color: inherit;
+}
+
+.btn-close:hover {
+    cursor: pointer;
+    color: #ff0000;
+}

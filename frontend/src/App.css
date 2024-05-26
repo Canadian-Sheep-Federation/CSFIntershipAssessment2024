@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.container.dark-mode {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .form-control {
+  background-color: #333;
+  color: #fff;
+  border-color: #444;
+}
+
+.dark-mode .btn {
+  border-color: #444;
+}
+
+.dark-mode .list-group-item {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+.light-mode .text-dark {
+  color: #000000 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.dark-mode input.form-control {
+  background-color: #333;
+  color: #fff;
+  border-color: #444;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #bbb;
+}
+
+.dark-mode .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.dark-mode .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.dark-mode .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.form-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 10px;
+  }
+}
+
+.movie-card {
+  max-width: 180px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 576px) {
+  .movie-card {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
