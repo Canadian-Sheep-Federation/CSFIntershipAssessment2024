@@ -35,7 +35,7 @@ app.listen(PORT, () => {
 app.post('/starwars_form', async (req, res) => {
     try {
         // Takes in and stores form (should return ID)
-        res.status(201).send({message: 'Form created successfully'});
+        res.status(200).send({message: 'Form created successfully'});
     } catch (err) {
         res.status(400).send(err);
     }
@@ -47,17 +47,17 @@ app.get('/starwars_form/:id', async (req, res) => {
         // Returns form corresponding to ID
         res.status(200).send({message: 'Form retrieved successfully'});
     } catch (err) {
-        res.status(404).send(err);
+        res.status(400).send(err);
     }
 });
 
 // Get All Endpoint
-app.get('starwars_form', async (req, res) => {
+app.get('/starwars_form', async (req, res) => {
     try {
         // Returns all forms
         res.status(200).send({message: 'All forms retrieved successfully'});
     } catch (err) {
-        res.status(404).send(err);
+        res.status(400).send(err);
     }
 });
 
