@@ -1,39 +1,39 @@
-const express = require('express');
+const express = require('express'); //needed to use express
 const app = express();
-const axios = require('axios');
+const axios = require('axios'); //needed to use axios for APIs
 
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config(); //will use .env file 
 
-const port = process.env.PORT || "7894";
+const port = process.env.PORT || "7894"; //app set up to run on port number 7894
 const path = require("path");
 
-const cors = require('cors');
+const cors = require('cors'); //allows me to bypass CORS issues
 app.use(cors());
 app.use(express.json());
 
-const { MongoClient, ObjectId } = require('mongodb');
-const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@internship.slahqxh.mongodb.net/`;
+const { MongoClient, ObjectId } = require('mongodb'); //connecting to MongoDB
+const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@internship.slahqxh.mongodb.net/`; //need to connect to database
 const client = new MongoClient(dbUrl);
 
 async function connection() {
-  const db = client.db("Internship");
+  const db = client.db("Internship"); //name of database
   console.log("Connected to database");
   return db;
 }
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //creating a seperate folder
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); //page will be the default 
 });
 
 app.post('/', async (req, res) => {
   try {
     const db = await connection();
     const form = req.body;
-    const result = await db.collection('forms').insertOne(form);
-    res.status(201).send({ id: result.insertedId });
+    const result = await db.collection('forms').insertOne(form); //adds data to database
+    res.status(201).send({ id: result.insertedId }); //if sucessful, should show id
   } catch (error) {
     console.error("Error inserting form data:", error);
     res.status(500).send("Internal Server Error");
@@ -56,7 +56,7 @@ app.get('/responses', async (req, res) => {
 app.get('/:id', async (req, res) => {
   const id = req.params.id;
   if (!ObjectId.isValid(id)) {
-    return res.status(400).send('Invalid ID');
+    return res.status(400).send('Invalid ID'); //ran into issue with random things return as id
   }
   try {
     const db = await connection();
@@ -83,13 +83,13 @@ app.get('/favicon.ico', (req, res) => {
 app.post('/submit', async (req, res) => {
   const db = await connection();
   const form = req.body;
-  const result = await db.collection('forms').insertOne(form);
+  const result = await db.collection('forms').insertOne(form); //add user form data into database
   res.status(201).send({ id: result.insertedId });
 })
 
 app.get('/quotes', async (req, res) => {
   try {
-    const response = await axios.get('https://strangerthings-quotes.vercel.app/api/quotes/10');
+    const response = await axios.get('https://strangerthings-quotes.vercel.app/api/quotes/10'); //10 at the end provide me with 10 different quotes, without it it would only provide me with one
     const quotes = response.data;
     res.status(200).send(quotes);
   } catch (error) {
