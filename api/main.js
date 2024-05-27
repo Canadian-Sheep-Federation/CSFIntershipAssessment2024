@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('http://localhost:7000/starwars', {
                 method: 'POST',
-                mode: 'no-cors', // Set the mode to 'no-cors' to bypass CORS restrictions
+                // mode: 'no-cors', // Set the mode to 'no-cors' to bypass CORS restrictions
                 headers: {
                     'Content-Type': 'application/json',
                 },

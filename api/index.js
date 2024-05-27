@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -11,6 +12,9 @@ mongoose.connect('mongodb://localhost:27017/csf_skillassessment')
 
 // Middleware
 app.use(express.json()); // Parse JSON request bodies
+
+// CORS
+app.use(cors());
 
 // Form Schema
 const formSchema = new mongoose.Schema({
