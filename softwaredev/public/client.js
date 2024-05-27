@@ -204,7 +204,7 @@ function setSearchCatBtn() {
 
     //notify server that button was clicked
     fetch('/clickedsearch', {
-      method: 'POST',
+      method: 'GET',
       headers: {
         "Content-type": "application/json"
       },
@@ -222,11 +222,40 @@ function setSearchCatBtn() {
   });
 }
 
+function setGetSearchCatBtn() {
+  //click the save buton
+  searchBtn.addEventListener('click', function(e) {
+    console.log('search button was clicked');
+    var data = {
+      id: searchId.value
+    };
+    var params = new URLSearchParams({
+      id: searchId.value
+    }).toString();
+    //notify server that button was clicked
+    fetch('/clickedsearch/search?' + params,{
+      method: 'GET',
+      headers: {
+        "Content-type": "application/json"
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      var url = data["data"][0]["url"];
+      searchImg.src = url;
+    })
+    .catch(err=>{
+      console.log(err);
+    });
+  });
+}
+
 getCatCollection();
 
 setRandomCatBtn();
 setSaveCatBtn();
 setDeleteCatBtn();
 
-setSearchCatBtn();
+setGetSearchCatBtn();
 

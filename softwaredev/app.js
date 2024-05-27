@@ -137,14 +137,17 @@ function deleteCats() {
 
 function searchCats() {
     //save the cat information client desires and report back
-    app.post('/clickedsearch', (req, res) => {
+    app.get('/clickedsearch/search', (req, res) => {
         //get data from client in json
         console.log("clickedsearch");
-        json = req.body;
+        console.log(req.query);
+        const {id} = req.query
+        //json = req.body;
         //console.log(json);
-
-        findEntry(json["id"]).then(json => {
+        console.log(id);
+        findEntry(id).then(json => {
             console.log("searched datagbase");
+            console.log(json);
             return res.status(200).json({
                 ok:true,
                 data: json
