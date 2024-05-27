@@ -69,3 +69,17 @@
   margin-left: -290px;
 
 }
+
+.submit-review-button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.submit-review-button:hover {
+  background-color: #21a1f1;
+}

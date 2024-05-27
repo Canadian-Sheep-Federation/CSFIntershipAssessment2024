@@ -56,8 +56,12 @@ You must build a web application that:
 # Bonus Points
 
 ## Discuss how the application and api could be extended and improved
+- First thing I Would add is user authentication and allow users to create an account. The whole point of this website is to review movies you've like and seen however the issue is theres no way for a user to kep track of their reviewd movies. It would also be cool to see other user profiles and see the movies they've liked; almost as if its a social media website but for the discussion of movies.
+
+- First thing I would improve is possible using a different API, i noticed that it seems to only be giving me around 20 movies which is sufficent for this project but fo a full fledeged project using a better API would be ideal. I would also improve how I call API to only show movies you've reviewed however at this moment it just shows any random movie, meaning it may possibly show a movie you've already reviewd. This could be a simple fix of just keep track of movie i'ds and see if its in our review API list already.
 
 ## Discuss how the application and api should be deployed
+- I have a lot of experience working with django + react and the deployment is very simple. The django DRF could be deployed on Heroku or AWS. If its on AWS it would be  in a VM (EC2 instance) dockerised. The React frontend would be in a S3 bucket in.
 
 ## Intuitive design and user interface
 

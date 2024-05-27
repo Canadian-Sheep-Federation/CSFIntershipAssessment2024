@@ -8,7 +8,6 @@ const MovieList = () => {
   const [error, setError] = useState(null);
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState('');
-
   const [recommend, setRecommend] = useState('');
 
   const apiKey = '7c8e43c748baf4436c5e3963d9ad7666';
@@ -35,6 +34,25 @@ const MovieList = () => {
     fetchMovie();
   };
 
+  const handleSubmitReview = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/moviereviews/', {
+        movie_name: movie.title,  // Use movie title here
+        movie_review: description,
+        movie_rating: rating,
+        movie_recommendation: recommend,
+      });
+      console.log('Review submitted:', response.data);
+      setDescription('');
+      setRating('');
+      setRecommend('');
+
+      window.location.reload();
+    } catch (err) {
+      console.error('Error submitting review:', err);
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -47,29 +65,7 @@ const MovieList = () => {
     return <div>No movie found</div>;
   }
 
-
-  const handleSubmitReview = async () => {
-    try {
-      const response = await axios.post('YOUR_BACKEND_API_URL', {
-        movie_id: movie.id,
-        description,
-        rating,
-        recommend,
-      });
-      console.log('Review submitted:', response.data);
-      // Optionally, you can reset the form fields after successful submission
-      setDescription('');
-      setRating('');
-      setRecommend('');
-    } catch (err) {
-      console.error('Error submitting review:', err);
-    }
-  };
-
-
   const userReviewMovie = () => {
-
-
     const handleDescriptionChange = (e) => {
       setDescription(e.target.value);
     };
@@ -79,8 +75,8 @@ const MovieList = () => {
     };
 
     const handleRecommendChange = (e) => {
-      setRecommend(e.target.value)
-    }
+      setRecommend(e.target.value);
+    };
 
     return (
       <div className="user-review-container">
@@ -101,9 +97,8 @@ const MovieList = () => {
             <option value="5">5</option>
           </select>
         </div>
-
         <div className="recommendation-container">
-          <label htmlFor="recommendation">Would you recommend this movie?  </label>
+          <label htmlFor="recommendation">Would you recommend this movie?</label>
           <select id="recommendation" value={recommend} onChange={handleRecommendChange}>
             <option value="">Select recommendation</option>
             <option value="yes">Yes</option>
@@ -126,15 +121,9 @@ const MovieList = () => {
       <div className="movie-description">
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
-
-
         {userReviewMovie()}
-
         <button className="submit-review-button" onClick={handleSubmitReview}>Submit Movie Review</button>
-
-
       </div>
-
     </div>
   );
 };
