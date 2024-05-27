@@ -9,7 +9,43 @@
 </head>
 
 <body>
+    <h1>Star Wars Character Form</h1>
+    <form id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="favoriteMovie">Favorite Star Wars Movie:</label>
+        <select id="favoriteMovie" name="favoriteMovie" required title="Favorite Star Wars Movie">
+            <option value="1">The Phantom Menace</option>
+            <option value="2">Attack of the Clones</option>
+            <option value="3">Revenge of the Sith</option>
+            <option value="4">A New Hope</option>
+            <option value="5">The Empire Strikes Back</option>
+            <option value="6">Return of the Jedi</option>
+            <option value="7">The Force Awakens</option>
+            <option value="8">The Last Jedi</option>
+            <option value="9">The Rise of Skywalker</option>
+        </select><br><br>
+
+        <label for="favoriteMovieRating">Favorite Star Wars Movie Rating:</label>
+        <input type="range" id="favoriteMovieRating" name="favoriteMovieRating" min="0" max="10" required><br><br>
+
+        <label for="favoriteCharacter">Favorite Star Wars Character:</label>
+        <input type="text" id="favoriteCharacter" name="favoriteCharacter" required><br><br>
+
+        <label for="favoriteCharacterRating">Favorite Star Wars Character Rating:</label>
+        <input type="range" id="favoriteCharacterRating" name="favoriteCharacterRating" min="0" max="10" required><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    
 </body>
 
 </html>
