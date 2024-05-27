@@ -74,7 +74,7 @@ exports.login = async (req, res, next) => {
 
     // 2. Check if user exists and password is correct
     const user = await User.findOne({ email }).select("+password");
-    console.log(user);
+
     if (!user || !(await user.correctPassword(password, user.password))) {
       return res.status(401).json({
         status: "fail",
@@ -135,7 +135,6 @@ exports.protect = async (req, res, next) => {
 };
 
 exports.logout = (req, res) => {
-  console.log("loggin out");
   res.cookie("jwt", "loggedout", {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
