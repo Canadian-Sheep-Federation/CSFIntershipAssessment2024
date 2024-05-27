@@ -102,7 +102,7 @@ app.get('/starwars/:id', async (req, res) => {
         // Returns form corresponding to ID
         res.status(200).send({Form: form});
     } catch (err) {
-        res.status(500).send({message: "Internal Server Error: Form not in Database"}); // Error handling
+        res.status(500).send({message: "Internal Server Error: Failed to get from by ID"}); // Error handling
     }
 });
 
@@ -115,7 +115,22 @@ app.get('/starwars', async (req, res) => {
         // Returns all forms
         res.status(200).send({Forms: forms});
     } catch (err) {
-        res.status(500).send({message: "Internal Server Error: No Forms in Database"}); // Error handling
+        res.status(500).send({message: "Internal Server Error: Failed to get all forms"}); // Error handling
+    }
+});
+
+// Delete All Endpoint (For Debugging)
+app.delete('/starwars', async (req, res) => {
+    try {
+        // Delete all forms
+        await Form.deleteMany();
+
+        // Return success message
+        res.status(200).send({ message: 'All forms deleted successfully' });
+    } catch (err) {
+        // Handle errors
+        console.error(err);
+        res.status(500).send({ message: 'Internal Server Error: Failed to delete forms' });
     }
 });
 
