@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
     const responsesDiv = document.getElementById('responses');
+    const characterDiv = document.getElementById('characterInfo');
     const fetchCharacterButton = document.getElementById('fetchCharacter');
-    const characterDiv = document.getElementById('character');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const starships = await fetchStarships(character.starships); // Fetch starship names
             
             // Display character information
-            responsesDiv.innerHTML = 
+            characterDiv.innerHTML = 
                 `<div>
                     <p><strong>Name:</strong> ${character.name}</p>
                     <p><strong>Height:</strong> ${character.height} cm</p>
@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             return data.title;
         });
-        console.log(films);
         return (await Promise.all(films)).join(', ');
     }
 
@@ -116,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             return data.name;
         } catch {
-            return 'n/a';
+            return 'n/a'; //
         }
     }
 
