@@ -57,7 +57,15 @@ You must build a web application that:
 
 ## Discuss how the application and api could be extended and improved
 
+For this assessment, I decided to build a workout playlist generator. In my application, users can enter up to 5 genres, artists, or songs, as well as a lower and upper range of bpm (beats per minute) and receive a list of songs based on the entered preferences and tempo range. It makes use of a rest API built with node, express, and MongoDB, as well as the Spotify web API. A problem I ran into when developing this application was the security of Spotify's web API, which uses an OAuth 2.0 framework. Using the services of Spotify's web API requires an access token, which expires after one hour. Ideally, users could log in to spotify through the application itself in order to use the application. I also think the process of entering artists and songs could be more uer friendly. Currently, the endpoint for playlist recommendations can only use Spotify ID numbers for artists and tracks, but this could be solved by combining it with the search endpoint. Using the search endpoint, users can simply enter the name of a song or artist, and the and confirm the first result before submitting the form. Lastly, there are many error cases that should be handled by the application, such as making sure the minimum bpm is lower than the maximum bpm, and making sure the entered genre is valid.
+
 ## Discuss how the application and api should be deployed
+
+The following steps need to be taken to deploy this application:
+1. Choose a Hosting Provider: AWS Lambda or Herou would work well
+2. Configure the reverse proxy with Nginx
+3. Set up a continuous integration/deployment pipeline
+4. Make sure the database is set up properly and backed up
 
 ## Intuitive design and user interface
 
