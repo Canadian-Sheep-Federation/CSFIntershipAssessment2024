@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+// query the public api and get data from it
 function MovieSearch() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);

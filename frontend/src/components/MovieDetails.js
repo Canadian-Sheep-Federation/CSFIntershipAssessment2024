@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
+// displays movie details and associated form responses
 function MovieDetails() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -51,25 +52,8 @@ function MovieDetails() {
           </p>
         </div>
       )}
-      <h2 className="text-2xl font-bold mt-8 mb-4">Form Responses</h2>
-      {formResponses.length > 0 ? (
-        <ul>
-          {formResponses.map((response) => (
-            <li key={response._id}>
-              <a
-                href={`/response/${response._id}`}
-                className="text-blue-500 hover:underline"
-              >
-                {response.name}: {response.feedback}
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <h3>No Form Responses Yet...</h3>
-      )}
       <h2 className="text-2xl font-bold mt-8 mb-4">Submit a Response</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="flex flex-col" onSubmit={handleSubmit}>
         <input
           type="text"
           value={formData.name}
@@ -91,7 +75,7 @@ function MovieDetails() {
           onChange={(e) =>
             setFormData({ ...formData, feedback: e.target.value })
           }
-          className="border p-2 mb-2"
+          className="border p-2 mr-2 mb-2"
           placeholder="Feedback"
           required
         />
@@ -100,7 +84,7 @@ function MovieDetails() {
           value={formData.rating}
           onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
           className="border p-2 mr-2 mb-2"
-          placeholder="Rating (1-10)"
+          placeholder="Rating (0-10)"
           required
           min="0"
           max="10"
@@ -109,6 +93,23 @@ function MovieDetails() {
           Submit
         </button>
       </form>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Form Responses</h2>
+      {formResponses.length > 0 ? (
+        <ul>
+          {formResponses.map((response) => (
+            <li key={response._id}>
+              <a
+                href={`/response/${response._id}`}
+                className="text-blue-500 hover:underline"
+              >
+                {response._id}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h3>No Form Responses Yet...</h3>
+      )}
     </div>
   );
 }

@@ -6,7 +6,9 @@ import formRouter from "./routes/forms.js";
 
 const startServer = async () => {
   try {
+    // connect to db
     await connectDatabase();
+    // create server instance
     const app = express();
     // parse incoming req into json objects automatically
     app.use(express.json());
@@ -17,8 +19,9 @@ const startServer = async () => {
         credentials: false,
       })
     );
+    // add routes to server
     app.use(formRouter);
-
+    // start server on port
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
