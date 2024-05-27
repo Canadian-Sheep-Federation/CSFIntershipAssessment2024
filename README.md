@@ -29,6 +29,11 @@ npm install lite-server
 node server.js
 
 
+
+
+
+
+
 BONUS QUESTIONS:
 
 ------Discuss how the application and api could be extended and improved------
