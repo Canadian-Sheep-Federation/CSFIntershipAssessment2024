@@ -26,16 +26,11 @@
    - After installing dependencies, run the backend using `npm run start`.
    - This command will start the backend server on port 3000.
 
-   **Run Test**:
-
-   - After installing dependencies, run the backend using `npm test`.
-   - This command will execute all tests.
-
 ## Frontend Setup:
 
 Run `node index.js` at root folder
 
-3. ** Modify HOST variable in`script.js` **:
+5. ** Modify HOST variable in`script.js` **:
    set window.env to "production" mode if deployed to a production environment.
 
 ```javascript
@@ -45,3 +40,8 @@ HOST = "https://sheep-health-watch.onrender.com/api"
 // Switch to local URL
 HOST = "http://localhost:3000/api"
 ```
+
+## Run Tests:
+
+- After installing dependencies, run the backend using `npm test`.
+  - This command will execute all tests.

@@ -1,5 +1,18 @@
 # Project Overview: Sheep Health Watch
 
+## Summary
+
+- [Objective](#objective): The goal and purpose of the project.
+- [Key Features](#key-features): Major functionalities provided by the platform.
+- [Tech Stack](#tech-stack): Technologies and tools used in the project.
+- [Testing](#testing): Information about testing frameworks and practices.
+- [Deployment](#deployment): Details on where and how the project is deployed.
+- [Benefits](#benefits): Advantages and positive impacts of using the platform.
+- [API Improvements](#api-improvements): Planned enhancements for the API.
+- [Next Steps](#next-steps): Upcoming development plans and activities.
+- [Endpoint Documentation](EndpointDocumentation.md): Detailed information on API endpoints.
+- [Local Setup Guide](LocalSetupGuide.md): Instructions for setting up the project locally.
+
 ## Objective
 
 Sheep Health Watch is a web platform designed to enable farmers to report and monitor incidents of sick sheep in their community via an interactive map. The goal is to empower farmers with valuable insights and foster collaboration in managing sheep health, ultimately benefiting agricultural sustainability and productivity.
