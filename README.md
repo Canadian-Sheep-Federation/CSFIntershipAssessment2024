@@ -23,7 +23,8 @@ npm install express body-parser axios sqlite3
 
 npm install lite-server
 
-then run ---
+
+---- to start the server run the following and open a browser to localhost:3000 -----
 
 node server.js
 
