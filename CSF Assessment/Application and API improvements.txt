@@ -1,0 +1,3 @@
+How this API could be improved and extended would be to have in the response section have the name of the person in the survey and show the movie poster
+in the response section as the favourite movie they inputed into the favourite section. So when you get the responses it would instead show
+the name of the person and the movie poster of their favourite movie.
