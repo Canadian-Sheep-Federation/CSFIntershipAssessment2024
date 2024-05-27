@@ -44,19 +44,6 @@ app.post('/search', async (req, res) => {
   }
 });
 
-// POST /archive
-// Stores selected news articles in the database
-app.post('/archive', (req, res) => {
-  const { title, description, url, imageUrl, publishedAt } = req.body;
-  db.run("INSERT INTO news (title, description, url, imageUrl, publishedAt) VALUES (?, ?, ?, ?, ?)", 
-    [title, description, url, imageUrl, publishedAt], function(err) {
-      if (err) {
-        return res.status(500).json({ error: err.message });
-      }
-      res.status(201).json({ id: this.lastID });
-    });
-});
-
 // GET /
 // Returns all the news articles stored in the database
 app.get('/', (req, res) => {
@@ -106,16 +93,6 @@ app.get('/:id/comments', (req, res) => {
   });
 });
 
-// DELETE /
-// Deletes all news articles in the database
-app.delete('/', (req, res) => {
-  db.run("DELETE FROM news", [], function(err) {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.status(200).json({ message: 'All news articles deleted successfully' });
-  });
-});
 
 // Start the server
 const PORT = process.env.PORT || 3001; // Make sure the port is set to 3001
