@@ -90,7 +90,7 @@ Sheep Health Watch is a web platform designed to enable farmers to report and mo
 
 ### User Engagement and Feedback
 - Engage farmers in usability testing and gather feedback to refine system usability and functionality, ensuring alignment with user needs.
-- 
+
 ### Real-Time Notifications and Alerts
 - Develop real-time notification systems to promptly alert farmers about critical health issues or disease outbreaks in their vicinity, enabling swift responses.
 
