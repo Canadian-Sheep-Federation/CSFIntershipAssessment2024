@@ -1,15 +1,13 @@
-// config/db.js
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 
-// Define the SQL statement to create a new table named 'forms'
-const createTable = `CREATE TABLE IF NOT EXISTS forms (
+// Define the SQL statement to create a new table named 'songs'
+const createTable = `CREATE TABLE IF NOT EXISTS songs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  rating INTEGER NOT NULL,
-  comments TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  songName TEXT,
+  rating INTEGER,
+  comments TEXT
 )`;
 
 // Create a new SQLite database (stored in the 'database.sqlite' file)
