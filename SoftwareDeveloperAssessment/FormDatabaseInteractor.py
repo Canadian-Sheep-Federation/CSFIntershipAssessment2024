@@ -1,4 +1,5 @@
-import sqlite3
+# we will use sqlite3 for database management
+import sqlite3  
 
 
 def close_database(cursor, connection):
@@ -32,7 +33,7 @@ def create_database():
 
 """
     Precondition: entry_ id is an integer, first_name is a string, birthday is a string of form YYYY/MM/DD, 
-                    bio is a string, image is the file path of an image, FormDatabase.db already exists
+                    bio is a string, image is the url of an image, FormDatabase.db already exists
     Postcondition: inserts the entry into FormDatabase.db             
 """
 def insert_entry(entry_id, first_name, birthday, bio, image):
@@ -115,7 +116,7 @@ def get_max_entry_id():
         cursor.execute("SELECT MAX(entry_id) FROM form")
         max_entry_id = cursor.fetchone()[0]
 
-        # If max_entry_id is None (no entries), return 0, otherwise return the value
+        # if max_entry_id is None (no entries), return 0, otherwise return the value
         return max_entry_id if max_entry_id is not None else 0
 
     except sqlite3.Error:
@@ -130,7 +131,7 @@ def get_max_entry_id():
 if __name__ == "__main__":
     create_database()
     insert_entry(0, "Chris", "2003/01/03", "Hello world!", "tests/eren.jpg")
-    # print(get_entry(0))
+    print(get_entry(0))
     insert_entry(1, "Bob", "2004/04/07", "Bob's bio", "tests/eren.jpg")
     insert_entry(2, "Rob", "2005/09/15", "Rob's bio", "tests/eren.jpg")
     insert_entry(3, "Santa", "0300/12/25", "Happy holidays", "tests/santa.jpg")

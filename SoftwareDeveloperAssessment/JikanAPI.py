@@ -1,5 +1,5 @@
 """
-    The following is the implementation of the Jikan API, an unofficial MyAnimeList API from:
+    The following is an implementation of the Jikan API, an unofficial MyAnimeList API from:
     https://github.com/public-apis/public-apis
 
 """

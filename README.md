@@ -1,3 +1,4 @@
+# SOFTWARE DEVELOPER ASSESSMENT
 # HOW TO RUN THE CODE
 Run the following commands (replace pip with pip3 if needed):
 1. pip install requests
@@ -20,12 +21,13 @@ Once the form is successfully submitted, you can click "View Other Entries" page
 
 # ENDPOINTS
 1. /POST/ (i.e., http://127.0.0.1:5000/POST/) can accept a JSON with the following keys:
-   * "entry_id": integer (ensure it doesn't already exist)
+   * "entry_id": integer (ensure integer is greater than the number of entries already submitted)
    * "first_name": string
    * "birthday": string of the form "YYYY-MM-DD"
    * "bio": string
    * "image": URL of an image
-2. /GET/ (i.e., http://127.0.0.1:5000/GET/0, where 0 is the entry ID). Entry IDs can be found for each entry when you click "View Other Entries" on the form. If no entry ID is provided, all the entries will be shown.
+2. /GET/<entry_id> (i.e., http://127.0.0.1:5000/GET/0, where 0 is the entry ID). Entry IDs can be found for each entry when you click "View Other Entries" on the form. 
+3. /GET/ (i.e., http://127.0.0.1:5000/GET/, where no entry ID is provided). If no entry ID is provided, all the entries will be shown.
 
 # BONUS POINTS
 
