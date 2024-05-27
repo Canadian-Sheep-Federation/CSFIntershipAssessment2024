@@ -1,0 +1,41 @@
+<!-- HTML code, consists of form to submit location and serach for locations. Consists of fields name, description and category -->
+<!--created the google API key from google console-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps API Integration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQFXD6_nsJ45211XNvPVlyHSiIKxe__wk&callback=initMap" async defer></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Submit a Location</h1>
+        <form id="location-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea><br>
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="Restaurant">Restaurant</option>
+                <option value="Park">Park</option>
+                <option value="Museum">Museum</option>
+            </select><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h1>Search for a Place</h1>
+        <form id="search-form">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>Map</h2>
+        <div id="map"></div>
+    </div>
+</body>
+</html>
