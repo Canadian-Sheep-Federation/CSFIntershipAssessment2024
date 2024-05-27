@@ -2,6 +2,7 @@
 
 ## Summary
 
+- [1 Min UI & Endpoints Demo Video](https://youtu.be/rmdL0Khwxjc)
 - [Endpoint Documentation](EndpointDocumentation.md): Detailed information on API endpoints.
 - [Local Setup Guide](LocalSetupGuide.md): Instructions for setting up the project locally.
 - [Objective](#objective): The goal and purpose of the project.
