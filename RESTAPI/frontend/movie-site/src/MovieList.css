@@ -1,0 +1,85 @@
+.MovieList {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  background-color: #282c34;
+  color: white;
+  height: 100vh;
+}
+
+.movie-image {
+  flex: 1;
+  text-align: center;
+}
+
+.movie-image img {
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 5rem;
+}
+
+.movie-description {
+  flex: 2;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.movie-description h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.movie-description p {
+  font-size: 1.2em;
+}
+
+.new-movie-button {
+  margin-top: 1rem;
+}
+
+
+
+.user-review-container textarea {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rating-container label {
+  margin-right: 10px;
+}
+
+.rating-container input {
+  width: 50px;
+}
+
+.recommendation-container {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  resize: vertical;
+  margin-left: -290px;
+
+}
+
+.submit-review-button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.submit-review-button:hover {
+  background-color: #21a1f1;
+}
