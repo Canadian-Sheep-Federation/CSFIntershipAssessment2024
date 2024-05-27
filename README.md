@@ -16,7 +16,7 @@ In the folder CSFInternshipAssessment2024, run any of the following commands in 
 
 The terminal should have a line that looks something like this:
 
-- Running on http://127.0.0.1:5000 (the address is just an example)
+- Running on http://127.0.0.1:5000 (the address in the terminal may be different)
 
 Enter the URL that appears in the terminal in a web browser.
 
