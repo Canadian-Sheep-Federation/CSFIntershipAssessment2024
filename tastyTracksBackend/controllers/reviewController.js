@@ -99,8 +99,15 @@ exports.deleteReview = async (req, res) => {
 
 exports.createReview = async (req, res) => {
   try {
-    console.log("Creating review with data:", req.body); // Add this line
-    const newReview = await Review.create(req.body);
+    const newReview = await Review.create({
+      name: req.body.name,
+      username: req.body.username,
+      rating: req.body.rating,
+      review: req.body.review,
+      suggestion: req.body.suggestion,
+      imageCover: req.body.imageCover,
+    });
+
     res.status(201).json({
       status: "success",
       data: {
@@ -108,9 +115,8 @@ exports.createReview = async (req, res) => {
       },
     });
   } catch (err) {
-    console.error("Error creating review:", err); // Add this line
     res.status(400).json({
-      status: "failed",
+      status: "fail",
       message: err.message,
     });
   }
