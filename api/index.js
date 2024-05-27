@@ -33,11 +33,14 @@ app.listen(PORT, () => {
 
 // Post Endpoint
 app.post('/starwars_form', async (req, res) => {
+    // Takes in and stores form (should return ID)
     try {
-        // Takes in and stores form (should return ID)
+        // Generate form ID
+        const ID = forms.lengh + 1;
 
         // Read form data from request
         const form = new Form({
+            id: ID,
             name: req.body.name,
             email: req.body.email,
             age: req.body.age,
