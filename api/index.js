@@ -57,7 +57,7 @@ app.post('/starwars_form', async (req, res) => {
 
         res.status(200).send({message: 'Form created successfully'});
     } catch (err) {
-        res.status(400).send({message: 'Form creation failed'});
+        res.status(500).send({message: 'Internal Server Error: Form creation failed'});
     }
 });
 
@@ -70,7 +70,7 @@ app.get('/starwars_form/:id', async (req, res) => {
         // Returns form corresponding to ID
         res.status(200).send({Form: form});
     } catch (err) {
-        res.status(400).send(err); // Error handling
+        res.status(500).send({message: "Internal Server Error"}); // Error handling
     }
 });
 
@@ -83,7 +83,7 @@ app.get('/starwars_form', async (req, res) => {
         // Returns all forms
         res.status(200).send({Forms: forms});
     } catch (err) {
-        res.status(400).send(err); // Error handling
+        res.status(500).send({message: "Internal Server Error"}); // Error handling
     }
 });
 
