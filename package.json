@@ -1,0 +1,44 @@
+{
+	"name": "sheep-health-watch-be",
+	"version": "1.0.0",
+	"description": "A web application API for tracking sheep health",
+	"main": "server.js",
+	"type": "module",
+	"scripts": {
+		"server": "nodemon backend/server.js",
+		"start": "node backend/server.js",
+		"test": "cd backend && jest"
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"setupFilesAfterEnv": [
+			"<rootDir>/backend/jestSetup.js"
+		]
+	},
+	"keywords": [
+		"sheep",
+		"health",
+		"watch"
+	],
+	"author": "HagerCreativeContent",
+	"license": "MIT",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"dotenv-webpack": "^8.1.0",
+		"express": "^4.17.1",
+		"html-webpack-plugin": "^5.6.0",
+		"mongoose": "^6.0.12",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.6",
+		"@babel/preset-env": "^7.24.6",
+		"@babel/preset-react": "^7.24.6",
+		"babel-jest": "^29.7.0",
+		"jest": "^29.7.0",
+		"mongodb-memory-server": "^9.2.0",
+		"supertest": "^7.0.0"
+	}
+}

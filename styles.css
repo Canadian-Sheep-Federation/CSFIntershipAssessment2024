@@ -1,0 +1,113 @@
+:root {
+	--farm-green: #6c856f; /* Farm green */
+	--farm-rust: #a36a5a; /* Farm rust */
+	--farm-sand: #a49f79; /* Farm sand */
+	--farm-gray: #74848c; /* Farm gray */
+	--farm-dark-green: #476433; /* Farm dark green */
+}
+
+#map-container {
+	margin: 1rem 2rem;
+	height: 60vh;
+	width: 100%;
+}
+
+#map {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+
+	background-color: var(--farm-green);
+}
+h2,
+label {
+	font-family: "Montserrat", sans-serif;
+
+	color: white;
+}
+.navbar {
+	background-color: white !important;
+}
+
+.btn-primary,
+.btn-secondary {
+	position: relative;
+	overflow: hidden;
+	transition: background-color 0.3s, border-color 0.3s; /* Add transition for smooth effect */
+}
+
+.btn-primary {
+	background-color: var(--farm-dark-green) !important;
+	border-color: var(--farm-dark-green) !important;
+	width: auto;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+	filter: brightness(130%); /* Lighten the button on hover */
+}
+
+.btn-secondary {
+	width: auto;
+}
+.btn-warning {
+	background-color: var(--farm-sand) !important;
+	border-color: var(--farm-sand) !important;
+}
+
+.main-content {
+	height: calc(100vh - 56px);
+}
+
+.left-column,
+.right-column {
+	padding: 0;
+}
+
+#submit-report {
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.report-list {
+	overflow-y: auto;
+}
+
+.table thead {
+	background-color: var(--farm-gray);
+	color: white;
+}
+
+.table {
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+/* Make odd rows white */
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: white;
+}
+
+/* Make even rows sand color */
+.table-striped tbody tr:nth-of-type(even) {
+	background-color: var(--farm-sand);
+}
+
+.logo-img {
+	height: 5rem;
+	width: auto;
+}
+
+.form-check-input[type="checkbox"] {
+	margin-left: 0;
+}
+
+.form-check-label {
+	margin-left: 25px;
+}
