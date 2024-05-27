@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form and API Interaction</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <img src="/csf-api/images/nba logo.png" alt="Header Image" class="header-image">
+  </div>
+
+  <h2>Add Response</h2>
+  <form id="addResponseForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="favoriteTeam">Favorite Team:</label>
+    <input type="text" id="favoriteTeam" name="favoriteTeam" required><br><br>
+
+    <label for="favoritePlayer">Favorite Player:</label>
+    <input type="text" id="favoritePlayer" name="favoritePlayer" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>All Previous Responses</h2>
+  <button id="fetchResponses" type ="submit">Load Previous Responses</button>
+  <ul id="nba-data"></ul>
+
+  <h2>View Response by ID</h2>
+  <label for="name">Response ID:</label>
+  <input type="text" id="responseId" name="name" required><br><br>
+  <button id="IDResponse" type ="submit">Load Response</button>
+  <ul id="singleResponse"></ul>
+
+  <br><br>
+  
+  <h2>Fetch NBA Players by Team and Season</h2>
+  <form id="nba-form">
+    <select id="team" name="team" required>
+      <option value="">Select a team</option>
+      <!-- Populated dynamically in the JS -->
+    </select><br>
+    <input type="text" id="season" name="season" placeholder="Season (e.g., 2021)" required><br>
+    <label>Select Data:</label><br>
+    <div id="players">
+      <!-- Populated dynamically in the JS -->
+    </div>
+    <button type="submit">Fetch Players</button>
+  </form>
+  <ul id="nba-players"></ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
