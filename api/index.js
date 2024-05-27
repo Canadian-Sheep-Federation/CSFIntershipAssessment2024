@@ -33,7 +33,7 @@ app.listen(PORT, () => {
 });
 
 // Post Endpoint
-app.post('/starwars_form', async (req, res) => {
+app.post('/starwars', async (req, res) => {
     // Takes in and stores form (should return ID)
     try {
         // Generate form ID
@@ -62,7 +62,7 @@ app.post('/starwars_form', async (req, res) => {
 });
 
 // Get ID Endpoint
-app.get('/starwars_form/:id', async (req, res) => {
+app.get('/starwars/:id', async (req, res) => {
     try {
         // Find form by ID
         const form = await Form.findById(req.params.id);
@@ -70,20 +70,20 @@ app.get('/starwars_form/:id', async (req, res) => {
         // Returns form corresponding to ID
         res.status(200).send({Form: form});
     } catch (err) {
-        res.status(500).send({message: "Internal Server Error"}); // Error handling
+        res.status(500).send({message: "Internal Server Error: Form not in Database"}); // Error handling
     }
 });
 
 // Get All Endpoint
-app.get('/starwars_form', async (req, res) => {
+app.get('/starwars', async (req, res) => {
     try {
         // Get all forms
-        const forms = await Form.find();
+        const forms = await Form.find().select('-__v -_id');;
 
         // Returns all forms
         res.status(200).send({Forms: forms});
     } catch (err) {
-        res.status(500).send({message: "Internal Server Error"}); // Error handling
+        res.status(500).send({message: "Internal Server Error: No Forms in Database"}); // Error handling
     }
 });
 
