@@ -1,5 +1,7 @@
 # Endpoints Documentation
 
+This documentation provides details about the available endpoints, their request methods, URLs, request parameters (if any), request body (if applicable), and possible response statuses and bodies.
+
 - HOST_URL= https://sheep-health-watch.onrender.com/
 
 ## GET /api/health-reports/
@@ -124,5 +126,3 @@
       ```
 
 ---
-
-This documentation provides details about the available endpoints, their request methods, URLs, request parameters (if any), request body (if applicable), and possible response statuses and bodies.

@@ -2,16 +2,14 @@
 
 ## Summary
 
-- [Objective](#objective): The goal and purpose of the project.
-- [Key Features](#key-features): Major functionalities provided by the platform.
-- [Tech Stack](#tech-stack): Technologies and tools used in the project.
-- [Testing](#testing): Information about testing frameworks and practices.
-- [Deployment](#deployment): Details on where and how the project is deployed.
-- [Benefits](#benefits): Advantages and positive impacts of using the platform.
-- [API Improvements](#api-improvements): Planned enhancements for the API.
-- [Next Steps](#next-steps): Upcoming development plans and activities.
 - [Endpoint Documentation](EndpointDocumentation.md): Detailed information on API endpoints.
 - [Local Setup Guide](LocalSetupGuide.md): Instructions for setting up the project locally.
+- [Objective](#objective): The goal and purpose of the project.
+- [Key Features](#key-features): Major functionalities provided by the platform.
+- [Benefits](#benefits)
+- [Tech Stack](#tech-stack): Technologies and tools used.
+- [API Improvements](#api-improvements): Planned enhancements for the API.
+- [Next Steps](#next-steps): Upcoming development plans and activities.
 
 ## Objective
 
@@ -70,14 +68,14 @@ Sheep Health Watch is a web platform designed to enable farmers to report and mo
 - Utilized the **[Google Maps API](https://developers.google.com/maps/documentation)** for mapping and incorporating map markers.
 - Implemented address verification through the **[Nominatim API](https://nominatim.org/release-docs/latest/api/Search/)**.
 
-## Testing
+### Testing
 
 - Unit tests to ensure the correctness of the API endpoints.
 - Testing is done using [Jest](https://jestjs.io/) as the testing framework along with [Supertest](https://github.com/visionmedia/supertest) for making HTTP requests to the API.
 
-## Deployment
+### Deployment
 
-- onRender.com
+- Hosted onRender.com
 
 ## API Improvements
 
