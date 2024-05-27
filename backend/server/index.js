@@ -4,6 +4,7 @@ const PORT = process.env.PORT;
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const formRoute = require('../routes/forms');
+const db = require('../config/db');
 
 const app = express();
 
@@ -28,3 +29,8 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
+// Closing the server
+process.on("SIGINT", () => {
+  db.close();
+  process.exit();
+});

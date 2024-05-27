@@ -22,13 +22,7 @@ export default function Form({ togglePanes }) {
 
     return (
         <div className="max-w-md mx-auto">
-            <button
-                type="button"
-                onClick={() => togglePanes('search')}
-                className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-6"
-            >
-                Back to search
-            </button>
+
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Song Name:</label>

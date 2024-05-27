@@ -2,6 +2,34 @@ const express = require('express');
 const db = require('../config/db');
 const router = express.Router();
 
+// GET all reviews
+router.get("/", (req, res) => {
+    const sql = "SELECT * FROM songs";
+    db.all(sql, [], (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.json(rows);
+    });
+  });
+  
+  // GET review by ID
+  router.get("/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM songs WHERE id = ?";
+    db.get(sql, [id], (err, row) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      if (!row) {
+        res.status(404).json({ message: "Review not found" });
+        return;
+      }
+      res.json(row);
+    });
+  });
 
 
 router.post("/", async (req, res) => {
@@ -41,4 +69,5 @@ router.post("/", async (req, res) => {
       res.status(500).json({ status: 500, success: false, error: err });
     }
   });
+
 module.exports = router;

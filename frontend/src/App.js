@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./components/search/Search";
-import Form from "./components/review/Form"; 
+import Form from "./components/Form"; 
+import Reviews from "./components/Reviews";
 
 export default function App() {
   const [data, setData] = React.useState(null);
@@ -35,11 +36,20 @@ export default function App() {
   }
 
   return (
-    <div className="flex mt-4 justify-center">
-      {isForm && <Form togglePanes={togglePanes} />}
-      {isReviews && <Form togglePanes={togglePanes} />}
-      {isSearch && <Search togglePanes={togglePanes} />}
-      <p>{!data ? "Loading..." : data}</p>
+    <div className="">
+      {isSearch === false && (
+        <button
+          onClick={() => togglePanes("search")}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-2"
+        >
+          Back
+        </button>
+      )}
+      <div className="flex mt-4 justify-center">
+        {isForm && <Form togglePanes={togglePanes} />}
+        {isReviews && <Reviews togglePanes={togglePanes} />}
+        {isSearch && <Search togglePanes={togglePanes} />}
+      </div>
     </div>
   );
 }

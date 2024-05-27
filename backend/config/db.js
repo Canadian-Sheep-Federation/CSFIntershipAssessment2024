@@ -10,7 +10,6 @@ const createTable = `CREATE TABLE IF NOT EXISTS songs (
   comments TEXT
 )`;
 
-// Create a new SQLite database (stored in the 'database.sqlite' file)
 const db = new sqlite3.Database(path.resolve(__dirname, '../data/database.sqlite'), (err) => {
   if (err) {
     console.error('Failed to connect to the database.', err.message);
