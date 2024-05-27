@@ -31,8 +31,7 @@
 Run `node index.js` at root folder
 
 5. ** Modify HOST variable in`script.js` **:
-   set window.env to "production" mode if deployed to a production environment.
-
+   
 ```javascript
 // When in Production, hosted in render
 HOST = "https://sheep-health-watch.onrender.com/api"
