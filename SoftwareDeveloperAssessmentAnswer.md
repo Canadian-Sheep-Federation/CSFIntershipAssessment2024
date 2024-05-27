@@ -75,6 +75,27 @@ Ensure you have the following installed on your machine:
       - To stop the API, press `Ctrl + C` in the terminal where the API is running.
       - To stop the frontend, press `Ctrl + C` in the terminal where the frontend is running.
 
+7. **Build and Deploy:**
+
+    *Build the .NET API*
+
+    ```bash
+    cd API
+    dotnet publish -c Release -o ./publish
+    ```
+
+    *Build the Vite project*
+
+    ```bash
+    cd client-app
+    npm run build
+    ```
+
+    *Deploy the application*
+
+    - Copy the contents of `my-vite-app/dist` to the `publish/wwwroot` folder of the .NET API.
+    - Host the .NET API (e.g., using IIS, Docker, or any cloud provider).
+
 ## Additional Notes
 
 - The API is built using .NET Core and Entity Framework Core with SQLite as the database.
