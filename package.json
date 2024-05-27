@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm-run-all --parallel start:frontend start:backend",
+    "start:frontend": "cd frontend && npm run start",
+    "start:backend": "cd backend && nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.3",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "@firebase/firestore": "^4.4.2",
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^11.0.5"
+  }
+}
