@@ -21,6 +21,7 @@ Ensure you have the following installed on your machine:
     ```bash
     git checkout nick-submission-for-software-dev
     ```
+    
 2. **Run the API:**
 
    - Navigate to the `API` directory:
