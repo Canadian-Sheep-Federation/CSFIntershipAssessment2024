@@ -25,7 +25,7 @@ Sheep Health Watch is a web platform designed to enable farmers to report and mo
 
 ### Interactive Map Display
 
-- Farmers' locations are pinned on the map with markers based on the submitted reports.
+- Farms locations are pinned on the map with markers based on the submitted reports.
 - Clicking on a marker displays detailed information about the farm, including the latest reports on sheep health.
 
 ### Mobile-Friendly Interface
