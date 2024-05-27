@@ -4,10 +4,28 @@ If you are interested in an internship opportunity with the Canadian Sheep Feder
 
 E.g. those interested in QA should complete the QA assignment.
 
-# How To Run
+# Deployment Instructions
+
+- chosen public api: https://www.omdbapi.com/
+
+Since the database is hosted in the cloud, it may be difficult to access the mongodb cluster since mongodb only allows access to specific ip addresses for security reasons. Either contact the repo owner for your ip address to be added or create your own free cluster on mongodb atlas. If going with the second option, the .env file should be updated with your mongodb cluster link.
+
+Github link: https://github.com/ArmaanMohar/CSFIntershipAssessment2024
+
+1. Download and unzip the package from the above URL or use git clone.
+   1. Make sure npm is first installed to install required packages.
+2. CD into /frontend/ from command line
+3. npm i (installs required packages)
+4. npm start
+   1. the frontend should be running on http://localhost:3000/
+5. CD into /backend/ from command line
+6. npm i (installs required packages)
+7. node app.js
+   1. the backend server should be running on http://localhost:3001/
+8. go on a browser of your choice and go to http://localhost:3000/
 
 - API keys and Ports may be needed to be changed accordingly.
-- You will not have access to the database without contacting me to add your IP address to a whitelist of trusted connections.
+- You will not have access to the database without contacting me to add your IP address to a whitelist of trusted IPs.
 
 # Bonus Points
 
