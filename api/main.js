@@ -49,8 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const character = await response.json(); // Extract JSON data from response
 
-            console.log(character);
-
+            const homeworld = await fetchHomeworld(character.homeworld); // Fetch homeworld name
+            const films = await fetchFilms(character.films); // Fetch film names
+            const species = await fetchSpecies(character.species); // Fetch species names
+            const vehicles = await fetchVehicles(character.vehicles); // Fetch vehicle names
+            const starships = await fetchStarships(character.starships); // Fetch starship names
+            
             // Display character information
             responsesDiv.innerHTML = 
                 `<div>
@@ -62,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>Eye Color:</strong> ${character.eye_color}</p>
                     <p><strong>Birth Year:</strong> ${character.birth_year}</p>
                     <p><strong>Gender:</strong> ${character.gender}</p>
-                    <p><strong>Homeworld:</strong> <a href="${character.homeworld}" target="_blank">Link</a></p>
-                    <p><strong>Films:</strong> ${character.films.map(film => `<a href="${film}" target="_blank">Link</a>`).join(', ')}</p>
-                    <p><strong>Species:</strong> ${character.species.length ? character.species.map(species => `<a href="${species}" target="_blank">Link</a>`).join(', ') : 'n/a'}</p>
-                    <p><strong>Vehicles:</strong> ${character.vehicles.length ? character.vehicles.map(vehicle => `<a href="${vehicle}" target="_blank">Link</a>`).join(', ') : 'n/a'}</p>
-                    <p><strong>Starships:</strong> ${character.starships.length ? character.starships.map(starship => `<a href="${starship}" target="_blank">Link</a>`).join(', ') : 'n/a'}</p>
+                    <p><strong>Homeworld:</strong> ${homeworld}</p>
+                    <p><strong>Films:</strong> ${films}</p>
+                    <p><strong>Species:</strong> ${species}</p>
+                    <p><strong>Vehicles:</strong> ${vehicles}</p>
+                    <p><strong>Starships:</strong> ${starships}</p>
                     <p><strong>Created:</strong> ${new Date(character.created).toLocaleString()}</p>
                     <p><strong>Edited:</strong> ${new Date(character.edited).toLocaleString()}</p>
                 </div>`;
@@ -75,6 +79,56 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching character:', err);
         }
     });
+
+    async function fetchHomeworld(planetUrl) { // Fetch homeworld name
+        try {
+            const response = await fetch(planetUrl);
+            const data = await response.json();
+            return data.name;
+        } catch {
+            return 'n/a';
+        }
+    }
+
+    async function fetchFilms(filmUrls) { // Fetch film name
+        const films = filmUrls.map(async (filmUrl) => {
+            const response = await fetch(filmUrl);
+            const data = await response.json();
+            return data.title;
+        });
+        console.log(films);
+        return (await Promise.all(films)).join(', ');
+    }
+
+    async function fetchSpecies(speciesUrl) { // Fetch species name
+        try {
+            const response = await fetch(speciesUrl);
+            const data = await response.json();
+            return data.name;
+        } catch {
+            return 'n/a';
+        }
+    }
+
+    async function fetchVehicles(vehicleUrl) { // Fetch vehicle name
+        try {
+            const response = await fetch(vehicleUrl);
+            const data = await response.json();
+            return data.name;
+        } catch {
+            return 'n/a';
+        }
+    }
+
+    async function fetchStarships(starshipUrl) { // Fetch starship name
+        try { 
+            const response = await fetch(starshipUrl);
+            const data = await response.json();
+            return data.name;
+        } catch {
+            return 'n/a';
+        }
+    }
 
     // Fetch All Forms
     async function fetchAllForms() {
