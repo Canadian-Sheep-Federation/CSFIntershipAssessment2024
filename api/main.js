@@ -7,16 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = {
             name: formData.get('name'),
             email: formData.get('email'),
-            age: formData.get('age'),
+            age: parseInt(formData.get('age')),
             favoriteStarWarsMovie: formData.get('favoriteMovie'),
-            favoriteStarWarsMovieRating: formData.get('movieRating'),
+            favoriteStarWarsMovieRating: parseInt(formData.get('movieRating')),
             favoriteStarWarsCharacter: formData.get('favoriteCharacter'),
-            favoriteStarWarsCharacterRating: formData.get('characterRating'),
+            favoriteStarWarsCharacterRating: parseInt(formData.get('characterRating')),
         };
 
         try {
             const response = await fetch('http://localhost:7000/starwars', {
                 method: 'POST',
+                mode: 'no-cors', // Set the mode to 'no-cors' to bypass CORS restrictions
                 headers: {
                     'Content-Type': 'application/json',
                 },
