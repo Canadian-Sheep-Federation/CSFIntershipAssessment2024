@@ -5,12 +5,21 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import StarRating from "../Star/StarRating";
 import styles from "./RestaurantReviews.module.css";
 import { useAuth } from "../../AuthContext ";
+import EditReview from "../EditReview/EditReview";
+import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../constants";
 
 const RestaurantReviews = ({ onCloseRestaurant }) => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [editingReviewId, setEditingReviewId] = useState(null); // Track which review is being edited
+  const [editingReviewId, setEditingReviewId] = useState(null);
+  const [editForm, setEditForm] = useState({
+    rating: 0,
+    review: "",
+    suggestion: "",
+  });
+  const navigate = useNavigate();
   const { user, isLoggedIn } = useAuth();
 
   useEffect(() => {
@@ -31,17 +40,45 @@ const RestaurantReviews = ({ onCloseRestaurant }) => {
     fetchReviews();
   }, []);
 
-  const handleEdit = (reviewId) => {
-    setEditingReviewId(reviewId);
-    console.log(`Edit review with id: ${reviewId}`);
-    // Implement the edit functionality
+  const handleEdit = (review) => {
+    setEditingReviewId(review._id);
+    setEditForm({
+      rating: review.rating,
+      review: review.review,
+      suggestion: review.suggestion,
+    });
+  };
+
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.patch(
+        `http://localhost:8000/api/v1/reviews/${editingReviewId}`,
+        editForm
+      );
+      setReviews(
+        reviews.map((review) =>
+          review._id === editingReviewId ? { ...review, ...editForm } : review
+        )
+      );
+      setEditingReviewId(null);
+      setEditForm({ rating: 0, review: "", suggestion: "" });
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const handleDelete = async (reviewId) => {
-    console.log(`Delete review with id: ${reviewId}`);
     try {
-      await axios.delete(`http://localhost:8000/api/v1/reviews/${reviewId}`);
-      setReviews(reviews.filter((review) => review._id !== reviewId));
+      await axios.delete(`${API_BASE_URL}/reviews/${reviewId}`);
     } catch (err) {
       setError(err.message);
     }
@@ -52,7 +89,9 @@ const RestaurantReviews = ({ onCloseRestaurant }) => {
 
   return (
     <div>
-      <button onClick={onCloseRestaurant}>&larr;</button>
+      <button className={styles.btnBack} onClick={() => navigate("/app")}>
+        &larr;
+      </button>
       <h2 className={styles.reviews}>All Restaurant Reviews</h2>
       {reviews.length === 0 ? (
         <p>No reviews yet. Be the first to review!</p>
@@ -66,21 +105,33 @@ const RestaurantReviews = ({ onCloseRestaurant }) => {
                 )}
               </div>
               <div className={styles.reviewContent}>
-                <h3>
-                  {review.name} by {review.username}
-                </h3>
-                <StarRating
-                  rating={review.rating}
-                  setRating={() => {}} // Not updating rating
-                  maxRating={5}
-                  disabled={editingReviewId !== review._id} // Disable if not editing
-                />
-                <p>Review: {review.review}</p>
-                <p>Suggestions: {review.suggestion}</p>
+                {editingReviewId === review._id ? (
+                  <EditReview
+                    onReviewUpdate={handleUpdate}
+                    editForm={editForm}
+                    onInputChange={handleEditChange}
+                    setEditForm={setEditForm}
+                    setEditingReviewId={setEditingReviewId}
+                  />
+                ) : (
+                  <>
+                    <h3>
+                      {review.name} by {review.username}
+                    </h3>
+                    <StarRating
+                      rating={review.rating}
+                      setRating={() => {}}
+                      maxRating={5}
+                      disabled
+                    />
+                    <p>Review: {review.review}</p>
+                    <p>Suggestions: {review.suggestion}</p>
+                  </>
+                )}
               </div>
-              {user?.name === review.username && (
+              {user?.name === review.username && !editingReviewId && (
                 <div className={styles.actions}>
-                  <button onClick={() => handleEdit(review._id)}>Edit</button>
+                  <button onClick={() => handleEdit(review)}>Edit</button>
                   <button onClick={() => handleDelete(review._id)}>
                     Delete
                   </button>

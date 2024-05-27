@@ -112,3 +112,7 @@ button[type="submit"]:hover {
 .btnAdd {
   background-color: #cc8646;
 }
+.btnBack {
+  padding: 2rem;
+  background-color: #ffa857;
+}

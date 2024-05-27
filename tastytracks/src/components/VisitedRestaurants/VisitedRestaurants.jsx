@@ -3,15 +3,23 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import StarRating from "../Star/StarRating";
+import EditReview from "../EditReview/EditReview";
 import styles from "./VisitedRestaurants.module.css";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthContext ";
+import { API_BASE_URL } from "../../constants";
 
 const VisitedRestaurants = ({ onCloseRestaurant }) => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [editingReviewId, setEditingReviewId] = useState(null);
+  const [editForm, setEditForm] = useState({
+    rating: 0,
+    review: "",
+    suggestion: "",
+  });
   const { user, isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
@@ -19,9 +27,7 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
     const fetchReviews = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(
-          `http://localhost:8000/api/v1/reviews`
-        );
+        const response = await axios.get(`${API_BASE_URL}/reviews`);
         setReviews(response.data.data.reviews);
       } catch (err) {
         setError(err.message);
@@ -33,15 +39,42 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
     fetchReviews();
   }, []);
 
-  const handleEdit = (reviewId) => {
-    console.log(`Edit review with id: ${reviewId}`);
-    // Implement the edit functionality
+  const handleEdit = (review) => {
+    setEditingReviewId(review._id);
+    setEditForm({
+      rating: review.rating,
+      review: review.review,
+      suggestion: review.suggestion,
+    });
+  };
+
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.patch(`${API_BASE_URL}/reviews/${editingReviewId}`, editForm);
+      setReviews(
+        reviews.map((review) =>
+          review._id === editingReviewId ? { ...review, ...editForm } : review
+        )
+      );
+      setEditingReviewId(null);
+      setEditForm({ rating: 0, review: "", suggestion: "" });
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const handleDelete = async (reviewId) => {
-    console.log(`Delete review with id: ${reviewId}`);
     try {
-      await axios.delete(`http://localhost:8000/api/v1/reviews/${reviewId}`);
+      await axios.delete(`${API_BASE_URL}/reviews/${reviewId}`);
       setReviews(reviews.filter((review) => review._id !== reviewId));
     } catch (err) {
       setError(err.message);
@@ -51,7 +84,6 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
   if (isLoading) return <Loader />;
   if (error) return <ErrorMessage message={error} />;
 
-  // Filter reviews to show only those posted by the logged-in user
   const userReviews = reviews.filter(
     (review) => review.username === user?.name
   );
@@ -72,22 +104,36 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
                 )}
               </div>
               <div className={styles.reviewContent}>
-                <h3>
-                  {review.name} by {review.username}
-                </h3>
-                <StarRating
-                  rating={review.rating}
-                  setRating={() => {}} // Not updating rating
-                  maxRating={5}
-                  disabled={true} // Disable the rating component
-                />
-                <p>Review: {review.review}</p>
-                <p>Suggestions: {review.suggestion}</p>
+                {editingReviewId === review._id ? (
+                  <EditReview
+                    editForm={editForm}
+                    setEditForm={setEditForm}
+                    onReviewUpdate={handleUpdate}
+                    onInputChange={handleEditChange}
+                    setEditingReviewId={setEditingReviewId}
+                  />
+                ) : (
+                  <>
+                    <h3>
+                      {review.name} by {review.username}
+                    </h3>
+                    <StarRating
+                      rating={review.rating}
+                      setRating={() => {}}
+                      maxRating={5}
+                      disabled={true}
+                    />
+                    <p>Review: {review.review}</p>
+                    <p>Suggestions: {review.suggestion}</p>
+                  </>
+                )}
               </div>
-              <div className={styles.actions}>
-                <button onClick={() => handleEdit(review._id)}>✏️</button>
-                <button onClick={() => handleDelete(review._id)}>❌</button>
-              </div>
+              {user?.name === review.username && !editingReviewId && (
+                <div className={styles.actions}>
+                  <button onClick={() => handleEdit(review)}>✏️</button>
+                  <button onClick={() => handleDelete(review._id)}>❌</button>
+                </div>
+              )}
             </div>
           ))}
         </div>

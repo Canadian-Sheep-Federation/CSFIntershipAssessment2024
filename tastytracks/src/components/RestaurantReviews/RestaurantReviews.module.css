@@ -12,15 +12,14 @@
 
 .reviewItem {
   display: grid;
-  grid-template-columns: 100px auto 80px; /* Adjust columns for image, content, and actions */
+  grid-template-columns: 100px auto 80px;
   gap: 20px;
   background-color: white;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.starRating {
-}
+
 .image img {
   width: 100%;
   height: auto;
@@ -60,4 +59,11 @@
 
 .actions button:hover {
   background-color: #ff1744;
+}
+
+.btnBack {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
 }

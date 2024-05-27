@@ -2,7 +2,8 @@ import axios from "axios";
 
 const FOURSQUARE_API_URL = "https://api.foursquare.com/v3/places/search";
 export const FOURSQUARE_PHOTOS_URL = "https://api.foursquare.com/v3/places";
-const FOURSQUARE_API_KEY = "fsq3XgAPexJIK4N40IpVZveKt65s9eBCxYoLkzIfgFBdlAw=";
+// const FOURSQUARE_API_KEY = process.env.REACT_APP_FOURSQUARE_API_KEY;
+console.log(FOURSQUARE_API_KEY);
 const FOURSQUARE_PLACE_DETAILS_URL = "https://api.foursquare.com/v3/places";
 
 const foursquareRequest = async (params) => {

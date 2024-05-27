@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import StarRating from "../Star/StarRating";
-
 import styles from "./RestaurantDetails.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAuth } from "../../AuthContext ";
+
 import { getPlaceDetails, getPlacePhotos } from "../../foursquareApi";
+import { useAuth } from "../../AuthContext ";
+import { API_BASE_URL } from "../../constants";
 
 const RestaurantDetails = ({
   selectedId,
@@ -64,7 +65,9 @@ const RestaurantDetails = ({
     };
 
     try {
-      await axios.post("http://localhost:8000/api/v1/reviews", newReview);
+      await axios.post(`${API_BASE_URL}/reviews`, newReview, {
+        withCredentials: true,
+      });
       console.log("Review submitted:", newReview);
 
       onAddReviewed(newReview);
@@ -95,7 +98,7 @@ const RestaurantDetails = ({
   const imageUrl =
     details.photos && details.photos.length > 0
       ? `${details.photos[0].prefix}original${details.photos[0].suffix}`
-      : "default-image-url.jpg"; // Provide a default image URL if not available
+      : "default-image-url.jpg";
 
   return (
     <div className={styles.details}>
@@ -120,11 +123,11 @@ const RestaurantDetails = ({
       </div>
 
       <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles["form-group"]}>
+        <div className={styles.formGroup}>
           <label>Rating:</label>
           <StarRating rating={rating} setRating={setRating} maxRating={5} />
         </div>
-        <div className={styles["form-group"]}>
+        <div className={styles.formGroup}>
           <label>Review:</label>
           <textarea
             value={review}
@@ -132,7 +135,7 @@ const RestaurantDetails = ({
             required
           />
         </div>
-        <div className={styles["form-group"]}>
+        <div className={styles.formGroup}>
           <label>Suggestions:</label>
           <textarea
             value={suggestion}
@@ -141,10 +144,7 @@ const RestaurantDetails = ({
         </div>
         <button type="submit">Submit</button>
       </form>
-      <button
-        onClick={() => navigate("/restaurants")}
-        className={styles.btnViewReviews}
-      >
+      <button onClick={handleViewReviews} className={styles.btnViewReviews}>
         View What Others Have to Say
       </button>
     </div>

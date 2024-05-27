@@ -9,13 +9,12 @@ const Reviews = () => {
     <div>
       <PageNav />
       <h2>Reviews for {name}</h2>
-      {/* {rating && ( */}
+
       <div>
         <h3>Rating: {rating}</h3>
         <p>Review: {review}</p>
         <p>Suggestions: {suggestion}</p>
       </div>
-      {/* )} */}
     </div>
   );
 };

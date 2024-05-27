@@ -3,7 +3,7 @@ const Restaurant = ({ restaurant, onSelectRestaurant }) => {
   const imageUrl =
     restaurant.photos.length > 0
       ? `${restaurant.photos[0].prefix}original${restaurant.photos[0].suffix}`
-      : "../public/default-image-url.jpg"; // Provide a default image URL if not available
+      : "../public/default-image-url.jpg";
   const location =
     `📌 ${restaurant.location?.formatted_address}` || "No address provided";
 
