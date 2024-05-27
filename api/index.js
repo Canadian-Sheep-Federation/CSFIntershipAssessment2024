@@ -82,7 +82,7 @@ app.post('/starwars', async (req, res) => {
         // Save form to database
         await form.save();
 
-        res.status(200).send({message: 'Form created successfully'});
+        res.status(200).send({message: 'Form created successfully', id: form.id });
     } catch (err) {
         res.status(500).send({message: 'Internal Server Error: Form creation failed'});
     }
