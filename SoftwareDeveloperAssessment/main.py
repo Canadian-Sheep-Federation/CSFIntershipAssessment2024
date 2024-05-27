@@ -51,6 +51,7 @@ def form_page():
 # retrieve specific entry from database
 @app.route("/GET/<entry_id>")
 def get_entry(entry_id):
+    FormDatabaseInteractor.create_database()
     entry = FormDatabaseInteractor.get_entry(entry_id)
     if entry:
         return jsonify(entry), 200
@@ -61,6 +62,7 @@ def get_entry(entry_id):
 # retrieve all entries from database
 @app.route("/GET/")
 def get_all_entries():
+    FormDatabaseInteractor.create_database()
     entry = FormDatabaseInteractor.get_all_entries()
     if entry:
         return jsonify(entry), 200
@@ -69,6 +71,7 @@ def get_all_entries():
 
 @app.route("/POST/", methods=["POST"])
 def insert_entry():
+    FormDatabaseInteractor.create_database()
     data = request.get_json()
     status = FormDatabaseInteractor.insert_entry(data["entry_id"], data["first_name"],
                                                  data["birthday"], data["bio"], data["image"])
@@ -81,6 +84,7 @@ def insert_entry():
 # page responsible for viewing all entries
 @app.route("/other-entries")
 def other_entries_page():
+    FormDatabaseInteractor.create_database()
     all_entries = FormDatabaseInteractor.get_all_entries()
     return render_template("other_entries.html", entries=all_entries)
 
