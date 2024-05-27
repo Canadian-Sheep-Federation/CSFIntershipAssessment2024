@@ -12,22 +12,26 @@ Source: https://www.health.harvard.edu/blog/can-the-weather-really-worsen-arthri
 
 ### Instructions
 
-To run the backend, ensure you're in the root folder, and then run:
+First, install node modules by running these commands:
 ```bash
+cd arthritisAPI
+npm install
+```
+
+To run the backend:
+```bash
+cd src
 node server.js
 ```
 
-This sets up the server for the endpoints. It's defaulted to run on port 8080, however you can chamge this in the code if you would like to.
+This sets up the server for the endpoints. It's defaulted to run on port 8080, however you can change this in the code if you would like to.
 
-To get the front end running, run these commands in your terminal:
-
+To get the front end running, open a new terminal window/tab connected to the src folder and enter this command in your terminal:
 ```bash
-npm install
-cd src
 npm run dev
 ```
 
-Now go to "localhost:5173" in your web browser (preferably Google Chrome as I have not tested in any others).
+Now go to "localhost:5173" in your web browser (preferably Google Chrome as I have not tested in any others). If that port is not available, go to the available one that it has found as indicated in the terminal.
 
 ### Extensions and Improvements
 
