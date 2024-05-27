@@ -59,20 +59,26 @@ app.post('/starwars_form', async (req, res) => {
 // Get ID Endpoint
 app.get('/starwars_form/:id', async (req, res) => {
     try {
+        // Find form by ID
+        const form = await Form.findById(req.params.id);
+        
         // Returns form corresponding to ID
-        res.status(200).send({message: 'Form retrieved successfully'});
+        res.status(200).send({Form: form});
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).send(err); // Error handling
     }
 });
 
 // Get All Endpoint
 app.get('/starwars_form', async (req, res) => {
     try {
+        // Get all forms
+        const forms = await Form.find();
+
         // Returns all forms
-        res.status(200).send({message: 'All forms retrieved successfully'});
+        res.status(200).send({Forms: forms});
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).send(err); // Error handling
     }
 });
 
