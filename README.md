@@ -11,7 +11,7 @@
 - [Benefits](#benefits)
 - [Tech Stack](#tech-stack): Technologies and tools used.
 - [API Improvements](#api-improvements): Planned enhancements for the API.
-- [Next Steps](#next-steps): Upcoming development plans and activities.
+- [Advancing Further](#advancing-further): Upcoming development plans and activities.
 
 ## Objective
 
