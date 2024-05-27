@@ -1,0 +1,29 @@
+services:
+  frontend:
+    image: frontend
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    ports:
+      - 5173:5173
+  server:
+    image: server
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    ports:
+      - 4000:4000
+  database:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./database:/data
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://database:27017/
+      ME_CONFIG_BASICAUTH: false
+
