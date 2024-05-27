@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
             name: formData.get('name'),
             email: formData.get('email'),
             age: parseInt(formData.get('age')),
-            favoriteStarWarsMovie: formData.get('favoriteMovie'),
-            favoriteStarWarsMovieRating: parseInt(formData.get('movieRating')),
-            favoriteStarWarsCharacter: formData.get('favoriteCharacter'),
-            favoriteStarWarsCharacterRating: parseInt(formData.get('characterRating')),
+            favouriteStarWarsMovie: formData.get('favoriteMovie'),
+            favouriteStarWarsMovieRating: parseInt(formData.get('movieRating')),
+            favouriteStarWarsCharacter: formData.get('favoriteCharacter'),
+            favouriteStarWarsCharacterRating: parseInt(formData.get('characterRating')),
         };
 
         try {
