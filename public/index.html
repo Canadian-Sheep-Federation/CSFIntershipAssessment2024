@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup Products</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Makeup Products</h1>
+        <form id="searchForm" class="mb-4">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" id="brand" class="form-control" placeholder="Search by brand">
+                </div>
+                <div class="col">
+                    <input type="text" id="category" class="form-control" placeholder="Search by category">
+                </div>
+                <div class="col">
+                    <select id="tag" class="form-control">
+                        <option value="">Select tag</option>
+                        <option value="cruelty free">Cruelty Free</option>
+                        <option value="vegan">Vegan</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+        <div id="products" class="row"></div>
+        
+        <div id="suggestionFormContainer" class="mt-4" style="display: none;">
+            <h2>Suggest a Product</h2>
+            <form id="suggestionForm">
+                <div class="form-group">
+                    <label for="suggestionNumber">Suggestion Number</label>
+                    <input type="number" id="suggestionNumber" class="form-control" placeholder="Enter suggestion number">
+                </div>
+                <div class="form-group">
+                    <label for="suggestedName">Product Name</label>
+                    <input type="text" id="suggestedName" class="form-control" placeholder="Enter product name">
+                </div>
+                <div class="form-group">
+                    <label for="suggestedCategory">Category</label>
+                    <input type="text" id="suggestedCategory" class="form-control" placeholder="Enter product Category"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="suggestedDescription">Product Description</label>
+                    <textarea id="suggestedDescription" class="form-control" placeholder="Enter product description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+            </form>
+        </div>
+
+        <div id="viewSuggestionContainer" class="mt-4" style="display: none;">
+            <h2>View Your Suggestions</h2>
+            <form id="viewSuggestionForm">
+                <div class="form-group">
+                    <label for="searchSuggestionNumber">Suggestion Number</label>
+                    <input type="number" id="searchSuggestionNumber" class="form-control" placeholder="Enter suggestion number">
+                </div>
+                <button type="submit" class="btn btn-primary">View Suggestion</button>
+                <button type="button" id="showAllSuggestions" class="btn btn-secondary">Show All Suggestions</button>
+            </form>
+            <div id="suggestionDetails" class="mt-4" style="display: none;">
+                <h3>Suggestion Details</h3>
+                <p><strong>Brand:</strong> <span id="detailBrand"></span></p>
+                <p><strong>Category:</strong> <span id="detailCategory"></span></p>
+                <p><strong>Suggested Description:</strong> <span id="detailSuggestedDescription"></span></p>
+            </div>
+            <div id="allSuggestions" class="mt-4" style="display: none;">
+                <h3>All Suggestions</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Suggestion Number</th>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Suggested Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allSuggestionsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
