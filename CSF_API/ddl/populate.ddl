@@ -1,0 +1,10 @@
+CREATE table IF NOT EXISTS responses
+(
+    id int NOT NULL AUTO_INCREMENT,
+    response TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    username VARCHAR(50) NOT NULL,
+    DOG_NAME VARCHAR(50) NOT NULL,
+    image_link TEXT,
+	PRIMARY KEY (id)
+);
