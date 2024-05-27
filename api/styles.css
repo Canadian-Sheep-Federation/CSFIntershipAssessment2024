@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: yellow; /* Text color */
+    background-color: black; /* Background color */
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: black; /* Input background color */
+    color: yellow; /* Input text color */
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button[type="submit"],
+button#fetchCharacter {
+    background-color: yellow; /* Button background color */
+    color: black; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button#fetchCharacter:hover {
+    background-color: #f7ff00; /* Button background color on hover */
+}
+
+hr {
+    margin-top: 40px;
+    border-color: yellow; /* Horizontal line color */
+}
+
+#responses,
+#characterInfo {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: black; /* Container background color */
+    color: yellow; /* Container text color */
+}
+
+#responses {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#characterInfo {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.fetch {
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 500px;
+}
