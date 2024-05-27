@@ -111,7 +111,7 @@ async function getSpecificData(){
 // function to get data from the API (for now its just the poster)
 async function getDataFromIMDB(){
     if (imdb_search_query_input.value){
-        let fetch_query = "http://www.omdbapi.com/?t=" + imdb_search_query_input.value + "&apikey=af20e908";
+        let fetch_query = "https://www.omdbapi.com/?t=" + imdb_search_query_input.value + "&apikey=af20e908";
         const response = await fetch(fetch_query)
         console.log("loading")
         // checks if the request was successful
