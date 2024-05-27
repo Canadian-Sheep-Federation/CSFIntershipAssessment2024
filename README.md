@@ -98,6 +98,4 @@ Sheep Health Watch is a web platform designed to enable farmers to report and mo
 ## Next Steps
 
 - **Data Visualization**: Implement charts and graphs to display aggregated data on the dashboard. Use libraries like Chart.js or D3.js for dynamic and interactive visualizations.
-- Gather requirements and feedback from potential users (farmers) to refine the feature set.
-- Develop a prototype and conduct user testing to ensure usability and functionality.
-- Iterate on the design based on feedback and launch a beta version for broader testing.
+- Gather **requirements and feedback** from potential users (farmers) to refine the feature set.
