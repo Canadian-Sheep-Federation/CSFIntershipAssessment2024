@@ -37,7 +37,8 @@ app.post('/starwars_form', async (req, res) => {
     // Takes in and stores form (should return ID)
     try {
         // Generate form ID
-        const ID = forms.lengh + 1;
+        const formCount = await Form.countDocuments();
+        const ID = formCount + 1;
 
         // Read form data from request
         const form = new Form({
@@ -56,7 +57,7 @@ app.post('/starwars_form', async (req, res) => {
 
         res.status(200).send({message: 'Form created successfully'});
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).send({message: 'Form creation failed'});
     }
 });
 
