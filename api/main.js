@@ -42,7 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    
+    fetchCharacterButton.addEventListener('click', async () => {
+        const charID = document.getElementById('character').value;
+        try {
+            const response = await fetch(`https://swapi.dev/api/people/${charID}/`);
+
+            const result = await response.json(); // Extract JSON data from response
+            
+        } catch (err) {
+            console.error('Error fetching character:', err);
+        }
+    });
+
     // Fetch All Forms
     async function fetchAllForms() {
         try {
