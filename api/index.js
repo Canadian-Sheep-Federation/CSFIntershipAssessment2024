@@ -65,7 +65,8 @@ app.post('/starwars', async (req, res) => {
 app.get('/starwars/:id', async (req, res) => {
     try {
         // Find form by ID
-        const form = await Form.findById(req.params.id);
+        const targetID = req.params.id;
+        const form = await Form.findOne({ id: targetID }, '-_id -__v');
         
         // Returns form corresponding to ID
         res.status(200).send({Form: form});
@@ -78,7 +79,7 @@ app.get('/starwars/:id', async (req, res) => {
 app.get('/starwars', async (req, res) => {
     try {
         // Get all forms
-        const forms = await Form.find().select('-__v -_id');;
+        const forms = await Form.find().select('-__v -_id');
 
         // Returns all forms
         res.status(200).send({Forms: forms});
