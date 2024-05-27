@@ -43,8 +43,16 @@
         <input type="range" id="favoriteCharacterRating" name="characterRating" min="0" max="10" required><br><br>
         
         <button type="submit">Submit</button>
-
     </form>
+
+    <h2>All Form Responses</h2>
+    <div id="responses"></div>
+
+    <h2>Star Wars Public API Query</h2>
+    <label for="character">Enter Character ID:</label>
+    <input type="number" id="character" name="character">
+    <button id="fetchCharacter">Fetch Character</button>
+    <pre id="characterInfo"></pre>
 
 </body>
 
