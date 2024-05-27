@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/coinmarketcap-icon.png">
+    <title>Stock Assets</title>
+    <script src="server.js"></script>
+</head>
+<body>
+    <div class="header">
+        <button onclick="window.location.href='searchResult.html'" id="stockName">Assets</button>
+    </div>
+    <br>
+    <div id='assetInfo' class="Info">Assets data for this stock is unavailable</div>
+    <script>
+        const stockID = localStorage.getItem('stockID');
+        document.getElementById('stockName').textContent = stockID + " Assets"
+        fetchData('assets', stockID, 'assetInfo');
+    </script>
+    <a href="form.html" class="fixedButton">Invest</a>
+</body>
+</html>
