@@ -40,3 +40,8 @@
     width: 400px;
     height: 400px;
 }
+
+.container2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
