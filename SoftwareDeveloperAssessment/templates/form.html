@@ -1,0 +1,156 @@
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Anime Fans</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* CSS to position images below the select menu */
+    .character-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      overflow-x: auto; /* Horizontal scroll */
+      max-height: 250px; /* Larger scroll window to see full images and names */
+      margin-top: 10px;
+    }
+
+    .character-image {
+      margin: 2px;
+      cursor: pointer; /* Add pointer cursor to indicate clickable */
+      flex: 0 0 calc(12.5% - 4px); /* Limit to 8 images per row */
+      max-width: calc(12.5% - 4px); /* Limit width for each image */
+      text-align: center;
+    }
+
+    .character-image img {
+      width: 80%; /* Adjust image size */
+      height: auto;
+    }
+
+    .character-image p {
+      margin-top: 2px;
+      font-size: 10px; /* Adjust font size for name */
+    }
+
+    .character-image.selected {
+      border: 2px solid blue; /* Example: Highlight selected image */
+    }
+  </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="d-flex mt-3"> <!-- Center the button -->
+            <a href="/other-entries" class="btn btn-secondary btn-lg">View Other Entries</a> <!-- Make the button bigger -->
+        </div>
+        <br/>
+        <h3>Enter your details</h3>
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        {{ form.first_name.label(class="form-label") }}
+        {{ form.first_name(class="form-control", placeholder="Enter your name...", required=True) }}
+        {% if form.first_name.errors %}
+        <div class="text-danger">
+          {% for error in form.first_name.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.birthday.label(class="form-label") }}
+        {{ form.birthday(class="form-control", placeholder="YYYY-MM-DD") }}
+        {% if form.birthday.errors %}
+        <div class="text-danger">
+          {% for error in form.birthday.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.bio.label(class="form-label") }}
+        {{ form.bio(class="form-control", placeholder="Tell us about yourself...") }}
+        {% if form.bio.errors %}
+        <div class="text-danger">
+          {% for error in form.bio.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+               <div class="mb-3">
+                <label for="image-select" class="form-label">Image</label>
+                <select id="image-select" name="image" class="form-select" required>
+                    {% for character in characters %}
+                    <option value="{{ character[1] }}">{{ character[0] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" id="selected-image" name="image">
+            </div>
+
+            <div class="character-images" id="character-images">
+                {% for character in characters %}
+                <div class="character-image" data-src="{{ character[1] }}" onclick="selectImage(this)">
+                    <img src="{{ character[1] }}" alt="{{ character[0] }}">
+                    <p>{{ character[0] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <br/>
+            {{ form.submit(class="btn btn-primary btn-lg") }}
+        </form>
+    </div>
+
+  <script>
+    document.getElementById('image-select').addEventListener('change', function() {
+      var select = document.getElementById('image-select');
+      var selectedOption = select.options[select.selectedIndex].value;
+      var images = document.querySelectorAll('.character-image');
+
+      images.forEach(function(image) {
+        var imgSrc = image.getAttribute('data-src');
+        if (imgSrc === selectedOption) {
+          image.classList.add('selected');
+        } else {
+          image.classList.remove('selected');
+        }
+      });
+    });
+
+    function selectImage(element) {
+      var images = document.querySelectorAll('.character-image');
+      images.forEach(img => img.classList.remove('selected'));
+
+      element.classList.add('selected');
+      document.getElementById('image-select').value = element.getAttribute('data-src');
+    }
+
+    function selectImage(element) {
+      var images = document.querySelectorAll('.character-image');
+      images.forEach(img => img.classList.remove('selected'));
+
+      element.classList.add('selected');
+      document.getElementById('image-select').value = element.getAttribute('data-src');
+      document.getElementById('selected-image').value = element.getAttribute('data-src'); // Set the value of hidden input
+    }
+  </script>
+</body>
+{% endblock %}
