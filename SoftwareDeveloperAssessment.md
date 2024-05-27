@@ -56,10 +56,19 @@ You must build a web application that:
 # Bonus Points
 
 ## Discuss how the application and api could be extended and improved
+- Improve error handling and message by adding more specific scenerios
+- Handle api request timeouts
+  - By possibly adding retries or spacing out the requests
+- Adding pagination for large number of entries in the table
 
 ## Discuss how the application and api should be deployed
+- I would use docker containers to ensure application and database runs on a consistent environment for development and production
+- I would set up a CI/CD pipeline (using github actions for example) to automate testing and deployment
+- I would deploy the application either on my own HTTP server (using gunicorn for example), or even better, I would deploy using heroku dynos
 
 ## Intuitive design and user interface
+- I would add client side validation (maybe using alerts for ex) to ensure form inputs are correct before submission
+- I would possibly use Bootstrap make the front-end look nicer and more responsive
 
 # Submission
 

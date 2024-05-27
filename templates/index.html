@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount" required>
+        <br><br>
+        
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        
+        <label for="difficulty">Difficulty:</label>
+        <select name="difficulty" id="difficulty">
+            {% for difficulty in difficulties %}
+                <option value="{{ difficulty }}">{{ difficulty }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>True or False Questions</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Category</th>
+        </tr>
+        {% for entry in trivia_entries %}
+        <tr>
+            <td><a href="{{ url_for('item', trivia_id=entry.id) }}">{{ entry.id }}</a></td>
+            <td><a href="{{ url_for('item', trivia_id=entry.id) }}">{{ entry.question }}</a></td>
+            <td>{{ entry.category }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
+<form action="/clear" method="post" style="margin-top: 20px;">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" style="background-color: red; color: white;">Clear</button>
+</form>
