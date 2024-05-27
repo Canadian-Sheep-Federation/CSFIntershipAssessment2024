@@ -1,7 +1,12 @@
 # CSF News
 
 ## Introduction
-Welcome to CSF News, a dynamic web application designed to provide you with the latest news articles tailored to your interests. With CSF News, you can easily search for articles by keyword, view detailed information in a user-friendly interface, and engage with content through an intuitive design. Our application leverages modern web technologies to ensure a seamless and responsive experience, whether you're accessing it from a desktop or mobile device. Stay informed and connected with CSF News, your go-to source for timely and relevant news.
+This is the CSF News Data API, designed to fetch news articles based on keyword searches. It displays a list of relevant news articles that users can click on to view detailed information. Additionally, users can engage with the content by leaving comments on the articles. 
+
+## Demo
+
+https://github.com/sikgyu/CSFIntershipAssessment2024/assets/57619483/0775fb57-e2c5-476c-ba38-0dc89f2bce28
+
 
 ## Extending and Improving the Application and API
 - **User Authentication**: Implement user authentication for personalized experiences.
@@ -10,7 +15,5 @@ Welcome to CSF News, a dynamic web application designed to provide you with the 
 
 ## Deploying the Application and API
 - **Containerization**: Containerize with Docker.
-- **Orchestration**: Orchestrate with Kubernetes.
 - **Cloud Deployment**: Deploy on cloud platforms like AWS or Google Cloud.
 - **CI/CD Pipelines**: Use CI/CD pipelines for seamless updates.
-- **Security**: Ensure security with HTTPS and environment variables.
