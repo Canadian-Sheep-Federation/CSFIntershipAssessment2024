@@ -1,5 +1,19 @@
-# CSF Intership Assessment 2024
+# CSF News
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+## Introduction
+This is the CSF News Data API, designed to fetch news articles based on keyword searches. It displays a list of relevant news articles that users can click on to view detailed information. Additionally, users can engage with the content by leaving comments on the articles. 
 
-E.g. those interested in QA should complete the QA assignment.
+## Demo
+
+https://github.com/sikgyu/CSFIntershipAssessment2024/assets/57619483/0775fb57-e2c5-476c-ba38-0dc89f2bce28
+
+
+## Extending and Improving the Application and API
+- **User Authentication**: Implement user authentication for personalized experiences.
+- **Advanced Search Filters**: Add advanced search filters and real-time updates for dynamic content.
+- **Enhanced Comment System**: Enhance the comment system with moderation and reply features.
+
+## Deploying the Application and API
+- **Containerization**: Containerize with Docker.
+- **Cloud Deployment**: Deploy on cloud platforms like AWS or Google Cloud.
+- **CI/CD Pipelines**: Use CI/CD pipelines for seamless updates.
