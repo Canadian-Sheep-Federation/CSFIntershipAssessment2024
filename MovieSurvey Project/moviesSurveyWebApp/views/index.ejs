@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Survey</title>
+</head>
+<body>
+  <h1>Movie Survey Responses</h1>
+  <a href="/form">Submit a new response</a>
+  <ul>
+    <% forms.forEach(form => { %>
+      <li><strong>Customer Name:</strong> <%= form.customerName %>, <strong>Movie Title:</strong> <%= form.movieTitle %>, <strong>Movie Rating:</strong> <%= form.movieRating %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
