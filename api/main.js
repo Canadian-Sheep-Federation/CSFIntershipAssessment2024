@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(character);
 
             // Display character information
-            characterDiv.innerHTML = `
-                <div>
+            responsesDiv.innerHTML = 
+                `<div>
                     <p><strong>Name:</strong> ${character.name}</p>
                     <p><strong>Height:</strong> ${character.height} cm</p>
                     <p><strong>Mass:</strong> ${character.mass} kg</p>
@@ -64,12 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>Gender:</strong> ${character.gender}</p>
                     <p><strong>Homeworld:</strong> <a href="${character.homeworld}" target="_blank">Link</a></p>
                     <p><strong>Films:</strong> ${character.films.map(film => `<a href="${film}" target="_blank">Link</a>`).join(', ')}</p>
-                    <p><strong>Species:</strong> ${character.species.length ? character.species.map(species => `<a href="${species}" target="_blank">Link</a>`).join(', ') : 'N/A'}</p>
-                    <p><strong>Vehicles:</strong> ${character.vehicles.length ? character.vehicles.map(vehicle => `<a href="${vehicle}" target="_blank">Link</a>`).join(', ') : 'N/A'}</p>
-                    <p><strong>Starships:</strong> ${character.starships.length ? character.starships.map(starship => `<a href="${starship}" target="_blank">Link</a>`).join(', ') : 'N/A'}</p>
+                    <p><strong>Species:</strong> ${character.species.length ? character.species.map(species => `<a href="${species}" target="_blank">Link</a>`).join(', ') : 'n/a'}</p>
+                    <p><strong>Vehicles:</strong> ${character.vehicles.length ? character.vehicles.map(vehicle => `<a href="${vehicle}" target="_blank">Link</a>`).join(', ') : 'n/a'}</p>
+                    <p><strong>Starships:</strong> ${character.starships.length ? character.starships.map(starship => `<a href="${starship}" target="_blank">Link</a>`).join(', ') : 'n/a'}</p>
                     <p><strong>Created:</strong> ${new Date(character.created).toLocaleString()}</p>
                     <p><strong>Edited:</strong> ${new Date(character.edited).toLocaleString()}</p>
-                    
                 </div>`;
                 
         } catch (err) {
