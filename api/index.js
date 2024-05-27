@@ -35,6 +35,21 @@ app.listen(PORT, () => {
 app.post('/starwars_form', async (req, res) => {
     try {
         // Takes in and stores form (should return ID)
+
+        // Read form data from request
+        const form = new Form({
+            name: req.body.name,
+            email: req.body.email,
+            age: req.body.age,
+            favouriteStarWarsMovie: req.body.favouriteStarWarsMovie,
+            favouriteStarWarsMovieRating: req.body.favouriteStarWarsMovieRating,
+            favouriteStarWarsCharacter: req.body.favouriteStarWarsCharacter,
+            favouriteStarWarsCharacterRating: req.body.favouriteStarWarsCharacterRating,
+        });
+
+        // Save form to database
+        await form.save();
+
         res.status(200).send({message: 'Form created successfully'});
     } catch (err) {
         res.status(400).send(err);
