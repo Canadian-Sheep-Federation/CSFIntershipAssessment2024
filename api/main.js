@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
     const responsesDiv = document.getElementById('responses');
     const fetchCharacterButton = document.getElementById('fetchCharacter');
-    const characterInfo = document.getElementById('characterInfo');
+    const characterDiv = document.getElementById('character');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -47,8 +47,31 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(`https://swapi.dev/api/people/${charID}/`);
 
-            const result = await response.json(); // Extract JSON data from response
-            
+            const character = await response.json(); // Extract JSON data from response
+
+            console.log(character);
+
+            // Display character information
+            characterDiv.innerHTML = `
+                <div>
+                    <p><strong>Name:</strong> ${character.name}</p>
+                    <p><strong>Height:</strong> ${character.height} cm</p>
+                    <p><strong>Mass:</strong> ${character.mass} kg</p>
+                    <p><strong>Hair Color:</strong> ${character.hair_color}</p>
+                    <p><strong>Skin Color:</strong> ${character.skin_color}</p>
+                    <p><strong>Eye Color:</strong> ${character.eye_color}</p>
+                    <p><strong>Birth Year:</strong> ${character.birth_year}</p>
+                    <p><strong>Gender:</strong> ${character.gender}</p>
+                    <p><strong>Homeworld:</strong> <a href="${character.homeworld}" target="_blank">Link</a></p>
+                    <p><strong>Films:</strong> ${character.films.map(film => `<a href="${film}" target="_blank">Link</a>`).join(', ')}</p>
+                    <p><strong>Species:</strong> ${character.species.length ? character.species.map(species => `<a href="${species}" target="_blank">Link</a>`).join(', ') : 'N/A'}</p>
+                    <p><strong>Vehicles:</strong> ${character.vehicles.length ? character.vehicles.map(vehicle => `<a href="${vehicle}" target="_blank">Link</a>`).join(', ') : 'N/A'}</p>
+                    <p><strong>Starships:</strong> ${character.starships.length ? character.starships.map(starship => `<a href="${starship}" target="_blank">Link</a>`).join(', ') : 'N/A'}</p>
+                    <p><strong>Created:</strong> ${new Date(character.created).toLocaleString()}</p>
+                    <p><strong>Edited:</strong> ${new Date(character.edited).toLocaleString()}</p>
+                    
+                </div>`;
+                
         } catch (err) {
             console.error('Error fetching character:', err);
         }
