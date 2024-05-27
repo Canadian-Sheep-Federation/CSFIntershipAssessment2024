@@ -1,5 +1,7 @@
 Created a Restful API which meshes well with Google API.
 Database used: sqlite
+Framework: Flask
+Languages: Python, javascript, HTML, CSS
 API uses three methods: post, get{id} and get
 
 To run api first run db.py file and check if the table is created successfully (python db.py)
