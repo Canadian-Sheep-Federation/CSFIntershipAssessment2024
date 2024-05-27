@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSF Intern Assignment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script defer src="main.js"></script>
 </head>
 
@@ -33,15 +34,17 @@
             <option value="The Rise of Skywalker">The Rise of Skywalker</option>
         </select><br><br>
 
-        <label for="favoriteMovieRating">Favorite Star Wars Movie Rating:</label>
-        <input type="range" id="favoriteMovieRating" name="movieRating" min="0" max="10" required><br><br>
+        <label for="favoriteMovieRating">Favorite Star Wars Movie Rating: <output></output> 
+            <input type="range" id="favoriteMovieRating" name="movieRating" min="0" max="10" required oninput="this.previousElementSibling.value = this.value">
+        </label>
 
         <label for="favoriteCharacter">Favorite Star Wars Character:</label>
         <input type="text" id="favoriteCharacter" name="favoriteCharacter" required><br><br>
 
-        <label for="favoriteCharacterRating">Favorite Star Wars Character Rating:</label>
-        <input type="range" id="favoriteCharacterRating" name="characterRating" min="0" max="10" required><br><br>
-        
+        <label for="favoriteCharacterRating">Favorite Star Wars Character Rating: <output></output> 
+            <input type="range" id="favoriteCharacterRating" name="characterRating" min="0" max="10" required oninput="this.previousElementSibling.value = this.value">
+        </label>
+
         <button type="submit">Submit</button>
     </form>
 
@@ -53,12 +56,14 @@
     <hr>
 
     <h1>Star Wars Public API Query</h1>
-    <label for="character">Enter Character ID:</label>
-    <input type="number" id="character" name="character">
-    <button id="fetchCharacter">Fetch Character</button>
-    <div id="characterInfo"></div>
 
-    <hr>
+    <div class="fetch">
+        <label for="character">Enter Character ID:</label>
+        <input type="number" id="character" name="character">
+        <button id="fetchCharacter">Fetch Character</button>
+        </div><br><br>
+        <div id="characterInfo"></div>
+    </div>
 
 </body>
 

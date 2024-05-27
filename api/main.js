@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 alert(`Form submitted successfully! Your form ID is ${result.id}`);
-                form.reset(); // Clear the form
+                window.location.reload(); // Refresh the page
             } else {
                 alert(`Error: ${result.message}`);
             }
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>Movie Rating:</strong> ${form.favouriteStarWarsMovieRating}</p>
                     <p><strong>Favorite Character:</strong> ${form.favouriteStarWarsCharacter}</p>
                     <p><strong>Character Rating:</strong> ${form.favouriteStarWarsCharacterRating}</p>
-                    <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<p>
+                    <br><br>
                 </div>`
             )).join('');
             
