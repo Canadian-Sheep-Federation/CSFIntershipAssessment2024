@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Your Information</h1>
+        <form id="form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="activity">Activity:</label>
+            <input type="text" id="activity" name="activity" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Form Submissions</h2>
+        <button id="loadSubmissions">Load Submissions</button>
+        <ul id="submissions"></ul>
+
+        <h3>View Submission Details</h3>
+        <input type="text" id="submissionId" placeholder="Enter Submission ID">
+        <button id="loadSubmissionById">View Submission</button>
+        <div id="submissionDetails"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
