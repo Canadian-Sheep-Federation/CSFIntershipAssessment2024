@@ -34,6 +34,33 @@ app.listen(PORT, () => {
 
 // Post Endpoint
 app.post('/starwars', async (req, res) => {
+
+    const { name, email, age, favouriteStarWarsMovie, favouriteStarWarsMovieRating, favouriteStarWarsCharacter, favouriteStarWarsCharacterRating } = req.body;
+
+    // Validate request fields
+    if (!name || typeof name !== 'string') {
+        return res.status(400).send({ message: 'Name is required' });
+    }
+    const emailPattern = /.+\@.+\..+/;
+    if (!email || !emailPattern.test(email)) {
+        return res.status(400).send({ message: 'Invalid email address' });
+    }
+    if (!Number.isInteger(age) || age < 0) {
+        return res.status(400).send({ message: 'Age must be a non-negative integer' });
+    }
+    if (!favouriteStarWarsMovie || typeof favouriteStarWarsMovie !== 'string') {
+        return res.status(400).send({ message: 'Favourite Star Wars Movie is required' });
+    }
+    if (!Number.isInteger(favouriteStarWarsMovieRating) || favouriteStarWarsMovieRating < 0 || favouriteStarWarsMovieRating > 10) {
+        return res.status(400).send({ message: 'Favourite Star Wars Movie Rating must be between 0 and 10' });
+    }
+    if (!favouriteStarWarsCharacter || typeof favouriteStarWarsCharacter !== 'string') {
+        return res.status(400).send({ message: 'Favourite Star Wars Character is required' });
+    }
+    if (!Number.isInteger(favouriteStarWarsCharacterRating) || favouriteStarWarsCharacterRating < 0 || favouriteStarWarsCharacterRating > 10) {
+        return res.status(400).send({ message: 'Favourite Star Wars Character Rating must be between 0 and 10' });
+    }
+
     // Takes in and stores form (should return ID)
     try {
         // Generate form ID
@@ -65,8 +92,8 @@ app.post('/starwars', async (req, res) => {
 app.get('/starwars/:id', async (req, res) => {
     try {
         // Find form by ID
-        const targetID = req.params.id;
-        const form = await Form.findOne({ id: targetID }, '-_id -__v');
+        const targetID = req.params.id; // Get ID from request
+        const form = await Form.findOne({ id: targetID }, '-_id -__v'); // Find form in database
         
         // Returns form corresponding to ID
         res.status(200).send({Form: form});
