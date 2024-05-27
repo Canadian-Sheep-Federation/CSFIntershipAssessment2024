@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Detail</title>
+</head>
+<body>
+    <h2>Entry</h2>
+    <p>ID: {{ trivia_entry.id }}</p>
+    <p>Question: {{ trivia_entry.question }}</p>
+    <p>Answer: {{ trivia_entry.answer }}</p>
+    <p>Category: {{ trivia_entry.category }}</p>
+    <a href="{{ url_for('items') }}">Back to list</a>
+</body>
+</html>

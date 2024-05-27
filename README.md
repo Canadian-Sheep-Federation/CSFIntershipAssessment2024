@@ -1,5 +1,23 @@
 # CSF Intership Assessment 2024
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+## Software Developer Assessment:
+I created a simple web RESTful application which displays trivia questions based on a topic and difficulty of your choosing
 
-E.g. those interested in QA should complete the QA assignment.
+To run the program, ensure you are using python 3.9 or greater then do the following:
+```
+pip install -r requirements.txt
+chmod +x app.py
+./app.py
+```
+
+## AI Developer Assessment
+I created convolutional neural network (CNN) and SVM and trained MNIST and FashionMNIST datasets. I also generated accuracy and validation loss graph to compare performance between the two models.
+
+To run, ensure you are using python 3.9 or greater, then do the following:
+```
+pip install -r requirements.txt
+chmod +x graph.py
+./graph.py
+```
+
+The program will generate three images which contain the performance graphs. I have already provided the images for you, but feel free to run the program (but it might take some time to run).
