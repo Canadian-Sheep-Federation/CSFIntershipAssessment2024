@@ -1,5 +1,7 @@
 # Project Preview
 
+![A preview of the app with a sunset background and two cards on the foreground, one with a quote and one containing a form to submit a quote](screenshots/preview.PNG)
+
 # Running The Project
 
 You need to run the frontend and the backend for the project to work
