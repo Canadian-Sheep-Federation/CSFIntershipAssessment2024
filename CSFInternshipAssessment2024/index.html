@@ -1,0 +1,58 @@
+<!--
+    Taliesin Yip Hoi-Lee
+    CSFInternshipAssessment2024
+    2024-05-25
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/coinmarketcap-icon.png">
+    <title>Stock API Form</title>
+    <script scr="server.js"></script>
+</head>
+<body>
+    <!--Headers are shown on each page to go back to the previous-->
+    <div class="header">
+        <button onclick="window.location.href='index.html'">CoinCap API Form</button>
+    </div>
+    <br>
+    <!--Search Bar-->
+    <form style="display:inline-flex" id="homeSearch">
+        <img src="https://www.iconpacks.net/icons/1/free-search-icon-779-thumb.png" alt="Image failed to load" height="7%" width="7%">
+        <input type="text" id="stockID" placeholder="Enter A Stock Name">
+        <input type="submit" placeholder="Search">
+    </form>
+    <script>
+        //Waits for localStorage to store search value before switching to the searchResults page
+        const form = document.getElementById('homeSearch');
+        const stockID = document.getElementById("stockID");
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            const stockIDValue = stockID.value;
+            localStorage.setItem('stockID', stockIDValue);
+            window.location.href='searchResult.html';
+        });
+    </script>
+
+    <h1>Recent Investments</h1>
+    <hr color="white">
+    <div class="formDiv" id="formDiv">
+        <script>
+            const users = JSON.parse(localStorage.getItem('User'));
+            const stocks = JSON.parse(localStorage.getItem('Stock'));
+            const amounts = JSON.parse(localStorage.getItem('Amount'));
+            const formInfoDiv = document.getElementById('formDiv');
+            html = ``;
+            for (let i = 0; i < users.length; i++){
+                html += `<h1>User:${users[i]} StockID:${stocks[i]} InvestAmount:${amounts[i]}</h1>`
+                formInfoDiv.innerHTML = html;
+            }
+        </script>
+    </div>
+
+    <a href="form.html" class="fixedButton">Invest</a>
+</body>
+</html>

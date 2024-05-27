@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/coinmarketcap-icon.png">
+    <title>Invest</title>
+    <script src="server.js"></script>
+</head>
+<body>
+    <div class="header">
+        <button onclick="window.location.href='index.html'">Investment Form</button>
+    </div>
+    <br>
+    <form id='investForm'>
+        <input type="text" placeholder="Name Under Investment" id="formName">
+        <br>
+        <input type="text" placeholder="StockID" id="formStock">
+        <br>
+        <input type="text" placeholder="Investment Amount" id="formAmount">
+        <br>
+        <input type="submit" placeholder="Invest">
+    </form>
+    <!--Receiving form data and waiting until the database stores the data before going to home page-->
+    <script>
+        const form = document.getElementById('investForm');
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            storeFormData();
+        });
+    </script>
+</body>
+</html>
