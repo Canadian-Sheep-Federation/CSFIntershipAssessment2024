@@ -1,3 +1,10 @@
+To use this application install node.js and nodemon npm
+
+npm install -g nodemon
+
+run the application from the /softwaredev folder
+nodemon app.js 
+
 ================================================================================================
 Background
 
