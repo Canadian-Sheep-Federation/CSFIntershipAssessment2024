@@ -11,6 +11,19 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+      .no-entries-message {
+        color: red;
+        font-size: 1.5rem;
+      }
+      .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh; /* Adjust height as needed to center vertically */
+        width: 100%;
+      }
+    </style>
   </head>
 
   <body>
@@ -37,19 +50,15 @@
             <div class="card-body">
               <h5 class="card-title">Entry ID: {{ entry_id[6:] }}</h5>
               <!-- Display entry ID in card title -->
-              <p class="card-title">Name: {{ entry.first_name }}</p>
+              <p class="card-title">First Name: {{ entry.first_name }}</p>
               <p class="card-text">Birthday: {{ entry.birthday }}</p>
               <p class="card-text">Bio: {{ entry.bio }}</p>
             </div>
           </div>
         </div>
         {% endfor %} {% else %}
-        <div
-          class="d-flex justify-content-center align-items-center"
-          style="height: 200px"
-        >
-          <p class="text-center">No entries found.</p>
-          <!-- Center the message -->
+        <div class="col-12 centered-container">
+          <p class="no-entries-message">No entries found.</p>
         </div>
         {% endif %}
       </div>

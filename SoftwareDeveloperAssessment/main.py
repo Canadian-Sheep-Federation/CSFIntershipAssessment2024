@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = "3gJW5DrLYKZkdl2v" # for csrf validation
 
 
 class Form(FlaskForm):
-    first_name = StringField("Name", validators=[DataRequired()])
+    first_name = StringField("First Name", validators=[DataRequired()])
     birthday = DateField("Birthday", validators=[DataRequired()])
     bio = StringField("Bio")
     image = StringField("Image")  
@@ -72,7 +72,7 @@ def insert_entry():
     data = request.get_json()
     status = FormDatabaseInteractor.insert_entry(data["entry_id"], data["first_name"],
                                                  data["birthday"], data["bio"], data["image"])
-    if status == "Success":
+    if status == "Successfully inserted":
         return jsonify({"entry_id": data["entry_id"]}), 200
     else:
         return jsonify({}), 400
