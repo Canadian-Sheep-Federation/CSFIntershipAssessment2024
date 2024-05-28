@@ -2,6 +2,11 @@
 
 This project includes a RESTful API and a web application that I created which interacts with the Weatherstack API to gather weather preferences from users and displays current weather data.
 
+Submitted by:
+Abilan Ravindran
+abilanravi@gmail.com
+6134138740
+
 ## Project Structure
 
 - `server.js`: The main server file for the API.
