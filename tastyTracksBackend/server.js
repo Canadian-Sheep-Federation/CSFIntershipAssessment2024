@@ -17,12 +17,14 @@ mongoose
   })
   .then(() => {
     console.log("Database connection successful");
-  })
-  .catch((err) => {
-    console.error("Database connection error:", err);
   });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Server listening on port", port);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log(err.name, err.message);
+  process.exit();
 });
