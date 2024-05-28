@@ -8,6 +8,8 @@ import { useAuth } from "../../AuthContext ";
 import EditReview from "../EditReview/EditReview";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../constants";
+import { capitliazeFirstLetter } from "../../utils";
+import LikeIcon from "../Like/Like";
 
 const RestaurantReviews = ({ onCloseRestaurant }) => {
   const [reviews, setReviews] = useState([]);
@@ -116,7 +118,7 @@ const RestaurantReviews = ({ onCloseRestaurant }) => {
                 ) : (
                   <>
                     <h3>
-                      {review.name} by {review.username}
+                      {review.name} by {capitliazeFirstLetter(review.username)}
                     </h3>
                     <StarRating
                       rating={review.rating}
@@ -128,6 +130,7 @@ const RestaurantReviews = ({ onCloseRestaurant }) => {
                     <p>Suggestions: {review.suggestion}</p>
                   </>
                 )}
+                <LikeIcon initialLikes={0} />
               </div>
               {user?.name === review.username && !editingReviewId && (
                 <div className={styles.actions}>

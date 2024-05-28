@@ -11,6 +11,7 @@
 }
 
 .reviewItem {
+  position: relative;
   display: grid;
   grid-template-columns: 100px auto 80px;
   gap: 20px;

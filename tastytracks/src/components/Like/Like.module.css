@@ -1,0 +1,16 @@
+.likeIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: rgb(41, 39, 39);
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.likeIcon:hover {
+  background-color: #f0f0f0;
+}

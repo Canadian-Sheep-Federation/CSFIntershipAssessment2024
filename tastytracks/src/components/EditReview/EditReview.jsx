@@ -10,7 +10,8 @@ const EditReview = ({
   setEditingReviewId,
 }) => {
   return (
-    <form onSubmit={onReviewUpdate}>
+    // <div className={styles.editReview}>
+    <form onSubmit={onReviewUpdate} className={styles.editForm}>
       <div className={styles.editReview}>
         <label></label>
         <div className={styles.userReview}>

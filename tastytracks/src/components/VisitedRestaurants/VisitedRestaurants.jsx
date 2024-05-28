@@ -4,6 +4,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import StarRating from "../Star/StarRating";
 import EditReview from "../EditReview/EditReview";
+import Modal from "../../Modal/Modal";
 import styles from "./VisitedRestaurants.module.css";
 
 import { useNavigate } from "react-router-dom";
@@ -14,13 +15,13 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [editingReviewId, setEditingReviewId] = useState(null);
+  const [editingReview, setEditingReview] = useState(null);
   const [editForm, setEditForm] = useState({
     rating: 0,
     review: "",
     suggestion: "",
   });
-  const { user, isLoggedIn } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
   }, []);
 
   const handleEdit = (review) => {
-    setEditingReviewId(review._id);
+    setEditingReview(review);
     setEditForm({
       rating: review.rating,
       review: review.review,
@@ -59,13 +60,16 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`${API_BASE_URL}/reviews/${editingReviewId}`, editForm);
+      await axios.patch(
+        `${API_BASE_URL}/reviews/${editingReview._id}`,
+        editForm
+      );
       setReviews(
         reviews.map((review) =>
-          review._id === editingReviewId ? { ...review, ...editForm } : review
+          review._id === editingReview._id ? { ...review, ...editForm } : review
         )
       );
-      setEditingReviewId(null);
+      setEditingReview(null);
       setEditForm({ rating: 0, review: "", suggestion: "" });
     } catch (err) {
       setError(err.message);
@@ -104,39 +108,36 @@ const VisitedRestaurants = ({ onCloseRestaurant }) => {
                 )}
               </div>
               <div className={styles.reviewContent}>
-                {editingReviewId === review._id ? (
-                  <EditReview
-                    editForm={editForm}
-                    setEditForm={setEditForm}
-                    onReviewUpdate={handleUpdate}
-                    onInputChange={handleEditChange}
-                    setEditingReviewId={setEditingReviewId}
-                  />
-                ) : (
-                  <>
-                    <h3>
-                      {review.name} by {review.username}
-                    </h3>
-                    <StarRating
-                      rating={review.rating}
-                      setRating={() => {}}
-                      maxRating={5}
-                      disabled={true}
-                    />
-                    <p>Review: {review.review}</p>
-                    <p>Suggestions: {review.suggestion}</p>
-                  </>
-                )}
-              </div>
-              {user?.name === review.username && !editingReviewId && (
+                <h3>
+                  {review.name} by {review.username}
+                </h3>
+                <StarRating
+                  rating={review.rating}
+                  setRating={() => {}}
+                  maxRating={5}
+                  disabled={true}
+                />
+                <p>Review: {review.review}</p>
+                <p>Suggestions: {review.suggestion}</p>
                 <div className={styles.actions}>
                   <button onClick={() => handleEdit(review)}>✏️</button>
                   <button onClick={() => handleDelete(review._id)}>❌</button>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
+      )}
+      {editingReview && (
+        <Modal onClose={() => setEditingReview(null)}>
+          <EditReview
+            editForm={editForm}
+            setEditForm={setEditForm}
+            onReviewUpdate={handleUpdate}
+            onInputChange={handleEditChange}
+            setEditingReviewId={() => setEditingReview(null)}
+          />
+        </Modal>
       )}
       <button
         onClick={() => navigate("/restaurants")}

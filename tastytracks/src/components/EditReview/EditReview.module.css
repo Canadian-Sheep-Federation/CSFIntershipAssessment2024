@@ -3,7 +3,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.editForm {
+  z-index: 999;
+}
 .editReview label {
   font-size: 2rem;
   flex: 0 0 30%;

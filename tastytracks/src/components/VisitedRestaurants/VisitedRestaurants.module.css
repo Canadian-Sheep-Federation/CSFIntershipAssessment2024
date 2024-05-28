@@ -7,6 +7,7 @@
 .reviews {
   text-align: center;
 }
+
 .reviewItem {
   display: flex;
   align-items: flex-start;
@@ -40,14 +41,18 @@
 
 .actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
+
 .actions button {
   border: none;
   padding: 1rem;
   cursor: pointer;
 }
+
 .btnViewReviews {
   padding: 1rem 2rem;
   text-align: center;
