@@ -9,7 +9,7 @@ const db = new sqlite3.Database(':memory:');
 
 app.use(bodyParser.json());
 
-// Serve static files from the "public" directory
+// Serves the static file from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 db.serialize(() => {
@@ -30,7 +30,7 @@ app.post('/form', (req, res) => {
     stmt.finalize();
 });
 
-// GET /form: Retrieve all form responses
+// GET /form: Retrieves all the form responses
 app.get('/form', (req, res) => {
     db.all("SELECT * FROM form_responses", [], (err, rows) => {
         if (err) {
@@ -41,7 +41,7 @@ app.get('/form', (req, res) => {
     });
 });
 
-// GET /form/:id: Retrieve form response by ID
+// GET /form/:id: Retrieves the form response by ID
 app.get('/form/:id', (req, res) => {
     const { id } = req.params;
     db.get("SELECT * FROM form_responses WHERE id = ?", [id], (err, row) => {
