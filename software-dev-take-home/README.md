@@ -1,8 +1,19 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+1. Install Dependencies:
+   
+```bash
+npm install
+```
+2. Generate Prisma Client:
+   
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
 
-First, run the development server:
+Lastly, run the development server:
 
 ```bash
 npm run dev
