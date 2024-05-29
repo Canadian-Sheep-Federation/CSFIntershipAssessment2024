@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import { setupDb } from "../../utils/db";
+import { setupDb, addFormData } from "../../utils/db";
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,14 +13,13 @@ export default async function handler(
 
   try {
     const { name, email, stockSymbol } = req.body;
-    const db = await setupDb();
+
+    // Ensure the database connection is set up
+    await setupDb();
 
     // Insert form data into the database
-    const result = await db.run(
-      "INSERT INTO form_data (name, email, stockSymbol) VALUES (?, ?, ?)",
-      [name, email, stockSymbol]
-    );
-    const id = result.lastID;
+    const formData = await addFormData(name, email, stockSymbol);
+    const id = formData.id;
 
     // Fetch stock data from Marketstack API
     const stockResponse = await axios.get(`http://api.marketstack.com/v1/tickers/${stockSymbol}/eod`, {

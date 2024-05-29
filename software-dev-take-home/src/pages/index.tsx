@@ -24,7 +24,8 @@ export default function Home() {
       // Fetch stock data from Marketstack API
       const stockResponse = await axios.get(`http://api.marketstack.com/v1/tickers/${formData.stockSymbol}/eod`, {
         params: {
-          // IDEALLY this would be an environment variable like process.env.MARKETSTACK_API_KEY
+          // IDEALLY this would be an environment variable like 
+          // process.env.MARKETSTACK_API_KEY
           // but I'm using it here for demonstration purposes
           access_key: '8351666da813c2ff26869b07cd90d90d'
         }
