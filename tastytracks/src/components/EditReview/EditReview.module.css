@@ -1,0 +1,47 @@
+.userReview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editForm {
+  z-index: 999;
+}
+.editReview label {
+  font-size: 2rem;
+  flex: 0 0 30%;
+}
+
+.editReview textarea {
+  width: 100%;
+  max-width: 800px;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.reviewInput,
+.suggestionInput {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.reviewInput label,
+.suggestionInput label {
+  flex: 0 0 30%;
+  font-size: 1.4rem;
+}
+
+.reviewInput textarea,
+.suggestionInput textarea {
+  flex: 1;
+  font-size: 1.6rem;
+}
+.cancelUpdate {
+  padding: 0.6rem 0.6rem;
+  color: brown;
+  cursor: pointer;
+}

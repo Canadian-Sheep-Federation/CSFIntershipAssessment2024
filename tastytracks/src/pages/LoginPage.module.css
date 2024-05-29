@@ -1,0 +1,70 @@
+/* Centering the login form */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111111;
+}
+
+/* Styling the title */
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Styling the form */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling each input group */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+/* Styling the labels */
+.inputGroup label {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* Styling the input fields */
+.input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Styling the error message */
+.error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+/* Styling the submit button */
+.button {
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

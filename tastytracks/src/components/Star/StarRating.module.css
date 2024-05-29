@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.starContainer {
+  display: flex;
+  gap: 0.4rem;
+}
+.text {
+  line-height: 1;
+  margin: 0;
+}
