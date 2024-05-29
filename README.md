@@ -1,5 +1,30 @@
-# CSF Intership Assessment 2024
+## Backend API
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+### Requirements
+- Node.js
+- npm
 
-E.g. those interested in QA should complete the QA assignment.
+### Setup
+1. Install dependencies: `npm install`
+2. Start the server: `npm start`
+
+### Endpoints
+- `POST /`: Create a new review. Requires `book_title`, `author`, and `review` in the request body.
+- `GET /:id`: Get a review by ID.
+- `GET /`: Get all reviews.
+
+## Frontend Application
+
+### Requirements
+- Node.js
+- npm
+
+### Setup
+1. Navigate to the `frontend` directory: `cd frontend`
+2. Install dependencies: `npm install`
+3. Start the React app: `npm start`
+
+### Usage
+- Enter book reviews through the form.
+- View all reviews, filter by name and/or author.
+- Search for books using the Open Library API.
