@@ -19,6 +19,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [allResponses, setAllResponses] = useState<FormResponse[]>([]);
+  const [responseById, setResponseById] = useState<FormResponse | null>(null);
+  const [fetchById, setFetchById] = useState(false);
+  const [idToFetch, setIdToFetch] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -65,11 +68,30 @@ export default function Home() {
     }
   };
 
+  const fetchResponseById = async () => {
+    try {
+      const response = await axios.get(`/api/form/${idToFetch}`);
+      setResponseById(response.data);
+    } catch (error) {
+      console.error('Error fetching response by ID', error);
+      setError('Error fetching response by ID');
+    }
+  };
+
+  const clearOutput = () => {
+    setStockData(null);
+    setAllResponses([]);
+    setError(null);
+    setFetchById(false)
+    setResponseById(null)
+    setIdToFetch("")
+  };
+
   return (
-    <div style={{ margin: '0 auto', maxWidth: '600px', padding: '20px' }}>
+    <div style={{ margin: '0 auto', maxWidth: '600px', padding: '20px', textAlign: 'center' }}>
       <h1>Stock Information Form</h1>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ marginBottom: '10px', width: '100%' }}>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -89,7 +111,7 @@ export default function Home() {
             }}
           />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '10px', width: '100%' }}>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -109,7 +131,7 @@ export default function Home() {
             }}
           />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '10px', width: '100%' }}>
           <label htmlFor="stockSymbol">Stock Symbol:</label>
           <input
             type="text"
@@ -129,10 +151,44 @@ export default function Home() {
             }}
           />
         </div>
-        <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }} disabled={loading}>
-          {loading ? 'Submitting...' : 'Submit'}
-        </button>
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', marginTop: '10px' }}>
+          <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }} disabled={loading}>
+            {loading ? 'Submitting...' : 'Submit'}
+          </button>
+          <button type="button" onClick={fetchAllResponses} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+            Fetch All Responses
+          </button>
+          <button type="button" onClick={() => setFetchById(!fetchById)} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+            Fetch Response by ID
+          </button>
+          <button type="button" onClick={clearOutput} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+            Clear Output
+          </button>
+        </div>
       </form>
+      {fetchById && (
+        <div style={{ marginTop: '20px' }}>
+          <label htmlFor="fetchByIdInput">Enter ID to fetch:</label>
+          <input
+            type="text"
+            id="fetchByIdInput"
+            value={idToFetch}
+            onChange={(e) => setIdToFetch(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '8px',
+              margin: '10px 0',
+              color: '#000',
+              backgroundColor: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '4px'
+            }}
+          />
+          <button type="button" onClick={fetchResponseById} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+            Fetch Response
+          </button>
+        </div>
+      )}
       {error && <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
       {stockData && (
         <div style={{ marginTop: '20px' }}>
@@ -140,9 +196,14 @@ export default function Home() {
           <pre>{JSON.stringify(stockData, null, 2)}</pre>
         </div>
       )}
-      <button onClick={fetchAllResponses} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
-        Fetch All Responses
-      </button>
+      {responseById && (
+        <div style={{ marginTop: '20px' }}>
+          <h2>Response for ID {responseById.id}</h2>
+          <p>Name: {responseById.name}</p>
+          <p>Email: {responseById.email}</p>
+          <p>Stock Symbol: {responseById.stockSymbol}</p>
+        </div>
+      )}
       {allResponses.length > 0 && (
         <div style={{ marginTop: '20px' }}>
           <h2>All Form Responses</h2>
