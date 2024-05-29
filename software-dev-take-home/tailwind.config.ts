@@ -13,8 +13,22 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        'pulse-color': {
+          '0%, 100%': { color: 'white' },
+          '50%': { color: 'yellow' },
+        },
+        'scale-up': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.2)' },
+        }
+      },
+      animation: {
+        'pulse-scale': 'scale-up 1s infinite, pulse-color 1s infinite',
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
