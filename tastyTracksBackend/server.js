@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+//Synchronous errors
+process.on("uncaughtException", (err) => {
+  console.log("UNHANDLED EXCEPTION! 🚨🚨 SHUTTING DOWN!!");
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
 const app = require("./app");
 
 dotenv.config({ path: "./config.env" });
@@ -26,9 +33,10 @@ const server = app.listen(port, () => {
 });
 
 process.on("unhandledRejection", (err) => {
-  console.log(err.name, err.message);
   //close teh server and then shut it down!
-  server.close();
   console.log("UNHANDLED REJECTION! 🚨🚨 SHUTTING DOWN!!");
-  process.exit(1);
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
 });
