@@ -1,22 +1,33 @@
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+import { PrismaClient } from '@prisma/client';
 
-async function openDb() {
-  return open({
-    filename: './database.db',
-    driver: sqlite3.Database
-  });
-}
+const prisma = new PrismaClient();
 
 export async function setupDb() {
-  const db = await openDb();
-  await db.exec(`
-    CREATE TABLE IF NOT EXISTS form_data (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      email TEXT,
-      stockSymbol TEXT
-    )
-  `);
-  return db;
+  await prisma.$connect();
+  console.log("Connected to the database");
+}
+
+export async function addFormData(name: string, email: string, stockSymbol: string) {
+  const formData = await prisma.formData.create({
+    data: {
+      name,
+      email,
+      stockSymbol,
+    },
+  });
+  return formData;
+}
+
+export async function getFormData(id: number) {
+  const formData = await prisma.formData.findUnique({
+    where: {
+      id,
+    },
+  });
+  return formData;
+}
+
+export async function getAllFormData() {
+  const formData = await prisma.formData.findMany();
+  return formData;
 }
