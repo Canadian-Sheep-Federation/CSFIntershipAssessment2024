@@ -1,8 +1,8 @@
-# AI Assesment
+# AI Developer Assessment
 
 ## Implementation 
 
-For demonstating the video classificaiton pipeline, I have implemented a simple carrot classifier using a CNN to detect if an image has a carrot within it or not. I extended this to a video input by simply applying the model to each frame and summing the outputs. 
+For demonstating the video classificaiton pipeline, I have implemented a simple carrot classifier using a CNN to detect if a single image has a carrot within it or not. I extended this to a video input by simply applying the model to each frame and summing the outputs.
 
 ## Limitations & Future Considerations
 
