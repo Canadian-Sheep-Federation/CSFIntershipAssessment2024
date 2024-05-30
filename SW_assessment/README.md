@@ -9,6 +9,9 @@ This is a simple web application that allows users to view random pictures of do
 - Submit your favourite dog breed along with your name and country.
 - View a leaderboard of the most popular dog breeds, filterable by country.
 
+![dog_picture](website.png)
+
+
 ## Future Considerations
 
 If we wanted to deploy this website, we could have a static website on github pages and then we could consider hosting our backend on a service like firebase. 
