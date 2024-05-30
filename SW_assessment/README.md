@@ -48,7 +48,6 @@ Also we could impove the website itself by adding checks to see if the form inpu
     
 - Install the dependencies:
   - npm install axios
-  - 
       
 - Start the frontend server:
   - npm start
