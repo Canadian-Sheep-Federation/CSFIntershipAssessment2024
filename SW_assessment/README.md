@@ -24,37 +24,37 @@ Also we could impove the website itself by adding checks to see if the form inpu
 
 ## Setup
 
-**Clone the repository:**
-    git clone <repository-url>
-    cd <repository-directory>
+### Clone the repository:
+- git clone (repository)
+- cd (repository-directory)
 
-**Backend Setup**
-    - Make sure Node.js is installed
+### Backend Setup
+- Make sure Node.js is installed
 
-    - Navigate to the backend directory:
+- Navigate to the backend directory:
       cd ../dog-picture-viewer-backend
 
-    - Install the dependencies:
+- Install the dependencies:
       npm install express, sqlite3, cors, body-parser
 
-    - Start the backend server:
+- Start the backend server:
       npm start
       
-    - The backend server will start on port 3001 by default.
+- The backend server will start on port 3001 by default.
 
-**Frontend Setup**
-    - Open a new terminal and navigate to the frontend directory:
+### Frontend Setup 
+- Open a new terminal and navigate to the frontend directory:
       cd ../dog-picture-viewer-frontend
     
-    - Install the dependencies:
+- Install the dependencies:
       npm install axios
       
-    - Start the frontend server:
+- Start the frontend server:
       npm start
 
-    - The frontend server will start on port 3000 by default.
+- The frontend server will start on port 3000 by default.
     
-    - You will automatically be sent to http://localhost:3000 at launch.
+- You will automatically be sent to http://localhost:3000 at launch.
 
 
 ## Endpoints
