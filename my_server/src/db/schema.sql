@@ -1,0 +1,8 @@
+CREATE TABLE records (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name TEXT NOT NULL,
+	difficulty TEXT NOT NULL,
+	category TEXT NOT NULL,
+	question TEXT NOT NULL,
+	answer TEXT NOT NULL
+);
