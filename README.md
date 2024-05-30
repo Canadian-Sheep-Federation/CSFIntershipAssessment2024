@@ -1,5 +1,9 @@
-# CSF Intership Assessment 2024
+Welcome to the Basic Sheep Database API
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+THE STACK:
+This application is build using a MERN (Mongodb, Express, React, and Nodejs) stack. It makes calls to a custom sheep api as well and a public quotable random quote generator api to generate random mottos of each sheep
 
-E.g. those interested in QA should complete the QA assignment.
+RUNNING:
+To run the application, please download nodejs and navigate to the backend folder in the Sheep directory. Then use 'npm install' to install all dependencies. From here you can run the backend server using 'npm start'
+
+Then open a separate terminal and naviage to the frontend folder in the Sheep directory. Use 'npm install' to install all dependencies once more and then 'npm start' to run the frontend server.
