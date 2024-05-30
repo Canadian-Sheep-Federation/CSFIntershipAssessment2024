@@ -32,25 +32,26 @@ Also we could impove the website itself by adding checks to see if the form inpu
 - Make sure Node.js is installed
 
 - Navigate to the backend directory:
-      - cd ../dog-picture-viewer-backend
+  - cd ../dog-picture-viewer-backend
 
 - Install the dependencies:
-      - npm install express, sqlite3, cors, body-parser
+  - npm install express, sqlite3, cors, body-parser
 
 - Start the backend server:
-      - npm start
+  - npm start
       
 - The backend server will start on port 3001 by default.
 
 ### Frontend Setup 
 - Open a new terminal and navigate to the frontend directory:
-      - cd ../dog-picture-viewer-frontend
+  - cd ../dog-picture-viewer-frontend
     
 - Install the dependencies:
-      - npm install axios
+  - npm install axios
+  - 
       
 - Start the frontend server:
-      - npm start
+  - npm start
 
 - The frontend server will start on port 3000 by default.
     
