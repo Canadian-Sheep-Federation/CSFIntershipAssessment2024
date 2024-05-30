@@ -9,7 +9,7 @@ This is a simple web application that allows users to view random pictures of do
 - Submit your favourite dog breed along with your name and country.
 - View a leaderboard of the most popular dog breeds, filterable by country.
 
-# Future Considerations
+## Future Considerations
 
 If we wanted to deploy this website, we could have a static website on github pages and then we could consider hosting our backend on a service like firebase. 
 
@@ -22,7 +22,7 @@ Also we could impove the website itself by adding checks to see if the form inpu
 - **Frontend**: axios
 
 
-### Setup
+## Setup
 
 **Clone the repository:**
     git clone <repository-url>
