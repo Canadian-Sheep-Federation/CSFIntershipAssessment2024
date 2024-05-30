@@ -1,0 +1,65 @@
+
+<body>
+    <form action="/submit" method="post">
+        <fieldset>
+            <legend>Football Form</legend>
+            <label for="q1">What's your favourite team? </label>
+            <input type="text" name="q1"><br><br>
+            <label for="q2">Who's your favourite player? </label>
+            <input type="text" name="q2"><br><br>
+            <label for="q3">What countries are you interested in? </label>
+            <input type="text" name="q3"><br><br>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+    <button onclick="fetchFormResponses()">Show All Responses</button><br>
+    <div id="responses"></div>
+
+    <script>
+        // Function to fetch form responses from the server
+        function fetchFormResponses() {
+            fetch('/responses')
+                .then(response => response.json())
+                .then(data => {
+                    const responsebox = document.getElementById("responses");
+                    responsebox.innerHTML = '';
+                    // Iterate over each form response and create HTML to display it
+                    data.forEach(response => {
+                        const responseDiv = document.createElement('div');
+                        responseDiv.innerHTML = `
+                            <p>Response ID: ${response.id}</p>
+                            <p>Q1: ${response.q1}</p>
+                            <p>Q2: ${response.q2}</p>
+                            <p>Q3: ${response.q3}</p>
+                            <hr>
+                        `;
+                        document.getElementById('responses').appendChild(responseDiv);
+                    });
+                })
+                .catch(error => {
+                    console.log('Error fetching form responses:', error);
+                });
+        }
+    </script>
+    <script>
+        async function fetchinfo() {
+            const api_key = "Y1tAWNhGr3S3JBS0Wp8naLbtupzfjHmV9oHshyUfsJqNBUd1ADsgIf4jxwPv";
+            let endpoint = `https://api.sportmonks.com/v3/football/teams`;
+            const request = await fetch(endpoint, {
+                headers: {
+                    'Authorization': `${api_key}`
+                }
+            });
+            const response = await request.json();
+            console.log(response);
+        }
+        fetchinfo();
+    </script>
+    <form action="/">
+        <label for="team">Look for a team:</label>
+        <select id="team" name="team">
+          <!-- Options should be given of team names, the submit button should show a team badge, team gender, date founded as info for the user-->
+        </select>
+        <input type="submit">
+      </form>
+</body>
