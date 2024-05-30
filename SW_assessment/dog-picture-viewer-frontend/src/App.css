@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+  background-color: #E6E6FA; /* Light purple background */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  max-width: 100%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+table.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table.leaderboard-table th,
+table.leaderboard-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table.leaderboard-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+table.leaderboard-table td {
+  text-align: center;
+}
