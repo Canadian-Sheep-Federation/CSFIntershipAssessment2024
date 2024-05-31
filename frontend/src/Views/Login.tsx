@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import Navigation from "../components/Navigation";
 
+//FUNCTIONALITY NOT FULLY IMPLEMENTED 
 function Login({setAuth} : any) {
     const [formData, setFormData] = useState({
         email: '',

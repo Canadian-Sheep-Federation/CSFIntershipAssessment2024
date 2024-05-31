@@ -1,6 +1,5 @@
-import React, { createContext, useContext, useState } from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, redirect, RouterProvider, BrowserRouter, Route, Routes } from 'react-router-dom'
+import {useState } from 'react'
+import { createBrowserRouter, redirect, RouterProvider} from 'react-router-dom'
 import Homepage from '../Views/Homepage'
 import Login from '../Views/Login'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +13,7 @@ function App() {
     
     const [getPokemonData, setPokemonData] = useState([]);
     
-    //For fetching etailed data of each pokemon
+    //Routing the different paths to their respective Views
     const router = createBrowserRouter([
         {
           path: '/',
@@ -35,16 +34,6 @@ function App() {
         }
       ]);
       return(
-    //     <BrowserRouter>
-    //         <Routes>
-
-    //         <Route path="/" element={<Homepage getPokemonData={getPokemonData} setPokemonData={setPokemonData}/>} />
-    //         <Route path="/signup" element={<Signup setAuth={setAuth}/>} />
-    //         <Route path="/login" element={<Login setAuth={setAuth}/>} />
-    //         <Route path="/dashboard" element={<Dashboard getPokemonData={getPokemonData} setPokemon={setPokemonData}/>} />
-    //         </Routes>
- 
-    //   </BrowserRouter>
         <RouterProvider router={router} />
       )
 }

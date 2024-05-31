@@ -1,4 +1,4 @@
-import { SetStateAction, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 import { Button, Container, Form } from "react-bootstrap";
 import axios from "axios";
@@ -44,7 +44,7 @@ function Dashboard({getPokemonData, setPokemonData, auth}: any) {
             fetchPokeData(getURL)
     }, []); 
    
-    //detailed information of each pokemon: Stored in getPokemon
+    //detailed information of each pokemon: Stored in getPokemonData
     useEffect(() => {
         const fetchDetails = async () => {
             const detailsPromises = getData.map(async (result) => {
@@ -70,7 +70,7 @@ function Dashboard({getPokemonData, setPokemonData, auth}: any) {
         }
     }, [getData,setPokemonData]);
 
-
+    //Fetching all names and displaying them in a select box
     useEffect(() =>{
         const fetchNames = () => {
             let options: any[] = [];
@@ -101,6 +101,7 @@ function Dashboard({getPokemonData, setPokemonData, auth}: any) {
         }));
     };
 
+    //on submission of form
     const handleSubmit = (event: any) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -112,7 +113,7 @@ function Dashboard({getPokemonData, setPokemonData, auth}: any) {
         }
         setValidated(true);
     };
-
+    //post request to submit a new card 
     function sendData() {
         axios.post(`http://localhost:3000/dashboard/${formData.name}`, formData).then(function (response) {
             console.log(response)

@@ -9,16 +9,21 @@ mongoose.connect('mongodb://localhost:27017/pokebuilder')
 
 const app = express();
 
+//CORS to enable cross platform connection
 app.use(cors())
+//to parse post requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send('TEST');
+    res.send('Connected to server!');
 });
 
+//handling annoying favicon get request
 app.get('/favicon.ico', (req, res) => res.status(204));
 
+
+//retreiving user data
 app.get('/:username', (req, res) => {
     let search = Credentials.findOne({ username: req.params.username}).exec()
     search.then(function (doc) {
@@ -27,7 +32,7 @@ app.get('/:username', (req, res) => {
     })
 
 })
-
+//retreiving custom made cards
 app.get('/dashboard/list', function(req, res) {
     let search = Pokemon.find({}).exec();
     search.then(function (docs) {
@@ -35,7 +40,7 @@ app.get('/dashboard/list', function(req, res) {
     })
 
 });
-
+//posting user data to the database
 app.post('/:username', (req, res) => {
     console.log(req.body);
 
@@ -57,6 +62,7 @@ app.post('/:username', (req, res) => {
     });
 });
 
+//posting custom mard data to the database
 app.post('/dashboard/:pokemon', (req, res) => {
     console.log(req.body);
     const pokedata = new Pokemon({

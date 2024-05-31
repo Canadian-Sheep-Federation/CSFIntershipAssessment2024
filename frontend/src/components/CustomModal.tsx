@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import {Modal, Image, Card, Row, Col, Container} from 'react-bootstrap';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';

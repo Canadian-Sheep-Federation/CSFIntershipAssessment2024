@@ -1,9 +1,7 @@
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
 import CustomCard from "./CustomCard";
-import PokeData from "./PokeData";
-
 
 
 function Populate({getPokemonData, setPokemonData}: any) {
@@ -82,7 +80,6 @@ function Populate({getPokemonData, setPokemonData}: any) {
                         </Col>
                     ))
                 }
-                rowID+=1;
                 </Row>
             )
             setCards(cardList)
