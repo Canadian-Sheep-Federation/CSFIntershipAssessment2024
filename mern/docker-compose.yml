@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - mern-network
+
+  backend:
+    build: ./mern-app/backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    env_file: ./mern-app/backend/.env
+    depends_on:
+      - mongo
+    networks:
+      - mern-network
+
+  frontend:
+    build: ./mern-app/frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    env_file: ./mern-app/frontend/.env
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+
+volumes:
+  mongo-data:

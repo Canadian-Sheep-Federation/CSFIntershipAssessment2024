@@ -57,7 +57,44 @@ You must build a web application that:
 
 ## Discuss how the application and api could be extended and improved
 
+Feature Enhancements:
+- User Authentication and Authorization.
+- Implement user registration and login functionality.
+
+Form Validation History:
+- Store validation history and provide endpoints to retrieve past validations.
+
+Microservice Transition:
+- Decompose the monolithic backend into microservices, each handling a specific business capability (e.g., Form Service, Validation Service). 
+
 ## Discuss how the application and api should be deployed
+
+Containerization
+
+Docker:
+- Ensure each service (frontend, backend, database) is containerized using Docker.
+
+Docker Compose:
+- Use Docker Compose for local development to manage multi-container applications.
+  
+Cloud Deployment
+
+Cloud Providers:
+- Use cloud providers like AWS, Azure, or Google Cloud Platform for deployment.
+
+Kubernetes:
+- Use Kubernetes for container orchestration to manage the deployment, scaling, and operation of application containers.
+
+CI/CD Pipeline:
+- Set up a CI/CD pipeline using tools like GitHub Actions, Jenkins, or GitLab CI/CD to automate the build, test, and deployment processes.
+
+Security
+
+HTTPS:
+- Ensure all communication is secured using HTTPS.
+
+Environment Variables:
+- Securely manage environment variables and secrets using tools like AWS Secrets Manager or Azure Key Vault.
 
 ## Intuitive design and user interface
 

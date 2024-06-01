@@ -1,0 +1,39 @@
+.form-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .form-list-item {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-text {
+    flex: 1;
+  }
+  
+  .form-text p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    border-radius: 4px;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
