@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.form-group label {
+    flex: 0 0 150px;
+    margin-right: 10px;
+    text-align: right;
+}
+.form-group input,
+.form-group textarea {
+    flex: 1;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-group textarea {
+    resize: vertical;
+    height: 150px;
+}
+.form-group button {
+    flex: 0 0 auto;
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.form-group:last-child {
+    justify-content: center;
+}
+#commentWrapper {
+    display: flex;
+    align-items: center;
+}
+#getCatFact {
+    margin-left: 10px;
+}
+#comment {
+    width: 100%;
+    height: 150px;
+}
+#responses {
+    list-style-type: square;
+    padding: 0;
+}

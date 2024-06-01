@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSF Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Cat Facts and Form Submission</h1>
+    <div class="form-container">
+        <h2 style="text-align: center;">Submit a Cat Form</h2>
+        <form id="form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Cat Fact:</label>
+                <textarea id="comment" name="comment" required></textarea>
+                <button type="button" id="getCatFact">Get Cat Fact</button>
+            </div>
+            <div class="form-group">
+                <label></label>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <h3>Form Responses</h3>
+        <div class="search-container">
+            <input type="text" id="searchID" placeholder="Search by ID">
+            <button id="searchButton">Search</button>
+        </div>
+        <ul id="responses"></ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
