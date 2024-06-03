@@ -30,12 +30,11 @@
 .inputGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Reduced margin */
 }
 
 /* Styling the labels */
 .inputGroup label {
-  margin-bottom: 0.5rem;
   color: #555;
 }
 
