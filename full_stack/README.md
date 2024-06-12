@@ -7,7 +7,7 @@ web app at localhost:3001 in browser.
 ## 1. Application and API Extensions/Improvements
 
 -   Add Vimeo embeds so videos can be played within the page (not new tab)
--   Style ftont end using Tailwind
+-   Style front end using Tailwind
 -   Deploy (render is a free option I've used in the past)
 -   Add user authentication and authorization using JWT, allow update/delete operations
     for own video posts
