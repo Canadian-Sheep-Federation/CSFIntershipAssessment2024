@@ -1,0 +1,60 @@
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.reviews {
+  text-align: center;
+}
+
+.reviewItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.reviewContent {
+  flex-grow: 1;
+}
+
+.reviewContent h3 {
+  margin: 0 0 10px 0;
+  color: #000;
+}
+
+.reviewContent p {
+  margin: 5px 0;
+  color: #000;
+  font-size: 1.4rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions button {
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.btnViewReviews {
+  padding: 1rem 2rem;
+  text-align: center;
+  cursor: pointer;
+}
