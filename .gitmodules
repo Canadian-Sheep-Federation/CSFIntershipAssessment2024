@@ -1,0 +1,3 @@
+[submodule "Movie_Explorer"]
+	path = Movie_Explorer
+	url = https://github.com/Vraj-x2/movie-explorer
