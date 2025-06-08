@@ -21,7 +21,6 @@ Users can also submit feedback via a built-in feedback form, which is stored per
 ## Technologies Used
 - Java Spring Boot (Backend)
 - Thymeleaf (View templates)
-- MongoDB / or SQLite (for persistence - adjust based on your setup)
 - OMDb API (Public movie data API)
 - Gemini AI (Custom AI service for recommendations and Q&A)
 - HTML/CSS/JavaScript (Frontend)
