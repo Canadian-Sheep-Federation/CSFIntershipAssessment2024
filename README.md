@@ -1,5 +1,39 @@
-# CSF Intership Assessment 2024
+# Anime Reviews App
 
-If you are interested in an internship opportunity with the Canadian Sheep Federation for Summer 2023, please complete the tasks outlined in the .md file relevant to what you are interested in doing this summer.
+This is a full stack web app using the Jikan API, the unofficial MyAnimeList API.
 
-E.g. those interested in QA should complete the QA assignment.
+# Further Extensions and Improvements
+This can be improved by adding more features of searching and filtering anime, making more use of the API. We can also add additional features such as editing and deleting reviews.
+
+# Deployment
+- Deploy on Railway or Render
+- Use MongoDB instead of SQLite
+- Run the React app with Vercel or Netlify
+
+# Intuitive Design and UI
+- Simple and easy form layout
+- Responsive and handles errors and incorrect inputs
+- Clear displays
+
+# Running the App
+## Installations
+- Node.js (v18+)
+- npm
+- Git
+
+## Clone
+```bash
+git clone https://github.com/edwardhe10/CSFIntershipAssessment2025.git
+```
+## Backend Setup and Start
+```bash
+cd backend
+npm install
+node server.js
+```
+## Frontend Setup and Start
+```bash
+cd frontend
+npm install
+npm start
+```
